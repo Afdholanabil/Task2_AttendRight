@@ -4,4 +4,8 @@
     <string name="icon_app">Icon App</string>
     <string name="vector_splash_screen_1">Vector Splash Screen 1</string>
     <string name="vector_splash_screen_2">Vector Splash Screen 2</string>
+    <string name="email">Email</string>
+    <string name="email_hint">email</string>
+    <string name="sigin">Sign In</string>
+    <string name="sigin_butuh_input">Sign In*</string>
 </resources>
