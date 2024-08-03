@@ -27,7 +27,8 @@ class MyButton @JvmOverloads constructor(
         super.onDraw(canvas)
         background = if(isEnabled) enabledBackground else disabledBackground
         setTextColor(txtColor)
-        textSize = 16f
+        textSize = 14f
+
         gravity = Gravity.CENTER
         text = if(isEnabled) context.getString(R.string.sigin) else context.getString(R.string.sigin_butuh_input)
     }

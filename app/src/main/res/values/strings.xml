@@ -7,5 +7,11 @@
     <string name="email">Email</string>
     <string name="email_hint">email</string>
     <string name="sigin">Sign In</string>
+    <string name="sigin_with_employee_id">Sign in With Employee ID</string>
     <string name="sigin_butuh_input">Sign In*</string>
+    <string name="password">Password</string>
+    <string name="password_hint">password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="or">Or</string>
 </resources>
