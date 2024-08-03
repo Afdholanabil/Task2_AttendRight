@@ -1,6 +1,11 @@
 package com.example.task2_attendright.presentation.ui
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,5 +22,31 @@ class signin_employee_activity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val passwordEditText = findViewById<EditText>(R.id.employee_pw_edittext)
+        val errorMessage = findViewById<TextView>(R.id.error_message)
+
+        passwordEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val password = s.toString()
+                if (isPasswordValid(password)) {
+                    passwordEditText.setBackgroundResource(R.drawable.rounded_edittext_employee_pw)
+                    errorMessage.visibility = View.GONE
+                } else {
+                    passwordEditText.setBackgroundResource(R.drawable.rounded_edittext_employee_pw_wrong)
+                    errorMessage.visibility = View.VISIBLE
+                }
+            }
+        })
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        return password.length >= 8 // Example condition
     }
 }
