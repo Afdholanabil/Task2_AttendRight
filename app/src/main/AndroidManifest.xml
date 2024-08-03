@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Task2_AttendRight"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.ui.signin_employee_activity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.ui.LoginWEmailActivity"
             android:exported="false" />
         <activity

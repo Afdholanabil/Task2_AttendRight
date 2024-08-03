@@ -4,4 +4,13 @@
     <string name="icon_app">Icon App</string>
     <string name="vector_splash_screen_1">Vector Splash Screen 1</string>
     <string name="vector_splash_screen_2">Vector Splash Screen 2</string>
+
+    <!-- Sign In Employee Screen String Resource -->
+    <string name="txt_employee_id">Employee ID</string>
+    <string name="pw_employee">Password</string>
+    <string name="remember_employee">Remember Me</string>
+    <string name="txt_btn_signin_employee">Sign In</string>
+    <string name="or_employee">Or</string>
+    <string name="signin_email_employee">Sign In With Email</string>
+
 </resources>
