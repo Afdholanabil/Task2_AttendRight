@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Task2_AttendRight</string>
     <string name="attendright">AttendRight</string>
+    <string name="icon_app">Icon App</string>
+    <string name="vector_splash_screen_1">Vector Splash Screen 1</string>
 </resources>

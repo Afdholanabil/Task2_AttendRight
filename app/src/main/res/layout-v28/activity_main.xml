@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/p1"
+    android:paddingHorizontal="16dp"
     tools:context=".presentation.ui.MainActivity">
 
     <TextView
@@ -18,8 +19,39 @@
         android:textFontWeight="700"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/iv_title_splash_screen"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_title_splash_screen"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@string/icon_app"
+        android:src="@drawable/group_216"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_title_splash_screen"
+        android:layout_marginStart="7dp"/>
+
+    <ImageView
+        android:id="@+id/vector1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/vector_splash_screen_1"
+        android:src="@drawable/group_149"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+     />
+    <ImageView
+        android:id="@+id/vector2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
