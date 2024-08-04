@@ -15,7 +15,7 @@
         android:text="@string/attendright"
         android:textSize="22.84sp"
         android:textColor="@color/gray1"
-        android:fontFamily="@font/montserrat_semibold"
+        android:fontFamily="@font/montserrat_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -59,6 +59,7 @@
         app:boxCornerRadiusTopStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxStrokeWidth="0dp"
+        app:boxStrokeErrorColor="@color/red500"
         app:hintTextColor="@color/gray1"
         android:hint="@string/email_hint"
         >
@@ -66,6 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+
             android:inputType="textEmailAddress"
             android:textColorHint="@color/gray200"
             android:fontFamily="@font/poppins_regular"/>
@@ -98,6 +100,7 @@
         app:boxStrokeWidth="0dp"
         app:hintTextColor="@color/gray1"
         android:hint="@string/password_hint"
+        app:endIconDrawable=""
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_pw_login"
@@ -109,12 +112,26 @@
             android:fontFamily="@font/poppins_regular"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/tv_error_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_password_is_incorrect"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="12sp"
+        android:textColor="@color/red500"
+        app:layout_constraintTop_toBottomOf="@id/tl_pw_login"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"/>
+
     <CheckBox
         android:id="@+id/checkbox_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tl_pw_login"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
 
         />
 
@@ -150,6 +167,7 @@
         android:textSize="18sp"
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/sigin"
+        android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@+id/checkbox_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -172,8 +190,8 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:textSize="18sp"
+        android:textAllCaps="false"
         android:textColor="@color/blue1"
-        android:fontFamily="@font/poppins_semibold"
         android:text="@string/sigin_with_employee_id"
         app:layout_constraintTop_toBottomOf="@id/include_divider"
         app:layout_constraintStart_toStartOf="parent"

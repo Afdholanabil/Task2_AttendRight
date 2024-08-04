@@ -13,24 +13,22 @@ import com.example.task2_attendright.R
 import org.w3c.dom.Attr
 
 class MyButtonSignInEmployee @JvmOverloads constructor(context: Context, attr: AttributeSet? = null) : AppCompatButton(context,attr) {
-    private var txtColor: Int = 0
-    private var enabledBackground: Drawable
+    private var txtColor: Int = ContextCompat.getColor(context, R.color.blue1)
+    private var enabledBackground: Drawable = ContextCompat.getDrawable(context, R.drawable.bg_button_signing_employee) as Drawable
     private var fontFamily: Typeface? = ResourcesCompat.getFont(context, R.font.poppins_semibold)
 
     init {
-        txtColor = ContextCompat.getColor(context, R.color.blue1)
-        typeface = fontFamily
-        enabledBackground = ContextCompat.getDrawable(context, R.drawable.bg_button_signing_employee) as Drawable
-
+        setTextColor(txtColor)
+        setTypeface(fontFamily, Typeface.NORMAL)
+        textSize = 14f
+        gravity = Gravity.CENTER
+        background = enabledBackground
+        text = context.getString(R.string.sigin_with_employee_id)
     }
 
     override fun onDraw(canvas: Canvas) {
+        setTypeface(fontFamily, Typeface.NORMAL)
         super.onDraw(canvas)
-        background = enabledBackground
-        setTextColor(txtColor)
-        textSize = 14f
-        typeface = ResourcesCompat.getFont(context,R.font.poppins_semibold)
-        gravity = Gravity.CENTER
-        text = context.getString(R.string.sigin_with_employee_id)
+
     }
 }
