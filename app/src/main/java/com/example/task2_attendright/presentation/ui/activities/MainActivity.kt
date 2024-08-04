@@ -1,4 +1,4 @@
-package com.example.task2_attendright.presentation.ui
+package com.example.task2_attendright.presentation.ui.activities
 
 import android.content.Intent
 import android.os.Bundle

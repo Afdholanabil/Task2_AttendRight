@@ -1,4 +1,4 @@
-package com.example.task2_attendright.presentation.customview
+package com.example.task2_attendright.presentation.ui.customview
 
 import android.content.Context
 import android.graphics.Canvas

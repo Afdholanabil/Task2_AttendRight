@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp"
-    tools:context=".presentation.ui.LoginWEmailActivity">
+    android:padding="16dp"
+    tools:context=".presentation.ui.activities.LoginWEmailActivity">
 
     <TextView
         android:id="@+id/tv_title_login_email"
@@ -100,7 +100,7 @@
         app:boxStrokeWidth="0dp"
         app:hintTextColor="@color/gray1"
         android:hint="@string/password_hint"
-        app:endIconDrawable=""
+        app:endIconDrawable="@drawable/show"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_pw_login"
@@ -159,7 +159,7 @@
         app:layout_constraintTop_toTopOf="@id/checkbox_login"
         app:layout_constraintBottom_toBottomOf="@id/checkbox_login"/>
 
-    <com.example.task2_attendright.presentation.customview.MyButton
+    <com.example.task2_attendright.presentation.ui.customview.MyButton
         android:id="@+id/btn_signin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -184,7 +184,7 @@
         android:layout_marginTop="40dp"
       />
 
-    <com.example.task2_attendright.presentation.customview.MyButtonSignInEmployee
+    <com.example.task2_attendright.presentation.ui.customview.MyButtonSignInEmployee
         android:id="@+id/btn_signin_with_employee_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

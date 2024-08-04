@@ -15,4 +15,11 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="or">Or</string>
     <string name="your_password_is_incorrect">Your password is incorrect</string>
+    <string name="home">Home</string>
+    <string name="attendance">Attendance</string>
+    <string name="project">Project</string>
+    <string name="meet">Meet</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
