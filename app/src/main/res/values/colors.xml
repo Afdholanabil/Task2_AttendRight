@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#E85454</color>
 
     <color name="p1">#F29727</color>
     <color name="bg_gray">#F5F5F6</color>
@@ -9,6 +10,8 @@
     <color name="gray2">#64666C</color>
     <color name="gray3">#434447</color>
     <color name="gray4">#84868C</color>
+    <color name="gray5">#e6e6e6</color>
+    <color name="fontgray">#ADAEB3</color>
     <color name="blue1">#2685CA</color>
 
     <color name="fontsecondaryblue">#2685CA</color>

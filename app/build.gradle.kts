@@ -35,7 +35,8 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true }
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -48,4 +49,15 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    val CAMERAX_VERSION = "1.2.3"
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+
+    //gmaps
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
+    implementation(libs.androidx.cardview)
+    implementation(libs.material)
 }

@@ -13,4 +13,9 @@
     <string name="or_employee">Or</string>
     <string name="txt_btn_signin_email_employee">Sign In With Email</string>
 
+    <!-- Maps Screen String Resource -->
+    <string name="txt_refresh">Refresh</string>
+    <string name="txt_next">Next</string>
+    <string name="txt_wrong_location">Please ensure your location is accurate before capturing the picture.</string>
+
 </resources>
