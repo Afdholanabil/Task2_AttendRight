@@ -46,4 +46,14 @@
     <string name="lokasi_meeting_today">Ruang Training Graha Pena, Surabaya, Jawa Timur.</string>
     <string name="offline">Offline</string>
     <string name="_10_00_am">10:00 AM</string>
+    <string name="_0098776_ui_ux_developer">0098776 • UI/UX Developer</string>
+    <string name="my_profile">My Profile</string>
+    <string name="icon_my_profile">Icon my profile</string>
+    <string name="icon_see_detail">Icon see detail</string>
+    <string name="job_information">Job Information</string>
+    <string name="poin">Poin</string>
+    <string name="faq">FaQ</string>
+    <string name="setting">Setting</string>
+    <string name="about_app">About App</string>
+    <string name="log_out">Log Out</string>
 </resources>

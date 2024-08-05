@@ -326,8 +326,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"/>
 
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_today_tasks"
             android:layout_width="wrap_content"
@@ -335,7 +333,6 @@
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/tv_title_today_task"
             tools:ignore="MissingConstraints"
-            tools:itemCount="3"
             tools:listitem="@layout/item_rv_today_tasks"/>
 
         <TextView
@@ -369,12 +366,8 @@
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/tv_title_meeting_today"
             tools:ignore="MissingConstraints"
-            tools:itemCount="3"
+            android:scrollbarSize="0dp"
             tools:listitem="@layout/item_rv_meeting_today"/>
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 
