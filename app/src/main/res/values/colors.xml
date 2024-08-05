@@ -5,12 +5,21 @@
 
     <color name="p1">#F29727</color>
     <color name="gray1">#949494</color>
+
+    <color name="gray100">#E6E6E6</color>
+    <color name="gray300">#ADAEB3</color>
+    <color name="gray400">#84868C</color>
+
     <color name="gray500">#64666C</color>
+    <color name="gray600">#5A5B60</color>
+
     <color name="gray3">#434447</color>
     <color name="grayBg">#F5F5F6</color>
     <color name="gray200">#CFD0D2</color>
 
     <color name="blue1">#2685CA</color>
     <color name="red500">#E85454</color>
+    <color name="red2">#fadddd</color>
+
 
 </resources>

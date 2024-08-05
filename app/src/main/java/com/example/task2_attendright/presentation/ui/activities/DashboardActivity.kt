@@ -12,13 +12,13 @@ import com.example.task2_attendright.presentation.ui.adapter.DashboardAdapter
 
 class DashboardActivity : AppCompatActivity() {
 
-    private var binding : ActivityDashboardBinding? = null
-    private val _binding get() = binding
+    private var _binding : ActivityDashboardBinding? = null
+    private val binding get() = _binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityDashboardBinding.inflate(layoutInflater)
-        setContentView(_binding!!.root)
+        _binding = ActivityDashboardBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -65,6 +65,6 @@ class DashboardActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        binding = null
+        _binding = null
     }
 }

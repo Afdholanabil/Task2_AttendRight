@@ -22,4 +22,28 @@
     <string name="profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ui_ux_developer">UI/UX Developer</string>
+    <string name="ginanjar_putra">Ginanjar Putra</string>
+    <string name="clockin_out_date_home">Monday, 20 Feb 2024</string>
+    <string name="coin_clockin_out_home">2.000.000</string>
+    <string name="clockin_out_time_home">08.20 WIB</string>
+    <string name="clock_in">Clock In</string>
+    <string name="clock_out">Clock Out</string>
+    <string name="today_tasks">Today Tasks</string>
+    <string name="today_attendance">Today Attendance</string>
+    <string name="see_more">See more</string>
+    <string name="icon_clock_in_attendance">icon clock in attendance</string>
+    <string name="_08_10_wib">08:10 Wib</string>
+    <string name="_10_minutes_late">10 Minutes Late</string>
+    <string name="icon_clock_out_attendance">icon clock out attendance</string>
+    <string name="_16_20_wib">16:20 WIB</string>
+    <string name="go_home">Go Home</string>
+    <string name="project_web_design_intermediate">Project Web Design Intermediate</string>
+    <string name="_2_000">2.000</string>
+    <string name="meeting_today">Meeting Today</string>
+    <string name="meeting_project_wisata">Meeting Project Wisata</string>
+    <string name="icon_location_meeting_today">icon location meeting today</string>
+    <string name="lokasi_meeting_today">Ruang Training Graha Pena, Surabaya, Jawa Timur.</string>
+    <string name="offline">Offline</string>
+    <string name="_10_00_am">10:00 AM</string>
 </resources>

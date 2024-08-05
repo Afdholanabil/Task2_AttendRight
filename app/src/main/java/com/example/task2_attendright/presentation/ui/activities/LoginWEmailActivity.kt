@@ -11,13 +11,13 @@ import com.example.task2_attendright.databinding.ActivityLoginWemailBinding
 import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
 
 class LoginWEmailActivity : AppCompatActivity() {
-    private var binding : ActivityLoginWemailBinding? = null
-    private val _binding get() = binding
+    private var _binding : ActivityLoginWemailBinding? = null
+    private val binding get() = _binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityLoginWemailBinding.inflate(layoutInflater)
-        setContentView(_binding!!.root)
+        _binding = ActivityLoginWemailBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -33,6 +33,6 @@ class LoginWEmailActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        binding = null
+        _binding = null
     }
 }
