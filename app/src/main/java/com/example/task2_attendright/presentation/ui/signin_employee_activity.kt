@@ -9,13 +9,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.task2_attendright.R
-import com.example.task2_attendright.databinding.ActivitySigninEmployeeBinding
-import com.example.yourapp.MapsTest
 
 
 class signin_employee_activity : AppCompatActivity() {
@@ -31,7 +26,7 @@ class signin_employee_activity : AppCompatActivity() {
 
         val btnMap = findViewById<Button>(R.id.btn_signin_employee)
         btnMap.setOnClickListener{
-            startActivity(Intent(this, maps_screen::class.java))
+            startActivity(Intent(this, location_activity::class.java))
         }
 
         passwordEditText.addTextChangedListener(object : TextWatcher {

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.maps_screen">
+    tools:context=".presentation.ui.location_activity">
 
     <fragment
         android:id="@+id/map"
@@ -17,7 +17,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="280dp"
         android:background="@drawable/rounded_card_maps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,8 +28,10 @@
             android:id="@+id/imageProfile"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:src="@drawable/profile"
             tools:ignore="ContentDescription" />

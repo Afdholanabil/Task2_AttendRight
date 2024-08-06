@@ -18,4 +18,8 @@
     <string name="txt_next">Next</string>
     <string name="txt_wrong_location">Please ensure your location is accurate before capturing the picture.</string>
 
+    <!-- Clock In Screen String Resource -->
+    <string name="btn_clock_in">Clock In</string>
+    <string name="btn_clock_in_back">Back</string>
+
 </resources>

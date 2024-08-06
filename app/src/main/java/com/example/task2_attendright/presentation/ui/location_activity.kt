@@ -1,17 +1,17 @@
 package com.example.task2_attendright.presentation.ui
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.task2_attendright.R
-import com.example.task2_attendright.databinding.ActivityMapsScreenBinding
+import com.example.task2_attendright.databinding.ActivityLocationBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -22,17 +22,17 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import java.util.Locale
 
-class maps_screen : AppCompatActivity(), OnMapReadyCallback {
+class location_activity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityMapsScreenBinding
+    private lateinit var binding: ActivityLocationBinding
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-
+    private var currentAddress: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMapsScreenBinding.inflate(layoutInflater)
+        binding = ActivityLocationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
@@ -42,6 +42,12 @@ class maps_screen : AppCompatActivity(), OnMapReadyCallback {
 
         binding.btnMapsRefresh.setOnClickListener {
             getCurrentLocation()
+        }
+
+        binding.btnMapsNext.setOnClickListener{
+            val intent = Intent(this, camerax_screen::class.java)
+            intent.putExtra("address", currentAddress)
+            startActivity(intent)
         }
     }
 
@@ -100,15 +106,15 @@ class maps_screen : AppCompatActivity(), OnMapReadyCallback {
         val geocoder = Geocoder(this, Locale.getDefault())
         try {
             val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
-//            val address = addresses?.get(0)?.getAddressLine(0)
-//            binding.addressText.text = address
             if (addresses != null) {
                 if (addresses.isNotEmpty()) {
                     val address = addresses.get(0).getAddressLine(0)
+                    currentAddress = address
                     binding.addressText.text = address
                     binding.imgLocationCorrect.id = R.id.img_location_correct
                     binding.imgLocationWrong.visibility = View.GONE
                     binding.wrongAddress.visibility = View.GONE
+
                 } else {
                     locationNotFound()
                 }
