@@ -20,11 +20,18 @@
         android:id="@+id/bottom_nav_dashboard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:focusable="false"
         android:layout_gravity="bottom"
         app:menu="@menu/dashboard_menu"
+        app:itemIconTint="@color/bottom_nav_item_color_selector"
+        app:itemTextColor="@color/bottom_nav_item_color_selector"
+        app:itemBackground="@drawable/bottom_nav_item_background_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:itemRippleColor="@color/white"
+        style="@style/Widget.BottomNavigationView"
+        android:backgroundTint="@color/white"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

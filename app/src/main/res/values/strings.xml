@@ -56,4 +56,15 @@
     <string name="setting">Setting</string>
     <string name="about_app">About App</string>
     <string name="log_out">Log Out</string>
+    <string name="edit">Edit</string>
+    <string name="image_profile_in_my_profile">Image profile in my profile</string>
+    <string name="full_name">Full Name</string>
+    <string name="position">Position</string>
+    <string name="gender">Gender</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="phone">Phone</string>
+    <string name="religion">Religion</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="are_you_sure_you_want_to_log_out_of_your_account">are you sure you want to log out of your account?</string>
 </resources>

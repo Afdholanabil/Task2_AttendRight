@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
         val recyclerViewTodayTask = binding!!.rvTodayTasks
         val recyclerViewTodayMeeting = binding!!.rvMeetingToday
         recyclerViewTodayTask.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
-        recyclerViewTodayMeeting.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewTodayMeeting.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL, false)
 
         binding!!.rvTodayTasks.isNestedScrollingEnabled = false
         binding!!.rvMeetingToday.isNestedScrollingEnabled = false
