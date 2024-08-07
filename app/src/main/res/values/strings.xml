@@ -22,7 +22,6 @@
     <string name="btn_clock_in">Clock In</string>
     <string name="btn_clock_in_back">Back</string>
 
-    <!-- Job Information Screen String Resource -->
     <string name="title_job_information">Job Information</string>
     <string name="_0098776">0098776</string>
     <string name="ui_ux_developer">UI/UX Developer</string>
@@ -37,6 +36,10 @@
     <string name="divisi_it">Divisi IT</string>
     <string name="join_date">Join Date</string>
     <string name="_10_januari_2024">10 Januari 2024</string>
-
+    <string name="about_app">About App</string>
+    <string name="version_2_24_12_16">Version 2.24.12.16</string>
+    <string name="attendright_apps">AttendRight Apps</string>
+    <string name="_2024_pt_otak_kanan">@2024 PT Otak Kanan</string>
+    <string name="updated_about_apps">Updated</string>
 
 </resources>
