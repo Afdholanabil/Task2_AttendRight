@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.job_information_activity"
+        tools:ignore="ScrollViewSize">
+
+        <ImageView
+            android:id="@+id/img_arrow_back_2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="46dp"
+            android:src="@drawable/ic_arrow_back_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription,MissingConstraints,RtlHardcoded" />
+
+        <LinearLayout
+            android:id="@+id/linear_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/img_arrow_back_2"
+            app:layout_constraintStart_toEndOf="@id/img_arrow_back_2"
+            app:layout_constraintTop_toTopOf="@id/img_arrow_back_2"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/title_job_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/title_job_information"
+                android:textColor="@color/gray3"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/ic_profile_job_information"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_title"
+            tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linear_name_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_profile_job_information"
+            app:layout_constraintStart_toEndOf="@id/ic_profile_job_information"
+            app:layout_constraintTop_toTopOf="@id/ic_profile_job_information"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/title_username_job_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/qurrota_a_yun"
+                android:textColor="@color/gray3"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/title_employee_id_job_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/_0098776"
+                android:textColor="@color/gray4"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/title_username_job_information"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/title_role_job_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/ui_ux_developer"
+                android:textColor="@color/gray4"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/title_employee_id_job_information"
+                app:layout_constraintTop_toBottomOf="@id/title_username_job_information"
+                tools:ignore="HardcodedText,MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txt_title_employee_id_job_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/txt_employee_id"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_profile_job_information"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/employee_id_edittext_job_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/_0098776"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_employee_id_job_information"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_company_name_job_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/company_name"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/employee_id_edittext_job_information"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/company_name_edittext_job_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/pt_otak_kanan"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_company_name_job_information"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_company_branch_job_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/company_name"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_name_edittext_job_information"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/company_branch_edittext_job_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/graha_pena_office"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_company_branch_job_information"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_shift_job_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/shift"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_branch_edittext_job_information"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/shift_edittext_job_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/shift_pagi_08_00_13_00"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_shift_job_information"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_position_job_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/position"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shift_edittext_job_information"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/position_edittext_job_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/ui_ux_developer"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_position_job_information"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_division_job_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/division"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/position_edittext_job_information"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/division_edittext_job_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/divisi_it"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_division_job_information"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_join_date_job_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/join_date"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/division_edittext_job_information"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/join_date_edittext_job_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/_10_januari_2024"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_join_date_job_information"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
