@@ -60,14 +60,15 @@
         app:boxCornerRadiusTopEnd="20dp"
         app:boxStrokeWidth="0dp"
         app:boxStrokeErrorColor="@color/red500"
-        app:hintTextColor="@color/gray1"
-        android:hint="@string/email_hint"
+        app:hintEnabled="false"
+
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-
+            app:hintTextColor="@color/gray1"
+            android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
             android:textColorHint="@color/gray200"
             android:fontFamily="@font/poppins_regular"/>
@@ -98,8 +99,8 @@
         app:boxCornerRadiusTopStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxStrokeWidth="0dp"
-        app:hintTextColor="@color/gray1"
-        android:hint="@string/password_hint"
+
+        app:hintEnabled="false"
         app:endIconDrawable="@drawable/show"
         >
         <com.google.android.material.textfield.TextInputEditText
@@ -107,6 +108,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:hint="@string/password_hint"
+            app:hintTextColor="@color/gray1"
             android:inputType="textPassword"
             android:textColorHint="@color/gray200"
             android:fontFamily="@font/poppins_regular"/>

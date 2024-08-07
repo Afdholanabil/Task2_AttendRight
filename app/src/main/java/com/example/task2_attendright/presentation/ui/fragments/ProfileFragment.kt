@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.task2_attendright.R
 import com.example.task2_attendright.databinding.FragmentProfileBinding
+import com.example.task2_attendright.presentation.ui.activities.FaQActivity
 import com.example.task2_attendright.presentation.ui.activities.LoginWEmailActivity
 import com.example.task2_attendright.presentation.ui.activities.MyProfileActivity
 import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
@@ -40,6 +41,11 @@ class ProfileFragment : Fragment() {
 
         binding!!.tvMyProfile.setOnClickListener {
             val intent = Intent(requireContext(), MyProfileActivity::class.java)
+            AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
+        }
+
+        binding!!.tvFaqProfile.setOnClickListener {
+            val intent = Intent(requireActivity(), FaQActivity::class.java)
             AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
         }
     }

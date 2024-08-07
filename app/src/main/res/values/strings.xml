@@ -67,4 +67,8 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="are_you_sure_you_want_to_log_out_of_your_account">are you sure you want to log out of your account?</string>
+    <string name="subtitle_faq">We’re here to help you with anything and everything on AttendRight</string>
+    <string name="search">Search</string>
+    <string name="what_is_attendright">What is AttendRight</string>
+    <string name="icon_back">Icon Back</string>
 </resources>
