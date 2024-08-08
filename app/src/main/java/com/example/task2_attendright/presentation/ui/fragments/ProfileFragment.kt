@@ -11,6 +11,7 @@ import com.example.task2_attendright.databinding.FragmentProfileBinding
 import com.example.task2_attendright.presentation.ui.activities.FaQActivity
 import com.example.task2_attendright.presentation.ui.activities.LoginWEmailActivity
 import com.example.task2_attendright.presentation.ui.activities.MyProfileActivity
+import com.example.task2_attendright.presentation.ui.activities.PoinActivity
 import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
 
 
@@ -48,6 +49,13 @@ class ProfileFragment : Fragment() {
             val intent = Intent(requireActivity(), FaQActivity::class.java)
             AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
         }
+
+        binding!!.tvPoinProfile.setOnClickListener {
+            val intent = Intent(requireActivity(), PoinActivity::class.java)
+            AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
+        }
+
+        binding!!.ivLogout.setOnClickListener {  }
     }
 
 

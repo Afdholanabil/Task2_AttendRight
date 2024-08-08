@@ -29,6 +29,15 @@ class FaQActivity : AppCompatActivity() {
         val adapter = ListFaQAdapter(faqList)
         binding?.rvListFaq?.adapter = adapter
         binding!!.rvListFaq.layoutManager = LinearLayoutManager(this)
+        back()
+    }
 
+    private fun back(){
+        binding!!.tvTitleFaq.setOnClickListener {
+            finish()
+        }
+        binding!!.ivBackFaq.setOnClickListener {
+            finish()
+        }
     }
 }

@@ -99,7 +99,9 @@
         app:boxCornerRadiusTopStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxStrokeWidth="0dp"
-
+        app:endIconCheckable="true"
+        app:passwordToggleDrawable="@drawable/show"
+        app:passwordToggleEnabled="true"
         app:hintEnabled="false"
         app:endIconDrawable="@drawable/show"
         >

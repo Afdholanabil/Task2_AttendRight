@@ -31,7 +31,6 @@
         app:itemRippleColor="@color/white"
         style="@style/Widget.BottomNavigationView"
         android:backgroundTint="@color/white"
-
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
