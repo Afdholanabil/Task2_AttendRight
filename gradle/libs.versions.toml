@@ -13,6 +13,8 @@ activity = "1.9.1"
 constraintlayout = "2.1.4"
 playServicesLocation = "21.3.0"
 playServicesMaps = "19.0.0"
+singleRowCalednar = "1.0.0"
+singleRowCalendar = "1.0.0"
 
 [libraries]
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCamera2" }
@@ -27,8 +29,10 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+michalsvec-single-row-calednar = { module = "com.michalsvec:single-row-calednar", version.ref = "singleRowCalednar" }
 play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
 play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMaps" }
+michalsvec-single-row-calendar = { module = "com.michalsvec:single-row-calendar", version.ref = "singleRowCalendar" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

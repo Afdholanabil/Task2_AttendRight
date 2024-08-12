@@ -15,6 +15,8 @@
 
     <!-- Maps Screen String Resource -->
     <string name="txt_refresh">Refresh</string>
+    <string name="txt_create_add_meet">Create</string>
+    <string name="txt_add_meet">Add Meet</string>
     <string name="txt_next">Next</string>
     <string name="txt_wrong_location">Please ensure your location is accurate before capturing the picture.</string>
 
@@ -41,5 +43,23 @@
     <string name="attendright_apps">AttendRight Apps</string>
     <string name="_2024_pt_otak_kanan">@2024 PT Otak Kanan</string>
     <string name="updated_about_apps">Updated</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="current_date">current date</string>
+    <string name="meeting_list">Meeting List</string>
+    <string name="meet">Meet</string>
+    <string name="tittle">Tittle</string>
+    <string name="value">Value</string>
+    <string name="project">Project</string>
+    <string name="optional">(Optional)</string>
+    <string name="meeting_mode">Meeting Mode</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="dd_mm_yyyy">dd / mm / yyyy</string>
+    <string name="am">--:-- am</string>
+    <string name="description">Description</string>
+    <string name="entered_your_description_for_meet">Entered your description for Meet</string>
+    <string name="add_meeting">Add Meeting</string>
+
 
 </resources>
