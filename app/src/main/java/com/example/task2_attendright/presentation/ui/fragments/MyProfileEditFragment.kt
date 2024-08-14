@@ -39,7 +39,7 @@ class MyProfileEditFragment : Fragment() {
         adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding!!.spinnerGenderEditMyProfile.adapter = adapterSpinner
         binding!!.tvCancel.setOnClickListener {
-            (activity as MyProfileActivity).replaceFragmentMyProfile(MyProfileViewFragment())
+            (activity as MyProfileActivity).supportFragmentManager.popBackStack()
         }
 
     }

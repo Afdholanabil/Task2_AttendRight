@@ -81,4 +81,8 @@
     <string name="points_transferred">Points transferred</string>
     <string name="_20_agustus_2024">20 Agustus 2024</string>
     <string name="item_poin_tf">+ 2.000</string>
+    <string name="_2024">2024</string>
+    <string name="day">Day</string>
+    <string name="late">Late</string>
+    <string name="early_clock_out">Early Clock Out</string>
 </resources>

@@ -25,10 +25,13 @@ class MyProfileActivity : AppCompatActivity() {
         }
     }
 
-    fun replaceFragmentMyProfile(fragment : Fragment) {
-        supportFragmentManager.beginTransaction()
+    fun replaceFragmentMyProfile(fragment: Fragment, addToBackStack: Boolean = true) {
+        val transaction = supportFragmentManager.beginTransaction()
             .replace(R.id.container_fragment_my_profile, fragment)
-            .addToBackStack(null)
-            .commit()
+        if (addToBackStack) {
+            transaction.addToBackStack(null)
+        }
+        transaction.commit()
     }
+
 }
