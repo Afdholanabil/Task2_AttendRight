@@ -42,7 +42,7 @@
         <item name="cardForegroundColor">@color/white</item>
         <item name="android:background">@android:color/background_light</item>
     </style>
-    
+
     <style name="spinnerItemTextStyle">
         <item name="textAllCaps">false</item>
         <item name="fontFamily">@font/poppins_regular</item>

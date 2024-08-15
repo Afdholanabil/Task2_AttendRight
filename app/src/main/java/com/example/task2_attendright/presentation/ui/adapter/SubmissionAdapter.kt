@@ -24,7 +24,9 @@ class SubmissionAdapter(private var items: List<SubmissionList>) :
         holder.bind(item)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int {
+        return items.size
+    }
 
     fun updateData(newItems: List<SubmissionList>) {
         items = newItems
@@ -45,7 +47,6 @@ class SubmissionAdapter(private var items: List<SubmissionList>) :
             dateRange.text = item.date
             status.text = item.status
 
-            // Atur warna status
             when (item.status) {
                 "Pending" -> {
                     status.setTextColor(ContextCompat.getColor(itemView.context, R.color.orange500))
