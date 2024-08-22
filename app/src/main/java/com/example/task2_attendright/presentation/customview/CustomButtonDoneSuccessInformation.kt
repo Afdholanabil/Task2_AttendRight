@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.example.task2_attendright.R
 
-class CustomButtonCreateAddMeet @JvmOverloads constructor(context: Context, attr: AttributeSet? = null) : AppCompatButton(context,attr) {
+class CustomButtonDoneSuccessInformation @JvmOverloads constructor(context: Context, attr: AttributeSet? = null) : AppCompatButton(context,attr) {
     private var txtColor: Int = 0
     private var enabledBackground: Drawable
     private var fontFamily: Typeface? = ResourcesCompat.getFont(context, R.font.poppins_semibold)
@@ -19,7 +19,7 @@ class CustomButtonCreateAddMeet @JvmOverloads constructor(context: Context, attr
     init {
         txtColor = ContextCompat.getColor(context, R.color.white)
         typeface = fontFamily
-        enabledBackground = ContextCompat.getDrawable(context, R.drawable.rounded_button_refresh_maps) as Drawable
+        enabledBackground = ContextCompat.getDrawable(context, R.drawable.rounded_button_success_information) as Drawable
 
     }
 
@@ -30,6 +30,6 @@ class CustomButtonCreateAddMeet @JvmOverloads constructor(context: Context, attr
         textSize = 16f
         typeface = ResourcesCompat.getFont(context, R.font.poppins_semibold)
         gravity = Gravity.CENTER
-        text = context.getString(R.string.txt_create_add_meet)
+        text = context.getString(R.string.txt_success)
     }
 }

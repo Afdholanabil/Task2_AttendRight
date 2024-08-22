@@ -36,6 +36,23 @@
         android:theme="@style/Theme.Task2_AttendRight"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.ui.signin_employee_activity"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".presentation.ui.location_activity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.ui.add_meet_activity"
             android:exported="false" />
         <activity
@@ -45,7 +62,7 @@
             android:name=".presentation.ui.job_information_activity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.location_activity"
+            android:name=".presentation.ui.success_information_clock_in"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.final_clock_in_activity"
@@ -59,7 +76,7 @@
             android:value="AIzaSyDDZK2SFediPD6p6joRojoMl6pNwhUXKW8" />
 
         <activity
-            android:name=".presentation.ui.signin_employee_activity"
+            android:name=".presentation.ui.add_members_activity"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.MainActivity"
@@ -76,16 +93,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
     </application>
 
 </manifest>

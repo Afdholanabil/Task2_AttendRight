@@ -74,6 +74,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/constraint" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEmptyMeet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_meeting_list" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDataMeet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_meeting_list" />
+
         <ImageView
             android:id="@+id/no_meeting"
             android:layout_width="225dp"
@@ -82,7 +102,9 @@
             app:layout_constraintTop_toBottomOf="@id/txt_meeting_list"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/ic_no_meeting"/>
+            android:visibility="gone"
+            android:src="@drawable/ic_no_meeting"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

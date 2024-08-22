@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#E85454</color>
+    <color name="green">#34BD32</color>
 
     <color name="font_black">#434447</color>
     <color name="p1">#F29727</color>
@@ -16,4 +17,5 @@
     <color name="blue1">#2685CA</color>
 
     <color name="fontsecondaryblue">#2685CA</color>
+    <color name="green_toast">#2B641E</color>
 </resources>

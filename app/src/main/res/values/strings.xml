@@ -18,6 +18,8 @@
     <string name="txt_create_add_meet">Create</string>
     <string name="txt_add_meet">Add Meet</string>
     <string name="txt_next">Next</string>
+    <string name="txt_success">Done</string>
+    <string name="txt_save_add_members">Save</string>
     <string name="txt_wrong_location">Please ensure your location is accurate before capturing the picture.</string>
 
     <!-- Clock In Screen String Resource -->
@@ -60,6 +62,20 @@
     <string name="description">Description</string>
     <string name="entered_your_description_for_meet">Entered your description for Meet</string>
     <string name="add_meeting">Add Meeting</string>
+    <string name="add_members">Add Members</string>
+    <string name="success">Success</string>
+    <string name="you_have_successfully_made_a_presence">You have successfully made a Presence</string>
+    <string name="day">Day</string>
+    <string name="search">Search</string>
+    <string name="nama">Nama</string>
+    <string name="email">email</string>
+    <string name="select_all">Select All</string>
+    <string name="meeting_for_world_war_3">Meeting for World War 3</string>
+    <string name="online">Online</string>
+    <string name="_15_20_pm">15:20 pm</string>
+    <string name="meet_google_com_eer_iuyi_opk">meet.google.com/eer-iuyi-opk</string>
+    <string name="offline">Offline</string>
+    <string name="successfully_created">Successfully Created</string>
 
 
 </resources>

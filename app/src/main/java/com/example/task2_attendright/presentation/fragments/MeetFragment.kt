@@ -1,5 +1,6 @@
 package com.example.task2_attendright.presentation.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.task2_attendright.adapter.CalendarAdapter
+import com.example.task2_attendright.adapter.MeetAdapter
+import com.example.task2_attendright.data.local.MeetModel
 import com.example.task2_attendright.databinding.FragmentMeetBinding
 import com.example.task2_attendright.presentation.ui.add_meet_activity
 import java.text.SimpleDateFormat
@@ -31,11 +34,10 @@ class MeetFragment : Fragment() {
     private var selectedDay: Int = currentDay
     private var selectedMonth: Int = currentMonth
     private val dates = ArrayList<Date>()
+    private val meetList = mutableListOf<MeetModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
     }
 
     override fun onCreateView(
@@ -43,15 +45,24 @@ class MeetFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMeetBinding.inflate(inflater, container, false)
+        arguments?.let {
+
+        }
         return _binding!!.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(binding.calendarRecyclerView)
         lastDayInCalendar.add(Calendar.MONTH, 6)
         setUpCalendar()
+
+        val meetAdapter = MeetAdapter(meetData)
+        binding.rvDataMeet.layoutManager = LinearLayoutManager(context)
+        binding.rvDataMeet.adapter = meetAdapter
+
 
         binding.btnAddMeet.setOnClickListener {
             val intent = Intent(activity, add_meet_activity::class.java)
@@ -112,16 +123,21 @@ class MeetFragment : Fragment() {
 
         calendarAdapter.setOnItemClickListener(object : CalendarAdapter.OnItemClickListener,
             AdapterView.OnItemClickListener {
+            @SuppressLint("NotifyDataSetChanged")
             override fun onItemClick(position: Int) {
                 val clickCalendar = Calendar.getInstance()
                 clickCalendar.time = dates[position]
                 selectedDay = clickCalendar[Calendar.DAY_OF_MONTH]
+                val selectedDay =
+                    SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).format(clickCalendar.time)
             }
 
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 TODO("Not yet implemented")
             }
         })
+
+
     }
 
     override fun onDestroy() {
@@ -133,4 +149,19 @@ class MeetFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    val meetData = listOf(
+        MeetModel(
+            "Meeeting for World War 3",
+            "Online",
+            "meet.google.com/eer-iuyi-opk",
+            "15:20 pm"
+        ),
+        MeetModel(
+            "Meeeting for World War 3",
+            "Offline",
+            "Ruang Training Graha Pena, Surabaya, Jawa Timur.",
+            "10:20 am"
+        )
+    )
 }
