@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="130dp"
+    android:layout_marginVertical="8dp"
     android:background="@color/white">
 
     <TextView
@@ -14,7 +15,7 @@
         android:layout_marginTop="21dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/meeting_for_world_war_3"
-        android:textColor="@color/gray3"
+        android:textColor="@color/fontgray2"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

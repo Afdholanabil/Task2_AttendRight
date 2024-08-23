@@ -52,7 +52,7 @@
             android:layout_marginTop="28dp"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/meeting_list"
-            android:textColor="@color/gray2"
+            android:textColor="@color/fontgray2"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

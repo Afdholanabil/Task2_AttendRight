@@ -15,6 +15,7 @@
 
     <!-- Maps Screen String Resource -->
     <string name="txt_refresh">Refresh</string>
+    <string name="txt_join">Join</string>
     <string name="txt_create_add_meet">Create</string>
     <string name="txt_add_meet">Add Meet</string>
     <string name="txt_next">Next</string>
@@ -76,6 +77,13 @@
     <string name="meet_google_com_eer_iuyi_opk">meet.google.com/eer-iuyi-opk</string>
     <string name="offline">Offline</string>
     <string name="successfully_created">Successfully Created</string>
+    <string name="created_by">Created by</string>
+    <string name="maulana_ahmad">Maulana Ahmad</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_feugiat_pellentesque_tellus_feugiat_tristique_porttitor_proin_feugiat_placerat_pulvinar_adipiscing_luctus_sed_viverra_congue_sit_view_more">Lorem ipsum dolor sit amet consectetur. Feugiat pellentesque tellus feugiat tristique porttitor proin feugiat placerat. Pulvinar adipiscing luctus sed viverra congue sit</string>
+    <string name="view_more">View more...</string>
+    <string name="date_time_nov_10_2024_23_59_wib">Date/Time : Nov 10, 2024 - 23.59 WIB</string>
+    <string name="_3_members">3 Members</string>
+    <string name="ruang_training_graha_pena_surabaya_jawa_timur">Ruang Training Graha Pena, Surabaya.</string>
 
 
 </resources>

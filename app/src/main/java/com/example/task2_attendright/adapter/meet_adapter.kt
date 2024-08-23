@@ -8,8 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.MeetModel
 
-class MeetAdapter(private val items: List<MeetModel>) :
+class MeetAdapter(
+    private val items: List<MeetModel>,
+    private val listener: OnMeetClickListener
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    interface OnMeetClickListener {
+        fun onMeetClick(meetModel: MeetModel)
+    }
 
     companion object {
         private const val VIEW_TYPE_ONLINE = 1
@@ -28,8 +35,14 @@ class MeetAdapter(private val items: List<MeetModel>) :
         val meet = items[position]
         if (holder is OnlineViewHolder) {
             holder.bindingData(meet)
+            holder.itemView.setOnClickListener {
+                listener.onMeetClick(meet)
+            }
         } else if (holder is OfflineViewHolder) {
             holder.bindingData(meet)
+            holder.itemView.setOnClickListener {
+                listener.onMeetClick(meet)
+            }
         }
     }
 

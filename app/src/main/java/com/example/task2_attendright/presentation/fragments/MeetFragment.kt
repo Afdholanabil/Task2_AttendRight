@@ -15,12 +15,14 @@ import com.example.task2_attendright.adapter.MeetAdapter
 import com.example.task2_attendright.data.local.MeetModel
 import com.example.task2_attendright.databinding.FragmentMeetBinding
 import com.example.task2_attendright.presentation.ui.add_meet_activity
+import com.example.task2_attendright.presentation.ui.meet_detail_activity_offline
+import com.example.task2_attendright.presentation.ui.meet_detail_activity_online
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
-class MeetFragment : Fragment() {
+class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
     private var _binding: FragmentMeetBinding? = null
     private val binding get() = _binding!!
 
@@ -59,10 +61,9 @@ class MeetFragment : Fragment() {
         lastDayInCalendar.add(Calendar.MONTH, 6)
         setUpCalendar()
 
-        val meetAdapter = MeetAdapter(meetData)
+        val meetAdapter = MeetAdapter(meetData, this)
         binding.rvDataMeet.layoutManager = LinearLayoutManager(context)
         binding.rvDataMeet.adapter = meetAdapter
-
 
         binding.btnAddMeet.setOnClickListener {
             val intent = Intent(activity, add_meet_activity::class.java)
@@ -148,6 +149,18 @@ class MeetFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onMeetClick(meetModel: MeetModel) {
+        if (meetModel.meetingModeMeet == "Online") {
+            val intent = Intent(context, meet_detail_activity_online::class.java)
+            intent.putExtra("meetDetails", meetModel)
+            startActivity(intent)
+        } else if (meetModel.meetingModeMeet == "Offline") {
+            val intent = Intent(context, meet_detail_activity_offline::class.java)
+            intent.putExtra("meetDetails", meetModel)
+            startActivity(intent)
+        }
     }
 
     val meetData = listOf(

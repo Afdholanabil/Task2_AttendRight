@@ -36,6 +36,12 @@
         android:theme="@style/Theme.Task2_AttendRight"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.ui.meet_detail_activity_offline"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.meet_detail_activity_online"
+            android:exported="false" />
+        <activity
             android:name=".presentation.ui.signin_employee_activity"
             android:exported="false" />
 

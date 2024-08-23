@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.meet_detail_activity_offline"
+        tools:ignore="ScrollViewSize">
+
+        <ImageButton
+            android:id="@+id/btn_arrow_back_meet_detail"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="26dp"
+            android:background="@color/bg_gray"
+            android:src="@drawable/ic_arrow_back_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/linear_title_meet_detail_1"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:layout_constraintBottom_toBottomOf="@id/btn_arrow_back_meet_detail"
+            app:layout_constraintStart_toEndOf="@id/btn_arrow_back_meet_detail"
+            app:layout_constraintTop_toTopOf="@id/btn_arrow_back_meet_detail"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/title_detail_meet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/meeting_for_world_war_3"
+                android:textColor="@color/gray3"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivProfileDetailMeet"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_arrow_back_meet_detail"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/linear_title_meet_detail_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="@id/ivProfileDetailMeet"
+            app:layout_constraintStart_toEndOf="@id/ivProfileDetailMeet"
+            app:layout_constraintTop_toTopOf="@id/ivProfileDetailMeet"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/title_detail_member_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/created_by"
+                android:textColor="@color/gray3"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/title_detail_member_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/maulana_ahmad"
+                android:textColor="@color/gray3"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintStatus"
+            android:layout_width="68dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/rounded_status_offline"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_title_meet_detail_2">
+
+            <ImageView
+                android:id="@+id/ic_status_online"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/offline"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txt_title_status_meet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/offline"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/ic_status_online"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ic_status_online"
+                app:layout_constraintTop_toTopOf="@id/ic_status_online"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txt_description_meet_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/poppins_regular"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_feugiat_pellentesque_tellus_feugiat_tristique_porttitor_proin_feugiat_placerat_pulvinar_adipiscing_luctus_sed_viverra_congue_sit_view_more"
+            android:textColor="@color/gray3"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintStatus"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txt_description_meet_detail_view_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/poppins_regular"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/view_more"
+            android:textColor="@color/blue1"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_description_meet_detail"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintDateTimeDetailMeet"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_description_meet_detail_view_more">
+
+            <ImageView
+                android:id="@+id/ic_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_notifications"
+                tools:ignore="ContentDescription,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txt_date_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/date_time_nov_10_2024_23_59_wib"
+                android:textColor="@color/gray2"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/ic_notification"
+                app:layout_constraintStart_toEndOf="@id/ic_notification"
+                app:layout_constraintTop_toTopOf="@id/ic_notification"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLinkMeet"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintDateTimeDetailMeet">
+
+            <ImageView
+                android:id="@+id/ic_meet"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/location"
+                tools:ignore="ContentDescription,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txt_meet_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/ruang_training_graha_pena_surabaya_jawa_timur"
+                android:maxLines="1"
+                android:textColor="@color/gray2"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/ic_meet"
+                app:layout_constraintStart_toEndOf="@id/ic_meet"
+                app:layout_constraintTop_toTopOf="@id/ic_meet"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txt_detail_meet_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/_3_members"
+            android:textColor="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintLinkMeet"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/ic_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/search"
+            app:layout_constraintBottom_toBottomOf="@id/txt_detail_meet_member"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_detail_meet_member"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintAddMembers"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_detail_meet_member">
+
+            <ImageView
+                android:id="@+id/ic_add_members"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_add_members"
+                tools:ignore="ContentDescription,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txt_add_members"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/add_members"
+                android:textColor="@color/gray3"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/ic_add_members"
+                app:layout_constraintStart_toEndOf="@id/ic_add_members"
+                app:layout_constraintTop_toTopOf="@id/ic_add_members"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/members_detail_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:background="@color/bg_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintAddMembers" />
+
+        <com.example.task2_attendright.presentation.customview.CustomButtonJoinMember
+            android:id="@+id/btn_join_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/members_detail_recycler_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
