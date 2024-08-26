@@ -137,8 +137,6 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
                 TODO("Not yet implemented")
             }
         })
-
-
     }
 
     override fun onDestroy() {

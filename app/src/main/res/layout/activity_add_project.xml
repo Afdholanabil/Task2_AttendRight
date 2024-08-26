@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    tools:context=".presentation.ui.add_project_activity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btn_arrow_back_project"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="46dp"
+            android:background="@color/bg_gray"
+            android:src="@drawable/ic_arrow_back_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/linear_title_meet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/btn_arrow_back_project"
+            app:layout_constraintStart_toEndOf="@id/btn_arrow_back_project"
+            app:layout_constraintTop_toTopOf="@id/btn_arrow_back_project"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/title_about_apps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/project"
+                android:textColor="@color/gray3"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_title_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/tittle"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_title_meet"
+            tools:ignore="MissingConstraints,RtlHardcoded">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/title_edittext_project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/value"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#D3D3D3"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_project"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_deskripsi_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/description"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_edittext_project"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/txt_title_deskripsi_optional_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/optional"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_title_deskripsi_project"
+            app:layout_constraintStart_toEndOf="@id/txt_title_deskripsi_project"
+            app:layout_constraintTop_toTopOf="@id/txt_title_deskripsi_project"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/description_edittext_project"
+            android:layout_width="match_parent"
+            android:layout_height="124dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="top|start"
+            android:hint="@string/value"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:maxLines="5"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#D3D3D3"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_deskripsi_optional_project"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/enter_description_text_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/enter_your_description_for_project"
+            android:textColor="@color/gray4"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_edittext_project"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/txt_title_date_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/date"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enter_description_text_project"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/date_edittext_project"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/dd_mm_yyyy"
+            android:inputType="date"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#D3D3D3"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_date_project"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_time_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/time"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/date_edittext_project"
+            app:layout_constraintTop_toBottomOf="@id/enter_description_text_project"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/time_edittext_project"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/am"
+            android:inputType="time"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#D3D3D3"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/date_edittext_project"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_time_project"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintCoin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_edittext_project"
+            tools:ignore="UseCompoundDrawables">
+
+            <TextView
+                android:id="@+id/txt_title_point_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/point"
+                android:textColor="@color/gray2"
+                android:textSize="18sp"
+                tools:ignore="MissingConstraints,RtlHardcoded" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/ic_coin_project"
+                app:layout_constraintStart_toEndOf="@+id/txt_title_point_project"
+                app:layout_constraintTop_toTopOf="@+id/txt_title_point_project"
+                tools:ignore="ContentDescription,MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintCount"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:gravity=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ConstraintCoin">
+
+            <TextView
+                android:id="@+id/txt_minus_point_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/minus"
+                android:textColor="@color/gray6"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints,RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/txt_value_point_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/_0"
+                android:textColor="@color/gray6"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints,RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/txt_plus_point_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/plus"
+                android:textColor="@color/gray6"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/ic_user_add_project"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/user_add"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ConstraintCount"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txt_title_add_member_meet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/members"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/ic_user_add_project"
+            app:layout_constraintTop_toBottomOf="@id/ConstraintCount"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <include
+            android:id="@+id/btn_circle_add_meet"
+            layout="@layout/custom_button_add_meet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_user_add_project"
+            />
+
+        <com.example.task2_attendright.presentation.customview.CustomButtonSaveProject
+            android:id="@+id/btn_create_add_meet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="20dp"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_circle_add_meet" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

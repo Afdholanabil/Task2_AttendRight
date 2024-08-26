@@ -13,8 +13,10 @@
     <color name="gray3">#434447</color>
     <color name="gray4">#84868C</color>
     <color name="gray5">#e6e6e6</color>
+    <color name="gray6">#CFD0D2</color>
     <color name="fontgray">#ADAEB3</color>
     <color name="fontgray2">#5A5B60</color>
+    <color name="fontgray3">#4C4D52</color>
     <color name="blue1">#2685CA</color>
 
     <color name="fontsecondaryblue">#2685CA</color>
