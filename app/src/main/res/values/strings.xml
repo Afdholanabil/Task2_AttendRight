@@ -143,4 +143,20 @@
     <string name="upload_image">Upload Image</string>
     <string name="only_jpeg_png_jpg_are_accepted_file_size_maximal_10_mb"><![CDATA[Only JPEG, PNG & JPG are Accepted File size Maximal 10 Mb]]></string>
     <string name="choose_file_to_upload">Choose file to upload</string>
+    <string name="attendance_request">Attendance Request</string>
+    <string name="lupa_absen">Lupa Absen</string>
+    <string name="approved_by">Approved by :</string>
+    <string name="attechment">Attechment :</string>
+    <string name="image_attechment">Image attechment</string>
+    <string name="cancel_submission">Cancel Submission</string>
+    <string name="nov_10_2024_nov_11_2024">Nov 10, 2024 - Nov 11, 2024</string>
+    <string name="_9d">9d</string>
+    <string name="izin_bermain">Izin Bermain</string>
+    <string name="date_image">date image</string>
+    <string name="effective_date">Effective Date</string>
+    <string name="shift_now">Shift Now</string>
+    <string name="shift_pagi_08_00_13_00">Shift Pagi (08.00-13.00)</string>
+    <string name="strip">-</string>
+    <string name="shift_submission">Shift Submission</string>
+    <string name="shift_siang_13_30_17_00">Shift Siang (13.30-17.00)</string>
 </resources>

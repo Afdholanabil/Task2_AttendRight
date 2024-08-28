@@ -331,7 +331,6 @@
                         android:layout_marginTop="10dp"/>
                 </LinearLayout>
 
-
         <com.example.task2_attendright.presentation.ui.customview.MyButton
             android:id="@+id/btn_send_attendance_sub"
             android:layout_width="match_parent"
