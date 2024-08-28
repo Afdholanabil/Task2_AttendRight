@@ -36,6 +36,24 @@
         android:theme="@style/Theme.Task2_AttendRight"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.ui.detail_task_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.task_member_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.detail_detail_project_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.add_task_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.detail_project_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.add_members_project_activity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.ui.add_project_activity"
             android:exported="false" />
         <activity

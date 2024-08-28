@@ -26,7 +26,7 @@ class meet_detail_activity_online : AppCompatActivity() {
                 R.drawable.profile_3, "Maulidah Putri Nur Fatimah", "MaulidanPutri@gmail.com"
             )
         )
-        val detailAdapter = MemberDetailAdapter(detailProfileData)
+        val detailAdapter = MemberDetailAdapter(this, detailProfileData)
         binding.membersDetailRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.membersDetailRecyclerView.adapter = detailAdapter

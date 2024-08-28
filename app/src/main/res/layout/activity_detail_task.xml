@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.detail_task_activity"
+        tools:ignore="ScrollViewSize">
+
+        <ImageButton
+            android:id="@+id/btn_arrow_back_task_detail"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="26dp"
+            android:background="@color/bg_gray"
+            android:src="@drawable/ic_arrow_back_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/btn_option_task_detail"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@color/bg_gray"
+            android:src="@drawable/ic_option"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_arrow_back_task_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_arrow_back_task_detail"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/title_detail_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/create_user_persona"
+            android:textColor="@color/gray3"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_arrow_back_task_detail"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/ivProfileDetailMeet"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_detail_task"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/linear_title_meet_detail_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="@id/ivProfileDetailMeet"
+            app:layout_constraintStart_toEndOf="@id/ivProfileDetailMeet"
+            app:layout_constraintTop_toTopOf="@id/ivProfileDetailMeet"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/title_detail_member_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/created_by"
+                android:textColor="@color/gray3"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/title_detail_member_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/reza_abadi"
+                android:textColor="@color/gray3"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_description_task_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/poppins_regular"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_feugiat_pellentesque_tellus_feugiat_tristique_porttitor_proin_feugiat_placerat_pulvinar_adipiscing_luctus_sed_viverra_congue_sit_view_more"
+            android:textColor="@color/gray3"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivProfileDetailMeet"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintDateTimeDetailTask"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_description_task_detail">
+
+            <ImageView
+                android:id="@+id/ic_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_notifications"
+                tools:ignore="ContentDescription,MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txt_date_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/date_time_nov_10_2024_23_59_wib"
+                android:textColor="@color/gray2"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/ic_notification"
+                app:layout_constraintStart_toEndOf="@id/ic_notification"
+                app:layout_constraintTop_toTopOf="@id/ic_notification"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/title_detail_task_attachment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/attachment"
+            android:textColor="@color/gray3"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintDateTimeDetailTask"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/ic_icture"
+            android:layout_width="145dp"
+            android:layout_height="102dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_picture"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_detail_task_attachment"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/ic_icture2"
+            android:layout_width="145dp"
+            android:layout_height="102dp"
+            android:layout_marginStart="18dp"
+            android:src="@drawable/ic_picture"
+            app:layout_constraintStart_toEndOf="@id/ic_icture"
+            app:layout_constraintTop_toTopOf="@id/ic_icture"
+            app:layout_constraintBottom_toBottomOf="@id/ic_icture"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/ic_document_upload"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/ic_document_upload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_icture"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txt_title_add_member_meet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/task_result"
+            android:textColor="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_document_upload"
+            app:layout_constraintStart_toEndOf="@id/ic_document_upload"
+            app:layout_constraintTop_toTopOf="@id/ic_document_upload"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/txt_title_description_document_task"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/only_jpeg_png_and_jpg_are_accepted_file_size_maximal_10_mb"
+            android:textColor="@color/gray2"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_document_upload"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/uploadArea"
+            android:layout_width="115dp"
+            android:layout_height="145dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/dashed_border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_description_document_task"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/uploadIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="33dp"
+                android:src="@drawable/ic_document_upload"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/txt_title_description_chooseFile_task"
+                android:layout_width="68dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/choose_file_to_upload"
+                android:textAlignment="center"
+                android:textColor="@color/gray2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/uploadIcon"
+                tools:ignore="MissingConstraints,RtlHardcoded" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/uploadedImage"
+            android:layout_width="115dp"
+            android:layout_height="145dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/dashed_border"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:padding="14dp"
+            android:textColor="@color/gray1"
+            app:layout_constraintBottom_toBottomOf="@id/uploadArea"
+            app:layout_constraintStart_toEndOf="@id/uploadArea"
+            app:layout_constraintTop_toTopOf="@id/uploadArea"
+            tools:ignore="ContentDescription" />
+
+        <com.example.task2_attendright.presentation.customview.CustomButtonSendTask
+            android:id="@+id/btn_create_add_meet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="20dp"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/uploadArea" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

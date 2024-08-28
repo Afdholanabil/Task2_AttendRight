@@ -56,7 +56,7 @@ class ProjectFragment : Fragment() {
         lastDayInCalendar.add(Calendar.MONTH, 6)
         setUpCalendar()
 
-        val projectAdapter = ProjectAdapter(projectData)
+        val projectAdapter = ProjectAdapter(requireContext(), projectData)
         binding.rvDataProject.layoutManager = LinearLayoutManager(context)
         binding.rvDataProject.adapter = projectAdapter
 

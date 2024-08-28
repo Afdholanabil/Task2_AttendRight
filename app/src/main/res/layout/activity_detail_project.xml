@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    tools:context=".presentation.ui.detail_project_activity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                tools:ignore="MissingConstraints">
+
+                <ImageButton
+                    android:id="@+id/btn_arrow_back_detail_project"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="46dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_arrow_back_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <LinearLayout
+                    android:id="@+id/linear_title_meet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_arrow_back_detail_project"
+                    app:layout_constraintStart_toEndOf="@id/btn_arrow_back_detail_project"
+                    app:layout_constraintTop_toTopOf="@id/btn_arrow_back_detail_project">
+
+                    <TextView
+                        android:id="@+id/title_about_apps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/project_absensi"
+                        android:textColor="@color/gray3"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="24dp"
+                    android:src="@drawable/ic_option"
+                    app:layout_constraintBottom_toBottomOf="@id/linear_title_meet"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/linear_title_meet"
+                    tools:ignore="ContentDescription,MissingConstraints" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:dividerColor="@color/fontgray"
+                    app:layout_constraintTop_toBottomOf="@id/linear_title_meet" />
+
+                <TextView
+                    android:id="@+id/txt_progress_project"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/progress"
+                    android:textColor="@color/gray2"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider" />
+
+                <TextView
+                    android:id="@+id/txt_progress_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/_0_"
+                    android:textColor="@color/gray2"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider" />
+
+                <ImageView
+                    android:id="@+id/ic_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_bar_circle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_progress_project"
+                    tools:ignore="ContentDescription" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- RadioGroup untuk filter -->
+            <RadioGroup
+                android:id="@+id/filter_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/rvDataTask"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraintHeader">
+
+                <RadioButton
+                    android:id="@+id/radio_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="29dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@drawable/radio_null_button"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="All"
+                    android:textColor="@drawable/radio_text_selector"
+                    tools:ignore="HardcodedText" />
+
+                <RadioButton
+                    android:id="@+id/radio_completed"
+                    android:layout_width="98dp"
+                    android:layout_height="29dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@drawable/radio_null_button"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="@string/completed"
+                    android:textColor="@drawable/radio_text_selector" />
+
+                <RadioButton
+                    android:id="@+id/radio_unfinished"
+                    android:layout_width="98dp"
+                    android:layout_height="29dp"
+                    android:layout_marginHorizontal="12dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@drawable/radio_null_button"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="@string/unfinished"
+                    android:textColor="@drawable/radio_text_selector" />
+            </RadioGroup>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDataTask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/filter_radio_group" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.example.task2_attendright.presentation.customview.CustomFloatingButton
+        android:id="@+id/floatingButtonAddTask"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="45dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,5 +1,6 @@
 package com.example.task2_attendright.presentation.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.task2_attendright.databinding.ActivityAddProjectBinding
@@ -26,6 +27,10 @@ class add_project_activity : AppCompatActivity() {
         binding.txtPlusPointProject.setOnClickListener {
             count += 1000
             binding.txtValuePointProject.text = count.toString()
+        }
+
+        binding.icUserAddProject.setOnClickListener {
+            startActivity(Intent(this, add_members_project_activity::class.java))
         }
     }
 }

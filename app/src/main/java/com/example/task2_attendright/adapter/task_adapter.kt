@@ -8,39 +8,38 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.task2_attendright.R
-import com.example.task2_attendright.data.local.ProjectModel
-import com.example.task2_attendright.presentation.ui.detail_project_activity
+import com.example.task2_attendright.data.local.TaskModel
+import com.example.task2_attendright.presentation.ui.detail_detail_project_activity
+import com.example.task2_attendright.presentation.ui.detail_task_activity
 
-class ProjectAdapter(
+class TaskAdapter(
     private val context: Context,
-    private val projectList: List<ProjectModel>,
+    private val projectList: List<TaskModel>,
 ) :
-    RecyclerView.Adapter<ProjectAdapter.MemberViewHolder>() {
+    RecyclerView.Adapter<TaskAdapter.MemberViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemberViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_project_recycler_view, parent, false)
+            .inflate(R.layout.item_add_task_project, parent, false)
         return MemberViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MemberViewHolder, position: Int) {
         val projects = projectList[position]
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, detail_project_activity::class.java)
+            val intent = Intent(context, detail_task_activity::class.java)
             context.startActivity(intent)
         }
-        holder.bind(projects)
+        holder.bindingData(projects)
     }
 
     override fun getItemCount(): Int = projectList.size
 
     inner class MemberViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val dateproject: TextView = itemView.findViewById(R.id.txt_project_date)
-        private val titleproject: TextView = itemView.findViewById(R.id.txt_project_title)
+        private val taskTitleProject: TextView = itemView.findViewById(R.id.title_task_data)
 
-        fun bind(projects: ProjectModel) {
-            dateproject.text = projects.dateProject
-            titleproject.text = projects.titleProject
+        fun bindingData(task: TaskModel) {
+            taskTitleProject.text = task.taskTitleProject
         }
     }
 }

@@ -15,12 +15,15 @@
 
     <!-- Maps Screen String Resource -->
     <string name="txt_refresh">Refresh</string>
+    <string name="txt_send_task">Send</string>
+    <string name="txt_take_task">Take Task</string>
     <string name="txt_join">Join</string>
     <string name="txt_create_add_meet">Create</string>
     <string name="txt_save_project">Save</string>
     <string name="txt_add_meet">Add Meet</string>
     <string name="txt_add_project">Add Project</string>
     <string name="txt_next">Next</string>
+    <string name="txt_exit">Exit Group</string>
     <string name="txt_success">Done</string>
     <string name="txt_save_add_members">Save</string>
     <string name="txt_wrong_location">Please ensure your location is accurate before capturing the picture.</string>
@@ -96,6 +99,27 @@
     <string name="plus">+</string>
     <string name="_0">0</string>
     <string name="members">Members</string>
+    <string name="project_absensi">Project Absensi</string>
+    <string name="_0_">0%</string>
+    <string name="progress">Progress</string>
+    <string name="completed">Completed</string>
+    <string name="unfinished">Unfinished</string>
+    <string name="create_user_persona">Create User persona</string>
+    <string name="add_task">Add Task</string>
+    <string name="due_date">Due Date</string>
+    <string name="upload_document_picture">Upload Document/Picture</string>
+    <string name="only_jpeg_png_and_jpg_are_accepted_file_size_maximal_10_mb">Only JPEG, PNG and JPG are Accepted File size Maximal 10 Mb</string>
+    <string name="choose_file_to_upload">Choose file to upload</string>
+    <string name="reza_abadi">Reza Abadi</string>
+    <string name="_10_members">10 Members</string>
+    <string name="view_all_6_more">View all (6 more)</string>
+    <string name="search2">Search...</string>
+    <string name="maulana_ahmad_reza_abadi">Maulana Ahmad Reza Abadi</string>
+    <string name="maulanareza_gmail_com">MaulanaReza@gmail.com</string>
+    <string name="user_profile_image">User Profile Image</string>
+    <string name="report_maulana_ahmad_reza_abadi">Report Maulana Ahmad Reza Abadi</string>
+    <string name="attachment">Attachment :</string>
+    <string name="task_result">Task Result</string>
 
 
 </resources>
