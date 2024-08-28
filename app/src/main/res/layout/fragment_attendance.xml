@@ -61,7 +61,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_year"
-            tools:itemCount="3"
+            app:layout_constraintBottom_toBottomOf="@id/tabLayout_attendance"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
             />
 
     <com.google.android.material.tabs.TabLayout

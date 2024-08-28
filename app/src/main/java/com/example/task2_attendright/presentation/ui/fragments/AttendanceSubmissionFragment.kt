@@ -17,6 +17,9 @@ import androidx.transition.Visibility
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.SubmissionList
 import com.example.task2_attendright.databinding.FragmentAttendanceSubmissionBinding
+import com.example.task2_attendright.presentation.ui.activities.AttendanceDetailActivity
+import com.example.task2_attendright.presentation.ui.activities.LeaveReqDetailActivity
+import com.example.task2_attendright.presentation.ui.activities.ShiftChangeDetailActivity
 import com.example.task2_attendright.presentation.ui.activities.SubmissionFabActivity
 import com.example.task2_attendright.presentation.ui.adapter.SubmissionAdapter
 import com.google.android.material.card.MaterialCardView
@@ -72,21 +75,29 @@ class AttendanceSubmissionFragment : Fragment() {
             SubmissionList("Pengajuan Ganti Ke shift..", "Shift Change", "Pending", "32 Nov 2024")
         )
 
-        submissionAdapter = SubmissionAdapter(allItems)
+        submissionAdapter = SubmissionAdapter().apply {
+            setOnItemClickListener { item ->
+                navigateToDetail(item)
+            }
+        }
+
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = submissionAdapter
+
+        // Submit the initial list
+        submissionAdapter.submitList(allItems)
 
         setupTabLayout(tabLayout)
 
         fabAddSubmission.setOnClickListener {
             if (isFabOpen) {
-                closeFab(rootLayout,fabAddSubmission,fabAttendance,fabShiftChange,fabLeaveReq,tvAttendance,tvLeave,tvShiftChange)
+                closeFab(rootLayout, fabAddSubmission, fabAttendance, fabShiftChange, fabLeaveReq, tvAttendance, tvLeave, tvShiftChange)
             } else {
-                openFab(rootLayout,fabAddSubmission,tvAttendance,tvLeave,tvShiftChange,fabAttendance,fabShiftChange,fabLeaveReq,tvAttendance,tvLeave,tvShiftChange)
+                openFab(rootLayout, fabAddSubmission, tvAttendance, tvLeave, tvShiftChange, fabAttendance, fabShiftChange, fabLeaveReq, tvAttendance, tvLeave, tvShiftChange)
             }
         }
 
-        goToFabFragment(fabAttendance,fabShiftChange,fabLeaveReq)
+        goToFabFragment(fabAttendance, fabShiftChange, fabLeaveReq)
     }
 
     companion object {
@@ -98,6 +109,18 @@ class AttendanceSubmissionFragment : Fragment() {
 
                 }
             }
+    }
+
+    private fun navigateToDetail(item: SubmissionList) {
+        val intent = when (item.mode) {
+            "Leave Request" -> Intent(requireContext(), LeaveReqDetailActivity::class.java)
+            "Shift Change" -> Intent(requireContext(), ShiftChangeDetailActivity::class.java)
+            "Attendance" -> Intent(requireContext(), AttendanceDetailActivity::class.java)
+            else -> null
+        }
+        intent?.let {
+            startActivity(it)
+        }
     }
 
     private fun setupTabLayout(tabLayout: TabLayout) {
@@ -115,10 +138,10 @@ class AttendanceSubmissionFragment : Fragment() {
                 tab?.customView?.let {
                     val tabTitle = it.findViewById<TextView>(R.id.tv_tab_title_submission)
                     val cardView = it.findViewById<MaterialCardView>(R.id.cv_tab_title_submission)
-                    tabTitle.setTextColor(resources.getColor(R.color.gray800)) // Warna saat tab dipilih
+                    tabTitle.setTextColor(resources.getColor(R.color.gray800))
                     cardView.setCardBackgroundColor(resources.getColor(R.color.gray100))
                 }
-                filterList(tabTitle(tabLayout.selectedTabPosition)) // Filter list berdasarkan tab yang dipilih
+                filterList(tabTitle(tabLayout.selectedTabPosition))
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -150,7 +173,7 @@ class AttendanceSubmissionFragment : Fragment() {
             "Attendance" -> allItems.filter { it.mode == "Attendance" }
             else -> allItems
         }
-        submissionAdapter.updateData(filteredList)
+        submissionAdapter.submitList(filteredList)
         if (filteredList.isEmpty()) {
             binding!!.rvSubmission.visibility = View.GONE
             binding!!.tvSubmissionIfNull.visibility = View.VISIBLE

@@ -7,13 +7,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.SubmissionList
-import com.google.android.material.card.MaterialCardView
+import com.example.task2_attendright.presentation.ui.adapter.diffutil.SubmissionDiffCallback
 
-class SubmissionAdapter(private var items: List<SubmissionList>) :
-    RecyclerView.Adapter<SubmissionAdapter.SubmissionViewHolder>() {
+class SubmissionAdapter : ListAdapter<SubmissionList, SubmissionAdapter.SubmissionViewHolder>(
+    SubmissionDiffCallback()
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubmissionViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_submission_attendance, parent, false)
@@ -21,17 +23,17 @@ class SubmissionAdapter(private var items: List<SubmissionList>) :
     }
 
     override fun onBindViewHolder(holder: SubmissionViewHolder, position: Int) {
-        val item = items[position]
+        val item = getItem(position)
         holder.bind(item)
+        holder.itemView.setOnClickListener {
+            onItemClicked?.invoke(item)
+        }
     }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    private var onItemClicked: ((SubmissionList) -> Unit)? = null
 
-    fun updateData(newItems: List<SubmissionList>) {
-        items = newItems
-        notifyDataSetChanged()
+    fun setOnItemClickListener(listener: (SubmissionList) -> Unit) {
+        onItemClicked = listener
     }
 
     class SubmissionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -51,17 +53,17 @@ class SubmissionAdapter(private var items: List<SubmissionList>) :
             when (item.status) {
                 "Pending" -> {
                     status.setTextColor(ContextCompat.getColor(itemView.context, R.color.orange500))
-                    cv.setCardBackgroundColor(ContextCompat.getColor(itemView.context,R.color.orangebg))
+                    cv.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.orangebg))
                     icon.setImageResource(R.drawable.rotate_right)
                 }
                 "Approved" -> {
                     status.setTextColor(ContextCompat.getColor(itemView.context, R.color.green500))
-                    cv.setCardBackgroundColor(ContextCompat.getColor(itemView.context,R.color.greenbg))
+                    cv.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.greenbg))
                     icon.setImageResource(R.drawable.icon_check_circle)
                 }
                 "Declined" -> {
                     status.setTextColor(ContextCompat.getColor(itemView.context, R.color.red500))
-                    cv.setCardBackgroundColor(ContextCompat.getColor(itemView.context,R.color.red2))
+                    cv.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.red2))
                     icon.setImageResource(R.drawable.icon_times_circle)
                 }
             }

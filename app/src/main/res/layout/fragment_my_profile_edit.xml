@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:layout_margin="20dp"
     android:scrollbarSize="0dp"
     tools:context=".presentation.ui.fragments.MyProfileEditFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:padding="16dp">
         <ImageView
             android:id="@+id/iv_back_my_profile"
             android:layout_width="wrap_content"
