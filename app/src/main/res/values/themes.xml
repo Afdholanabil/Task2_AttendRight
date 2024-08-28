@@ -1,8 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.Task2_AttendRight" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/p1</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorAccent">@color/white</item>
 
         <item name="checkboxStyle">@style/Widget.Material3.CompoundButton.CheckBox</item>
+
     </style>
 
     <style name="Theme.Task2_AttendRight" parent="Base.Theme.Task2_AttendRight" >
@@ -51,9 +54,8 @@
     </style>
 
     <style name="CustomSpinnerStyle" parent="Widget.AppCompat.Spinner">
-        <item name="android:background">@drawable/bg_spinner_edit_my_profile</item>
-        <item name="android:padding">8dp</item>
-        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@drawable/bg_spinner_style</item>
+        <item name="android:padding">18dp</item>
         <item name="android:popupBackground">@color/white</item>
     </style>
 
@@ -79,6 +81,41 @@
         <item name="textAllCaps">false</item>
         <item name="android:textColor">@color/gray50</item>
         <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="CustomFAB" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="shapeAppearanceOverlay">@style/CustomFABShape</item>
+        <item name="materialThemeOverlay">@style/myCustomThemeForNormalFab</item>
+
+    </style>
+
+    <style name="CustomFAB2" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="shapeAppearanceOverlay">@style/CustomFABShape</item>
+        <item name="materialThemeOverlay">@style/myCustomThemeForExtendedFab</item>
+    </style>
+
+
+    <style name="CustomFABShape" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">60dp</item>
+    </style>
+
+    <style name="myCustomThemeForNormalFab" parent="">
+        <item name="colorSecondary">@color/p1</item>
+        <item name="colorOnSecondary">@color/white</item>
+    </style>
+
+    <style name="myCustomThemeForExtendedFab" parent="">
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorOnSecondary">@color/p1</item>
+    </style>
+
+    <style name="cardUpImage" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="strokeColor">@color/gray300</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="background">@drawable/bg_card_stroke_dot</item>
     </style>
 
 </resources>

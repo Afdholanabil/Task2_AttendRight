@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         app:tabMode="scrollable"
         app:tabGravity="center"
+        android:backgroundTint="@android:color/transparent"
+        android:background="@android:color/transparent"
         app:tabRippleColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,48 +69,105 @@
         app:layout_constraintVertical_chainStyle="packed"
         android:visibility="gone"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_attendance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/calendar_2"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/fab_add_submission"
-        app:layout_constraintEnd_toEndOf="@+id/fab_add_submission"
-        android:visibility="visible"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_leave_request"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/logout"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/fab_attendance"
-        app:layout_constraintEnd_toEndOf="@+id/fab_add_submission"
-        android:visibility="visible"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_shift_change"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/calendar_2"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/fab_leave_request"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add_submission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/vector"
+            android:padding="20dp"
+            style="@style/CustomFAB"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
+            android:elevation="50dp"
+            android:translationZ="100dp"/>
 
-        app:layout_constraintEnd_toEndOf="@+id/fab_add_submission"
-        android:visibility="visible"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_attendance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/calendar_2"
+            style="@style/CustomFAB2"
+            app:layout_constraintBottom_toTopOf="@id/fab_leave_request"
+            app:layout_constraintEnd_toEndOf="@+id/fab_add_submission"
+            app:layout_constraintStart_toStartOf="@id/fab_add_submission"
+            android:visibility="gone"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add_submission"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:src="@drawable/add_white"
-        app:backgroundTint="@color/p1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/tv_fab_attendance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/attendance"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintEnd_toStartOf="@id/fab_attendance"
+            app:layout_constraintTop_toTopOf="@id/fab_attendance"
+            app:layout_constraintBottom_toBottomOf="@id/fab_attendance"
+            android:layout_marginEnd="30dp"/>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_leave_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/logout"
+            style="@style/CustomFAB2"
+            app:layout_constraintBottom_toTopOf="@id/fab_shift_change"
+            app:layout_constraintEnd_toEndOf="@+id/fab_add_submission"
+            app:layout_constraintStart_toStartOf="@id/fab_add_submission"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_fab_leave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/leave_request"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintEnd_toStartOf="@id/fab_leave_request"
+            app:layout_constraintTop_toTopOf="@id/fab_leave_request"
+            app:layout_constraintBottom_toBottomOf="@id/fab_leave_request"
+            android:layout_marginEnd="30dp"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_shift_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/calendar_2"
+            style="@style/CustomFAB2"
+            app:layout_constraintBottom_toTopOf="@+id/fab_add_submission"
+            app:layout_constraintEnd_toEndOf="@+id/fab_add_submission"
+            app:layout_constraintStart_toStartOf="@id/fab_add_submission"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_fab_shift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shift_change"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:fontFamily="@font/poppins_regular"
+            app:layout_constraintEnd_toStartOf="@id/fab_shift_change"
+            app:layout_constraintTop_toTopOf="@id/fab_shift_change"
+            app:layout_constraintBottom_toBottomOf="@id/fab_shift_change"
+            android:layout_marginEnd="30dp"/>
+
+    <FrameLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

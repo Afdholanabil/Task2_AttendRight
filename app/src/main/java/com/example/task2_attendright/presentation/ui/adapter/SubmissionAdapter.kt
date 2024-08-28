@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.task2_attendright.R
@@ -38,7 +39,7 @@ class SubmissionAdapter(private var items: List<SubmissionList>) :
         private val description: TextView = itemView.findViewById(R.id.tv_mode_submission)
         private val dateRange: TextView = itemView.findViewById(R.id.tv_date_submission)
         private val status: TextView = itemView.findViewById(R.id.tv_status_submission)
-        private val cv: MaterialCardView = itemView.findViewById(R.id.cv_status_submission)
+        private val cv: CardView = itemView.findViewById(R.id.cv_status_submission)
         private val icon: ImageView = itemView.findViewById(R.id.iv_status_submission)
 
         fun bind(item: SubmissionList) {

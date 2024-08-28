@@ -1,16 +1,23 @@
 package com.example.task2_attendright.presentation.ui.fragments
 
+import android.content.Intent
+import android.graphics.BlurMaskFilter
+import android.graphics.BlurMaskFilter.Blur
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.Visibility
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.SubmissionList
 import com.example.task2_attendright.databinding.FragmentAttendanceSubmissionBinding
+import com.example.task2_attendright.presentation.ui.activities.SubmissionFabActivity
 import com.example.task2_attendright.presentation.ui.adapter.SubmissionAdapter
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -52,6 +59,12 @@ class AttendanceSubmissionFragment : Fragment() {
         val fabLeaveReq = binding!!.fabLeaveRequest
         val fabShiftChange = binding!!.fabShiftChange
 
+        val tvAttendance = binding!!.tvFabAttendance
+        val tvShiftChange = binding!!.tvFabShift
+        val tvLeave = binding!!.tvFabLeave
+        val rootLayout = binding!!.overlay
+
+
         allItems = listOf(
             SubmissionList("Cuti Hari Raya Keluarga", "Leave Request", "Pending","24 Nov 2023 - 26 Nov 2024" ),
             SubmissionList("Cuti Hari Raya Keluarga", "Leave Request", "Approved", "24 Nov 2023 - 26 Nov 2024"),
@@ -67,11 +80,13 @@ class AttendanceSubmissionFragment : Fragment() {
 
         fabAddSubmission.setOnClickListener {
             if (isFabOpen) {
-                closeFab(fabAttendance,fabShiftChange,fabLeaveReq)
+                closeFab(rootLayout,fabAddSubmission,fabAttendance,fabShiftChange,fabLeaveReq,tvAttendance,tvLeave,tvShiftChange)
             } else {
-                openFab(fabAttendance,fabShiftChange,fabLeaveReq)
+                openFab(rootLayout,fabAddSubmission,tvAttendance,tvLeave,tvShiftChange,fabAttendance,fabShiftChange,fabLeaveReq,tvAttendance,tvLeave,tvShiftChange)
             }
         }
+
+        goToFabFragment(fabAttendance,fabShiftChange,fabLeaveReq)
     }
 
     companion object {
@@ -88,14 +103,13 @@ class AttendanceSubmissionFragment : Fragment() {
     private fun setupTabLayout(tabLayout: TabLayout) {
         val tabTitles = listOf("All", "Work", "Leave", "Shift", "Attendance")
 
-        // Menambahkan tab ke TabLayout dengan custom view
         tabTitles.forEachIndexed { index, title ->
             val tab = tabLayout.newTab()
             tab.customView = createTabView(title)
             tabLayout.addTab(tab)
         }
 
-        // Menangani event saat tab dipilih
+
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.customView?.let {
@@ -153,14 +167,55 @@ class AttendanceSubmissionFragment : Fragment() {
         return tabTitle[position]
     }
 
-    private fun openFab(vararg fabs : FloatingActionButton) {
-        fabs.forEach { it.visibility = View.VISIBLE }
+    private fun openFab(rootLayout:FrameLayout,fabAddSubmission: FloatingActionButton,tvFab : TextView,tvFab2 : TextView,tvFab3 : TextView,vararg fabs : View) {
+        rootLayout.visibility = View.VISIBLE
+
+
+        fabAddSubmission.bringToFront()
+        fabAddSubmission.translationZ = 10f
+        tvFab.bringToFront()
+        tvFab2.bringToFront()
+        tvFab3.bringToFront()
+        fabAddSubmission.animate().setDuration(300).rotation(45f).start()
+        fabs.forEach {
+            it.visibility = View.VISIBLE
+            it.animate().alpha(1.0f).translationY(0f).setDuration(300).start()
+        }
+
         isFabOpen = true
 
     }
 
-    private fun closeFab(vararg fabs : FloatingActionButton) {
-        fabs.forEach { it.visibility = View.GONE }
+    private fun closeFab(rootLayout:FrameLayout,fabAddSubmission: FloatingActionButton,vararg fabs : View) {
+       rootLayout.visibility = View.GONE
+
+        fabAddSubmission.animate().setDuration(300).rotation(0f).start()
+        fabs.forEach {
+            it.animate().alpha(0.0f).translationY(it.height.toFloat()).setDuration(300).withEndAction {
+                it.visibility = View.GONE
+            }.start()
+        }
         isFabOpen = false
+    }
+
+    private fun goToFabFragment(fabAttendance: FloatingActionButton,fabShiftChange: FloatingActionButton,fabLeaveReq: FloatingActionButton){
+        fabAttendance.setOnClickListener {
+            val intent = Intent(requireContext(), SubmissionFabActivity::class.java)
+            intent.putExtra("FRAGMENT_TYPE", "ATTENDANCE")
+            startActivity(intent)
+        }
+
+        fabShiftChange.setOnClickListener {
+            val intent = Intent(requireContext(), SubmissionFabActivity::class.java)
+            intent.putExtra("FRAGMENT_TYPE", "SHIFT_CHANGE")
+            startActivity(intent)
+        }
+
+        fabLeaveReq.setOnClickListener {
+            val intent = Intent(requireContext(), SubmissionFabActivity::class.java)
+            intent.putExtra("FRAGMENT_TYPE", "LEAVE")
+            startActivity(intent)
+        }
+
     }
 }

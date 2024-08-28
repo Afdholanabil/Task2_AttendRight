@@ -132,4 +132,15 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="shift_change">Shift Change</string>
+    <string name="title">Title</string>
+    <string name="shift">Shift</string>
+    <string name="value">Value</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="optional">(Optional)</string>
+    <string name="description">Description</string>
+    <string name="entered_your_description_for_leave_request">Entered your description for Leave Request</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="only_jpeg_png_jpg_are_accepted_file_size_maximal_10_mb"><![CDATA[Only JPEG, PNG & JPG are Accepted File size Maximal 10 Mb]]></string>
+    <string name="choose_file_to_upload">Choose file to upload</string>
 </resources>

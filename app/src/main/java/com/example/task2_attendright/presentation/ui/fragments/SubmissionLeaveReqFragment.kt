@@ -31,11 +31,6 @@ class SubmissionLeaveReqFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SubmissionLeaveReqFragment().apply {
-                arguments = Bundle().apply {
-
-                }
-            }
+        fun newInstance() = SubmissionLeaveReqFragment()
     }
 }
