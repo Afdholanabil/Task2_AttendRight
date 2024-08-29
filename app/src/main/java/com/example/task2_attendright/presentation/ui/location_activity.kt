@@ -3,6 +3,7 @@ package com.example.task2_attendright.presentation.ui
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
@@ -16,10 +17,14 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import org.osmdroid.config.Configuration
+import org.osmdroid.views.overlay.Marker
+import org.osmdroid.wms.BuildConfig
 import java.util.Locale
 
 class location_activity : AppCompatActivity(), OnMapReadyCallback {
@@ -44,7 +49,7 @@ class location_activity : AppCompatActivity(), OnMapReadyCallback {
             getCurrentLocation()
         }
 
-        binding.btnMapsNext.setOnClickListener{
+        binding.btnMapsNext.setOnClickListener {
             val intent = Intent(this, camerax_screen::class.java)
             intent.putExtra("address", currentAddress)
             startActivity(intent)
