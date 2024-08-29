@@ -8,15 +8,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.AttendanceItemCount
+import com.example.task2_attendright.data.local.AttendanceRecord
 import com.example.task2_attendright.databinding.FragmentAttendanceAttendBinding
 import com.example.task2_attendright.presentation.ui.adapter.AttendanceCountDaysAdapter
+import com.example.task2_attendright.presentation.ui.adapter.AttendanceRecordAdapter
 
 
 class AttendanceAttendFragment : Fragment() {
 
     private var _binding : FragmentAttendanceAttendBinding? = null
     private val bindings get() = _binding
-
+    private lateinit var attendanceRecordAdapter: AttendanceRecordAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +50,18 @@ class AttendanceAttendFragment : Fragment() {
 
         rv.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         rv.adapter = AttendanceCountDaysAdapter(items)
+
+        val attendList  = listOf(
+            AttendanceRecord("Sunday, 01 Nov 2024", "Weekend Holiday", ""),
+            AttendanceRecord("Monday, 02 Nov 2024", "--:--", "--:--"),
+
+            )
+
+        attendanceRecordAdapter = AttendanceRecordAdapter(attendList)
+        bindings!!.rvRecordAttendance.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = attendanceRecordAdapter
+        }
     }
 
     companion object {
