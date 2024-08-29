@@ -1,18 +1,22 @@
 package com.example.task2_attendright.presentation.fragments
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.task2_attendright.adapter.CalendarAdapter
 import com.example.task2_attendright.adapter.MeetAdapter
 import com.example.task2_attendright.data.local.MeetModel
+import com.example.task2_attendright.databinding.DialogDatePickerBinding
 import com.example.task2_attendright.databinding.FragmentMeetBinding
 import com.example.task2_attendright.presentation.ui.add_meet_activity
 import com.example.task2_attendright.presentation.ui.meet_detail_activity_offline
@@ -47,9 +51,6 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMeetBinding.inflate(inflater, container, false)
-        arguments?.let {
-
-        }
         return _binding!!.root
     }
 
@@ -69,6 +70,55 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
             val intent = Intent(activity, add_meet_activity::class.java)
             startActivity(intent)
         }
+
+        binding.btnArrowDatePicker.setOnClickListener {
+            showDatePickerDialog()
+        }
+    }
+
+    private fun showDatePickerDialog() {
+        val dialogBinding = DialogDatePickerBinding.inflate(LayoutInflater.from(requireContext()))
+        val daySpinner: Spinner = dialogBinding.spinnerDay
+        val monthSpinner: Spinner = dialogBinding.spinnerMonth
+        val yearSpinner: Spinner = dialogBinding.spinnerYear
+
+        val days = (1..31).map { it.toString() }
+        val months = listOf(
+            "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+            "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+        )
+        val years = (2024..2030).map { it.toString() }
+
+        daySpinner.adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, days)
+        monthSpinner.adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, months)
+        yearSpinner.adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, years)
+
+        val alertDialog = AlertDialog.Builder(requireContext())
+            .setView(dialogBinding.root)
+            .setTitle("Pilih Tanggal")
+            .setPositiveButton("OK") { dialog, _ ->
+//                val selectedDay = daySpinner.selectedItem.toString()
+//                val selectedMonth = monthSpinner.selectedItem.toString()
+//                val selectedYear = yearSpinner.selectedItem.toString()
+//
+//                this.selectedDay = selectedDay.toInt()
+//                this.selectedMonth = selectedMonth.toInt() - 1
+//
+//                cal.set(Calendar.DAY_OF_MONTH, this.selectedDay)
+//                cal.set(Calendar.MONTH, this.selectedMonth)
+//                setUpCalendar(cal)
+
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+
+        alertDialog.show()
     }
 
     companion object {
@@ -134,7 +184,7 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
             }
 
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                TODO("Not yet implemented")
+                // Not yet implemented
             }
         })
     }
@@ -163,13 +213,13 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
 
     val meetData = listOf(
         MeetModel(
-            "Meeeting for World War 3",
+            "Meeting for World War 3",
             "Online",
             "meet.google.com/eer-iuyi-opk",
             "15:20 pm"
         ),
         MeetModel(
-            "Meeeting for World War 3",
+            "Meeting for World War 3",
             "Offline",
             "Ruang Training Graha Pena, Surabaya, Jawa Timur.",
             "10:20 am"

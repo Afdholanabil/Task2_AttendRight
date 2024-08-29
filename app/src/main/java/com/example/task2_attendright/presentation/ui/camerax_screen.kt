@@ -1,6 +1,7 @@
 package com.example.task2_attendright.presentation.ui
 
 import android.Manifest
+import android.R
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -36,7 +37,6 @@ class camerax_screen : AppCompatActivity() {
         getPermissionCamera()
         requestPermission()
         startCamera()
-
 
         binding.switchCamera.setOnClickListener {
             cameraSelector =
@@ -84,7 +84,10 @@ class camerax_screen : AppCompatActivity() {
 
         val photoFile = File(
             externalMediaDirs.firstOrNull(),
-            SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(System.currentTimeMillis()) + ".jpg"
+            SimpleDateFormat(
+                "yyyyMMdd_HHmmss",
+                Locale.US
+            ).format(System.currentTimeMillis()) + ".jpg"
         )
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
@@ -93,18 +96,27 @@ class camerax_screen : AppCompatActivity() {
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    Toast.makeText(this@camerax_screen, "tersimpan di ${photoFile.absolutePath}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this@camerax_screen,
+                        "tersimpan di ${photoFile.absolutePath}",
+                        Toast.LENGTH_LONG
+                    ).show()
                     val locationData = intent.getStringExtra("address")
                     binding.txtLocationData.text = locationData
-                    val intent = Intent(this@camerax_screen, final_clock_in_activity::class.java).apply {
-                        putExtra("imagePath", photoFile.absolutePath)
-                        putExtra("address2", locationData)
-                    }
+                    val intent =
+                        Intent(this@camerax_screen, final_clock_in_activity::class.java).apply {
+                            putExtra("imagePath", photoFile.absolutePath)
+                            putExtra("address2", locationData)
+                        }
                     startActivity(intent)
                 }
 
                 override fun onError(exc: ImageCaptureException) {
-                    Toast.makeText(this@camerax_screen, "Gagal mengambil gambar.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@camerax_screen,
+                        "Gagal mengambil gambar.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     Log.e(TAG, "Gagal mengambil gambar: ${exc.message}", exc)
                 }
             }

@@ -60,7 +60,7 @@
             android:name=".presentation.ui.add_project_activity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.fragmenttTestt"
+            android:name=".presentation.ui.location_activity_osm"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.meet_detail_activity_offline"
@@ -118,7 +118,7 @@
             android:name=".presentation.ui.LoginWEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.location_activity_osm"
+            android:name=".presentation.ui.fragmenttTestt"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

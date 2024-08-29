@@ -32,6 +32,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/btn_arrow_date_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintTop_toTopOf="@id/txt_current_month"
+                app:layout_constraintBottom_toBottomOf="@id/txt_current_month"
+                app:layout_constraintStart_toEndOf="@id/txt_current_month"
+                tools:ignore="ContentDescription" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/calendar_recycler_view"
                 android:layout_width="match_parent"
