@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.add_task_activity"
+        tools:context=".presentation.ui.activities.add_task_activity"
         tools:ignore="ScrollViewSize">
 
         <ImageButton
@@ -300,7 +300,7 @@
                 android:scaleType="centerCrop"
                 tools:ignore="ContentDescription" />
 
-        <com.example.task2_attendright.presentation.customview.CustomButtonSaveProject
+        <com.example.task2_attendright.presentation.ui.customview.CustomButtonSaveProject
             android:id="@+id/btn_create_add_meet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

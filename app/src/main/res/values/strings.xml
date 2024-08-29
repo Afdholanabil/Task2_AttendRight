@@ -49,9 +49,9 @@
     <string name="about_app">About App</string>
     <string name="version_2_24_12_16">Version 2.24.12.16</string>
     <string name="attendright_apps">AttendRight Apps</string>
-    <string name="_2024_pt_otak_kanan">@2024 PT Otak Kanan</string>
+    <string name="_2024_pt_otak_kanan">\@2024 PT Otak Kanan</string>
     <string name="updated_about_apps">Updated</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="current_date">current date</string>
     <string name="meeting_list">Meeting List</string>
@@ -65,22 +65,21 @@
     <string name="time">Time</string>
     <string name="dd_mm_yyyy">dd / mm / yyyy</string>
     <string name="am">--:-- am</string>
-    <string name="description">Description</string>
+
     <string name="entered_your_description_for_meet">Entered your description for Meet</string>
     <string name="add_meeting">Add Meeting</string>
     <string name="add_members">Add Members</string>
     <string name="success">Success</string>
     <string name="you_have_successfully_made_a_presence">You have successfully made a Presence</string>
-    <string name="day">Day</string>
-    <string name="search">Search</string>
+
     <string name="nama">Nama</string>
-    <string name="email">email</string>
+
     <string name="select_all">Select All</string>
     <string name="meeting_for_world_war_3">Meeting for World War 3</string>
     <string name="online">Online</string>
     <string name="_15_20_pm">15:20 pm</string>
     <string name="meet_google_com_eer_iuyi_opk">meet.google.com/eer-iuyi-opk</string>
-    <string name="offline">Offline</string>
+
     <string name="successfully_created">Successfully Created</string>
     <string name="created_by">Created by</string>
     <string name="maulana_ahmad">Maulana Ahmad</string>
@@ -92,7 +91,7 @@
     <string name="today_project">Today Project</string>
     <string name="monday_12_november_2024">Monday, 12 November 2024</string>
     <string name="project_web_design">Project Web Design</string>
-    <string name="_2_000">2.000</string>
+
     <string name="enter_your_description_for_project">Enter your description for project</string>
     <string name="point">Point</string>
     <string name="minus">-</string>
@@ -109,7 +108,6 @@
     <string name="due_date">Due Date</string>
     <string name="upload_document_picture">Upload Document/Picture</string>
     <string name="only_jpeg_png_and_jpg_are_accepted_file_size_maximal_10_mb">Only JPEG, PNG and JPG are Accepted File size Maximal 10 Mb</string>
-    <string name="choose_file_to_upload">Choose file to upload</string>
     <string name="reza_abadi">Reza Abadi</string>
     <string name="_10_members">10 Members</string>
     <string name="view_all_6_more">View all (6 more)</string>
@@ -122,4 +120,154 @@
     <string name="task_result">Task Result</string>
 
 
+    <string name="email">Email</string>
+    <string name="email_hint">email</string>
+    <string name="sigin">Sign In</string>
+    <string name="sigin_with_employee_id">Sign in With Employee ID</string>
+    <string name="sigin_butuh_input">Sign In*</string>
+    <string name="password">Password</string>
+    <string name="password_hint">password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="or">Or</string>
+    <string name="your_password_is_incorrect">Your password is incorrect</string>
+    <string name="home">Home</string>
+    <string name="attendance">Attendance</string>
+
+    <string name="profile">Profile</string>
+
+    <string name="ginanjar_putra">Ginanjar Putra</string>
+    <string name="clockin_out_date_home">Monday, 20 Feb 2024</string>
+    <string name="coin_clockin_out_home">2.000.000</string>
+    <string name="clockin_out_time_home">08.20 WIB</string>
+    <string name="clock_in">Clock In</string>
+    <string name="clock_out">Clock Out</string>
+    <string name="today_tasks">Today Tasks</string>
+    <string name="today_attendance">Today Attendance</string>
+    <string name="see_more">See more</string>
+    <string name="icon_clock_in_attendance">icon clock in attendance</string>
+    <string name="_08_10_wib">08:10 Wib</string>
+    <string name="_10_minutes_late">10 Minutes Late</string>
+    <string name="icon_clock_out_attendance">icon clock out attendance</string>
+    <string name="_16_20_wib">16:20 WIB</string>
+    <string name="go_home">Go Home</string>
+    <string name="project_web_design_intermediate">Project Web Design Intermediate</string>
+    <string name="_2_000">2.000</string>
+    <string name="meeting_today">Meeting Today</string>
+    <string name="meeting_project_wisata">Meeting Project Wisata</string>
+    <string name="icon_location_meeting_today">icon location meeting today</string>
+    <string name="lokasi_meeting_today">Ruang Training Graha Pena, Surabaya, Jawa Timur.</string>
+    <string name="offline">Offline</string>
+    <string name="_10_00_am">10:00 AM</string>
+    <string name="_0098776_ui_ux_developer">0098776 • UI/UX Developer</string>
+    <string name="my_profile">My Profile</string>
+    <string name="icon_my_profile">Icon my profile</string>
+    <string name="icon_see_detail">Icon see detail</string>
+    <string name="job_information">Job Information</string>
+    <string name="poin">Poin</string>
+    <string name="faq">FaQ</string>
+    <string name="setting">Setting</string>
+
+    <string name="log_out">Log Out</string>
+    <string name="edit">Edit</string>
+    <string name="image_profile_in_my_profile">Image profile in my profile</string>
+    <string name="full_name">Full Name</string>
+
+    <string name="gender">Gender</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="phone">Phone</string>
+    <string name="religion">Religion</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="are_you_sure_you_want_to_log_out_of_your_account">are you sure you want to log out of your account?</string>
+    <string name="subtitle_faq">We’re here to help you with anything and everything on AttendRight</string>
+    <string name="search">Search</string>
+    <string name="what_is_attendright">What is AttendRight</string>
+    <string name="icon_back">Icon Back</string>
+    <string name="_2_000_000">2.000.000</string>
+    <string name="total_point">Total Point</string>
+    <string name="rp_2_000_000">Rp 2.000.000</string>
+    <string name="balance">Balance</string>
+    <string name="icon_poin">Icon poin</string>
+    <string name="history">History</string>
+    <string name="january">January</string>
+    <string name="points_transferred">Points transferred</string>
+    <string name="_20_agustus_2024">20 Agustus 2024</string>
+    <string name="item_poin_tf">+ 2.000</string>
+    <string name="_2024">2024</string>
+    <string name="day">Day</string>
+    <string name="late">Late</string>
+    <string name="early_clock_out">Early Clock Out</string>
+    <string name="cuti_hari_raya_keluarga">Cuti Hari Raya Keluarga</string>
+    <string name="leave_request">Leave Request</string>
+    <string name="decline">Decline</string>
+    <string name="_24_nov_2024_26_nov_2024">24 Nov 2024 - 26 Nov 2024</string>
+    <string name="all">All</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+    <string name="shift_change">Shift Change</string>
+    <string name="title">Title</string>
+    <string name="deskripsi">Deskripsi</string>
+
+    <string name="description">Description</string>
+    <string name="entered_your_description_for_leave_request">Entered your description for Leave Request</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="only_jpeg_png_jpg_are_accepted_file_size_maximal_10_mb"><![CDATA[Only JPEG, PNG & JPG are Accepted File size Maximal 10 Mb]]></string>
+    <string name="choose_file_to_upload">Choose file to upload</string>
+    <string name="attendance_request">Attendance Request</string>
+    <string name="lupa_absen">Lupa Absen</string>
+    <string name="approved_by">Approved by :</string>
+    <string name="attechment">Attechment :</string>
+    <string name="image_attechment">Image attechment</string>
+    <string name="cancel_submission">Cancel Submission</string>
+    <string name="nov_10_2024_nov_11_2024">Nov 10, 2024 - Nov 11, 2024</string>
+    <string name="_9d">9d</string>
+    <string name="izin_bermain">Izin Bermain</string>
+    <string name="date_image">date image</string>
+    <string name="effective_date">Effective Date</string>
+    <string name="shift_now">Shift Now</string>
+
+    <string name="strip">-</string>
+    <string name="shift_submission">Shift Submission</string>
+    <string name="shift_siang_13_30_17_00">Shift Siang (13.30-17.00)</string>
 </resources>

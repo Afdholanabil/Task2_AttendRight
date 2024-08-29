@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.meet_detail_activity_offline"
+        tools:context=".presentation.ui.activities.meet_detail_activity_offline"
         tools:ignore="ScrollViewSize">
 
         <ImageButton
@@ -294,7 +294,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/constraintAddMembers" />
 
-        <com.example.task2_attendright.presentation.customview.CustomButtonJoinMember
+        <com.example.task2_attendright.presentation.ui.customview.CustomButtonJoinMember
             android:id="@+id/btn_join_member"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

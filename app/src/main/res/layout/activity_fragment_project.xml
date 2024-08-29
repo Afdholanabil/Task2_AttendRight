@@ -5,6 +5,6 @@
     android:id="@+id/fragment_project"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.fragment_project">
+    tools:context=".presentation.ui.activities.fragment_project">
 
 </FrameLayout>

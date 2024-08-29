@@ -5,10 +5,202 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.LoginWEmailActivity">
+    android:padding="16dp"
+    tools:context=".presentation.ui.activities.LoginWEmailActivity">
 
     <TextView
+        android:id="@+id/tv_title_login_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints" />
+        android:text="@string/attendright"
+        android:textSize="22.84sp"
+        android:textColor="@color/gray1"
+        android:fontFamily="@font/montserrat_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@id/iv_title_login_email"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="7dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_title_login_email"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/group_215"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintStart_toEndOf="@id/tv_title_login_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title_login_email"/>
+
+    <TextView
+        android:id="@+id/tv_title_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="16sp"
+        android:textColor="@color/gray500"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_login_email"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="50dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_email_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_edit_text_login"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeErrorColor="@color/red500"
+        app:hintEnabled="false"
+
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            app:hintTextColor="@color/gray1"
+            android:hint="@string/email_hint"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/gray200"
+            android:fontFamily="@font/poppins_regular"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_title_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="16sp"
+        android:textColor="@color/gray500"
+        app:layout_constraintTop_toBottomOf="@id/tl_email_login"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_pw_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_pw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_edit_text_login"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxStrokeWidth="0dp"
+        app:endIconCheckable="true"
+        app:passwordToggleDrawable="@drawable/show"
+        app:passwordToggleEnabled="true"
+        app:hintEnabled="false"
+        app:endIconDrawable="@drawable/show"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_pw_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:hint="@string/password_hint"
+            app:hintTextColor="@color/gray1"
+            android:inputType="textPassword"
+            android:textColorHint="@color/gray200"
+            android:fontFamily="@font/poppins_regular"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_error_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_password_is_incorrect"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="12sp"
+        android:textColor="@color/red500"
+        app:layout_constraintTop_toBottomOf="@id/tl_pw_login"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tl_pw_login"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remember_me"
+        android:textSize="14sp"
+        android:textColor="@color/gray500"
+        android:fontFamily="@font/poppins_regular"
+        app:layout_constraintStart_toEndOf="@id/checkbox_login"
+        app:layout_constraintTop_toTopOf="@id/checkbox_login"
+        app:layout_constraintBottom_toBottomOf="@id/checkbox_login"
+        />
+
+    <TextView
+        android:id="@+id/tv_lupa_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password"
+        android:textSize="14sp"
+        android:textColor="@color/blue1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/checkbox_login"
+        app:layout_constraintBottom_toBottomOf="@id/checkbox_login"/>
+
+    <com.example.task2_attendright.presentation.ui.customview.MyButton
+        android:id="@+id/btn_signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/sigin"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"/>
+
+    <include
+        android:id="@+id/include_divider"
+        layout="@layout/divider"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_signin"
+        android:layout_marginTop="40dp"
+      />
+
+    <com.example.task2_attendright.presentation.ui.customview.MyButtonSignInEmployee
+        android:id="@+id/btn_signin_with_employee_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="@color/blue1"
+        android:text="@string/sigin_with_employee_id"
+        app:layout_constraintTop_toBottomOf="@id/include_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

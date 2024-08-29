@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragments.MeetFragment">
+    tools:context=".presentation.ui.fragments.MeetFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -69,7 +69,7 @@
             app:layout_constraintTop_toBottomOf="@id/constraint" />
 
 
-        <com.example.task2_attendright.presentation.customview.CustomButtonAddMeet
+        <com.example.task2_attendright.presentation.ui.customview.CustomButtonAddMeet
             android:id="@+id/btn_add_meet"
             android:layout_width="124dp"
             android:layout_height="34dp"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_gray"
-    tools:context=".presentation.ui.detail_project_activity">
+    tools:context=".presentation.ui.activities.detail_project_activity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -177,7 +177,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <com.example.task2_attendright.presentation.customview.CustomFloatingButton
+    <com.example.task2_attendright.presentation.ui.customview.CustomFloatingButton
         android:id="@+id/floatingButtonAddTask"
         android:layout_width="58dp"
         android:layout_height="58dp"

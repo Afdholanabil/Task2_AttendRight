@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.ui.final_clock_in_activity">
+    tools:context=".presentation.ui.activities.final_clock_in_activity">
 
     <ImageView
         android:id="@+id/image_view"
@@ -50,7 +50,7 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <com.example.task2_attendright.presentation.customview.CustomButtonFinalClockInBack
+        <com.example.task2_attendright.presentation.ui.customview.CustomButtonFinalClockInBack
             android:id="@+id/btn_maps_back"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             app:layout_constraintRight_toLeftOf="@id/btn_maps_next"
             tools:ignore="MissingConstraints" />
 
-        <com.example.task2_attendright.presentation.customview.CustomButtonFinalClockIn
+        <com.example.task2_attendright.presentation.ui.customview.CustomButtonFinalClockIn
             android:id="@+id/btn_maps_next"
             android:layout_width="160dp"
             android:layout_height="wrap_content"

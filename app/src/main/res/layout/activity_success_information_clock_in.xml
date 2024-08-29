@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_gray"
     android:orientation="vertical"
-    tools:context=".presentation.ui.success_information_clock_in">
+    tools:context=".presentation.ui.activities.success_information_clock_in">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/success_animation"
@@ -94,7 +94,7 @@
             app:layout_constraintTop_toBottomOf="@id/txt_successTime" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.example.task2_attendright.presentation.customview.CustomButtonDoneSuccessInformation
+    <com.example.task2_attendright.presentation.ui.customview.CustomButtonDoneSuccessInformation
         android:id="@+id/btn_success_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

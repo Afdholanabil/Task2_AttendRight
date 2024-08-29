@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.about_apps_activity">
+    tools:context=".presentation.ui.activities.about_apps_activity">
 
     <ImageView
         android:id="@+id/img_arrow_back_2"
@@ -91,7 +91,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo_attendright_about_apps"/>
 
-    <com.example.task2_attendright.presentation.customview.CustomButtonAboutApps
+    <com.example.task2_attendright.presentation.ui.customview.CustomButtonAboutApps
         android:id="@+id/btn_maps_refresh"
         android:layout_width="160dp"
         android:layout_height="wrap_content"

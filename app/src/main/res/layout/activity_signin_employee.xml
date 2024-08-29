@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_gray"
-    tools:context=".presentation.ui.signin_employee_activity">
+    tools:context=".presentation.ui.activities.signin_employee_activity">
 
     <ImageView
         android:id="@+id/logo_attendright"
@@ -118,7 +118,7 @@
         android:checked="false"
         tools:ignore="MissingConstraints,RtlHardcoded" />
 
-    <com.example.task2_attendright.presentation.customview.CustomButton
+    <com.example.task2_attendright.presentation.ui.customview.CustomButton
         android:id="@+id/btn_signin_employee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
         app:layout_constraintTop_toBottomOf="@id/btn_signin_employee"
         tools:ignore="MissingConstraints,RtlHardcoded" />
 
-    <com.example.task2_attendright.presentation.customview.CustomButtonSignInEmailEmployee
+    <com.example.task2_attendright.presentation.ui.customview.CustomButtonSignInEmailEmployee
         android:id="@+id/btn_signin_with_employee_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

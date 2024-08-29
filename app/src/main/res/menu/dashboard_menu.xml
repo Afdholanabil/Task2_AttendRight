@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_2"
+        android:title="@string/home"
+        />
+
+    <item
+        android:id="@+id/navigation_attendance"
+        android:icon="@drawable/clipboard_tick"
+        android:title="@string/attendance"
+        />
+
+    <item
+        android:id="@+id/navigation_project"
+        android:icon="@drawable/task_square"
+        android:title="@string/project"
+        />
+
+    <item
+        android:id="@+id/navigation_meet"
+        android:icon="@drawable/frame_343"
+        android:title="@string/meet"
+        />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/user"
+        android:title="@string/profile"
+        />
+</menu>

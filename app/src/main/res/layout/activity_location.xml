@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.location_activity">
+    tools:context=".presentation.ui.activities.location_activity">
 
     <fragment
         android:id="@+id/map"
@@ -36,7 +36,7 @@
             android:src="@drawable/profile"
             tools:ignore="ContentDescription" />
 
-        <com.example.task2_attendright.presentation.customview.CustomButtonRefreshMaps
+        <com.example.task2_attendright.presentation.ui.customview.CustomButtonRefreshMaps
             android:id="@+id/btn_maps_refresh"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             app:layout_constraintRight_toLeftOf="@id/btn_maps_next"
             tools:ignore="MissingConstraints" />
 
-        <com.example.task2_attendright.presentation.customview.CustomButtonNextMaps
+        <com.example.task2_attendright.presentation.ui.customview.CustomButtonNextMaps
             android:id="@+id/btn_maps_next"
             android:layout_width="160dp"
             android:layout_height="wrap_content"

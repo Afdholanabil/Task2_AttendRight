@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.detail_detail_project_activity"
+        tools:context=".presentation.ui.activities.detail_detail_project_activity"
         tools:ignore="ScrollViewSize">
 
         <ImageButton
@@ -268,7 +268,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="MissingConstraints" />
 
-        <com.example.task2_attendright.presentation.customview.CustomButtonExitGroup
+        <com.example.task2_attendright.presentation.ui.customview.CustomButtonExitGroup
             android:id="@+id/btn_exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

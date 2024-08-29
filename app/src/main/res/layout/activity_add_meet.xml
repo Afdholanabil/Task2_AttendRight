@@ -10,7 +10,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.add_meet_activity"
+        tools:context=".presentation.ui.activities.add_meet_activity"
         tools:ignore="ScrollViewSize">
 
         <ImageButton
@@ -389,7 +389,7 @@
         </LinearLayout>
 
 
-        <com.example.task2_attendright.presentation.customview.CustomButtonCreateAddMeet
+        <com.example.task2_attendright.presentation.ui.customview.CustomButtonCreateAddMeet
             android:id="@+id/btn_create_add_meet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
