@@ -1,18 +1,22 @@
 package com.example.task2_attendright.presentation.fragments
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.task2_attendright.adapter.CalendarAdapter
 import com.example.task2_attendright.adapter.ProjectAdapter
 import com.example.task2_attendright.data.local.ProjectModel
+import com.example.task2_attendright.databinding.DialogDatePickerBinding
 import com.example.task2_attendright.databinding.FragmentProjectBinding
 import com.example.task2_attendright.presentation.ui.add_project_activity
 import java.text.SimpleDateFormat
@@ -56,6 +60,10 @@ class ProjectFragment : Fragment() {
         lastDayInCalendar.add(Calendar.MONTH, 6)
         setUpCalendar()
 
+        binding.btnArrowDatePicker.setOnClickListener {
+            showDatePickerDialog()
+        }
+
         val projectAdapter = ProjectAdapter(requireContext(), projectData)
         binding.rvDataProject.layoutManager = LinearLayoutManager(context)
         binding.rvDataProject.adapter = projectAdapter
@@ -64,6 +72,51 @@ class ProjectFragment : Fragment() {
             val intent = Intent(activity, add_project_activity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun showDatePickerDialog() {
+        val dialogBinding = DialogDatePickerBinding.inflate(LayoutInflater.from(requireContext()))
+        val daySpinner: Spinner = dialogBinding.spinnerDay
+        val monthSpinner: Spinner = dialogBinding.spinnerMonth
+        val yearSpinner: Spinner = dialogBinding.spinnerYear
+
+        val days = (1..31).map { it.toString() }
+        val months = listOf(
+            "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+            "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+        )
+        val years = (2024..2030).map { it.toString() }
+
+        daySpinner.adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, days)
+        monthSpinner.adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, months)
+        yearSpinner.adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, years)
+
+        val alertDialog = AlertDialog.Builder(requireContext())
+            .setView(dialogBinding.root)
+            .setTitle("Pilih Tanggal")
+            .setPositiveButton("OK") { dialog, _ ->
+//                val selectedDay = daySpinner.selectedItem.toString()
+//                val selectedMonth = monthSpinner.selectedItem.toString()
+//                val selectedYear = yearSpinner.selectedItem.toString()
+//
+//                this.selectedDay = selectedDay.toInt()
+//                this.selectedMonth = selectedMonth.toInt() - 1
+//
+//                cal.set(Calendar.DAY_OF_MONTH, this.selectedDay)
+//                cal.set(Calendar.MONTH, this.selectedMonth)
+//                setUpCalendar(cal)
+
+                dialog.dismiss()
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+
+        alertDialog.show()
     }
 
     companion object {
