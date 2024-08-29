@@ -4,4 +4,122 @@
     <string name="icon_app">Icon App</string>
     <string name="vector_splash_screen_1">Vector Splash Screen 1</string>
     <string name="vector_splash_screen_2">Vector Splash Screen 2</string>
+
+    <!-- Sign In Employee Screen String Resource -->
+    <string name="txt_employee_id">Employee ID</string>
+    <string name="pw_employee">Password</string>
+    <string name="remember_employee">Remember Me</string>
+    <string name="txt_btn_signin_employee">Sign In</string>
+    <string name="or_employee">Or</string>
+    <string name="txt_btn_signin_email_employee">Sign In With Email</string>
+
+    <!-- Maps Screen String Resource -->
+    <string name="txt_refresh">Refresh</string>
+    <string name="txt_send_task">Send</string>
+    <string name="txt_take_task">Take Task</string>
+    <string name="txt_join">Join</string>
+    <string name="txt_create_add_meet">Create</string>
+    <string name="txt_save_project">Save</string>
+    <string name="txt_add_meet">Add Meet</string>
+    <string name="txt_add_project">Add Project</string>
+    <string name="txt_next">Next</string>
+    <string name="txt_exit">Exit Group</string>
+    <string name="txt_success">Done</string>
+    <string name="txt_save_add_members">Save</string>
+    <string name="txt_wrong_location">Please ensure your location is accurate before capturing the picture.</string>
+
+    <!-- Clock In Screen String Resource -->
+    <string name="btn_clock_in">Clock In</string>
+    <string name="btn_clock_in_back">Back</string>
+
+    <string name="title_job_information">Job Information</string>
+    <string name="_0098776">0098776</string>
+    <string name="ui_ux_developer">UI/UX Developer</string>
+    <string name="qurrota_a_yun">Qurrota A’yun</string>
+    <string name="company_name">Company Name</string>
+    <string name="pt_otak_kanan">PT Otak Kanan</string>
+    <string name="graha_pena_office">Graha Pena Office</string>
+    <string name="shift_pagi_08_00_13_00">Shift Pagi (08.00 - 13.00)</string>
+    <string name="shift">Shift</string>
+    <string name="position">Position</string>
+    <string name="division">Division</string>
+    <string name="divisi_it">Divisi IT</string>
+    <string name="join_date">Join Date</string>
+    <string name="_10_januari_2024">10 Januari 2024</string>
+    <string name="about_app">About App</string>
+    <string name="version_2_24_12_16">Version 2.24.12.16</string>
+    <string name="attendright_apps">AttendRight Apps</string>
+    <string name="_2024_pt_otak_kanan">@2024 PT Otak Kanan</string>
+    <string name="updated_about_apps">Updated</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="current_date">current date</string>
+    <string name="meeting_list">Meeting List</string>
+    <string name="meet">Meet</string>
+    <string name="tittle">Tittle</string>
+    <string name="value">Value</string>
+    <string name="project">Project</string>
+    <string name="optional">(Optional)</string>
+    <string name="meeting_mode">Meeting Mode</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="dd_mm_yyyy">dd / mm / yyyy</string>
+    <string name="am">--:-- am</string>
+    <string name="description">Description</string>
+    <string name="entered_your_description_for_meet">Entered your description for Meet</string>
+    <string name="add_meeting">Add Meeting</string>
+    <string name="add_members">Add Members</string>
+    <string name="success">Success</string>
+    <string name="you_have_successfully_made_a_presence">You have successfully made a Presence</string>
+    <string name="day">Day</string>
+    <string name="search">Search</string>
+    <string name="nama">Nama</string>
+    <string name="email">email</string>
+    <string name="select_all">Select All</string>
+    <string name="meeting_for_world_war_3">Meeting for World War 3</string>
+    <string name="online">Online</string>
+    <string name="_15_20_pm">15:20 pm</string>
+    <string name="meet_google_com_eer_iuyi_opk">meet.google.com/eer-iuyi-opk</string>
+    <string name="offline">Offline</string>
+    <string name="successfully_created">Successfully Created</string>
+    <string name="created_by">Created by</string>
+    <string name="maulana_ahmad">Maulana Ahmad</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_feugiat_pellentesque_tellus_feugiat_tristique_porttitor_proin_feugiat_placerat_pulvinar_adipiscing_luctus_sed_viverra_congue_sit_view_more">Lorem ipsum dolor sit amet consectetur. Feugiat pellentesque tellus feugiat tristique porttitor proin feugiat placerat. Pulvinar adipiscing luctus sed viverra congue sit</string>
+    <string name="view_more">View more...</string>
+    <string name="date_time_nov_10_2024_23_59_wib">Date/Time : Nov 10, 2024 - 23.59 WIB</string>
+    <string name="_3_members">3 Members</string>
+    <string name="ruang_training_graha_pena_surabaya_jawa_timur">Ruang Training Graha Pena, Surabaya.</string>
+    <string name="today_project">Today Project</string>
+    <string name="monday_12_november_2024">Monday, 12 November 2024</string>
+    <string name="project_web_design">Project Web Design</string>
+    <string name="_2_000">2.000</string>
+    <string name="enter_your_description_for_project">Enter your description for project</string>
+    <string name="point">Point</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="_0">0</string>
+    <string name="members">Members</string>
+    <string name="project_absensi">Project Absensi</string>
+    <string name="_0_">0%</string>
+    <string name="progress">Progress</string>
+    <string name="completed">Completed</string>
+    <string name="unfinished">Unfinished</string>
+    <string name="create_user_persona">Create User persona</string>
+    <string name="add_task">Add Task</string>
+    <string name="due_date">Due Date</string>
+    <string name="upload_document_picture">Upload Document/Picture</string>
+    <string name="only_jpeg_png_and_jpg_are_accepted_file_size_maximal_10_mb">Only JPEG, PNG and JPG are Accepted File size Maximal 10 Mb</string>
+    <string name="choose_file_to_upload">Choose file to upload</string>
+    <string name="reza_abadi">Reza Abadi</string>
+    <string name="_10_members">10 Members</string>
+    <string name="view_all_6_more">View all (6 more)</string>
+    <string name="search2">Search...</string>
+    <string name="maulana_ahmad_reza_abadi">Maulana Ahmad Reza Abadi</string>
+    <string name="maulanareza_gmail_com">MaulanaReza@gmail.com</string>
+    <string name="user_profile_image">User Profile Image</string>
+    <string name="report_maulana_ahmad_reza_abadi">Report Maulana Ahmad Reza Abadi</string>
+    <string name="attachment">Attachment :</string>
+    <string name="task_result">Task Result</string>
+
+
 </resources>

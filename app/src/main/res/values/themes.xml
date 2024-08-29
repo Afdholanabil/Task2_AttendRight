@@ -3,7 +3,13 @@
     <style name="Base.Theme.Task2_AttendRight" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<!--        <item name="colorPrimary">#F29727</item>-->
+<!--        <item name="colorSecondary">#FFFFFF</item>-->
     </style>
 
-    <style name="Theme.Task2_AttendRight" parent="Base.Theme.Task2_AttendRight" />
+    <style name="Theme.Task2_AttendRight" parent="Base.Theme.Task2_AttendRight">
+        <item name="colorPrimary">#F29727</item>
+        <item name="colorSecondary">#FFFFFF</item>
+    </style>
+
 </resources>

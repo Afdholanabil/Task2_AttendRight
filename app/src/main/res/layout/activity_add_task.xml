@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.add_task_activity"
+        tools:ignore="ScrollViewSize">
+
+        <ImageButton
+            android:id="@+id/btn_arrow_back_project"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="46dp"
+            android:background="@color/bg_gray"
+            android:src="@drawable/ic_arrow_back_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/linear_title_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/btn_arrow_back_project"
+            app:layout_constraintStart_toEndOf="@id/btn_arrow_back_project"
+            app:layout_constraintTop_toTopOf="@id/btn_arrow_back_project"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/title_about_apps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/add_task"
+                android:textColor="@color/gray3"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_title_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/tittle"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_title_task"
+            tools:ignore="MissingConstraints,RtlHardcoded">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/title_edittext_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/value"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#D3D3D3"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_task"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_date_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/due_date"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_edittext_task"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/date_edittext_project"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/dd_mm_yyyy"
+            android:inputType="date"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#D3D3D3"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_date_task"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_time_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/time"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/date_edittext_project"
+            app:layout_constraintTop_toBottomOf="@id/title_edittext_task"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/time_edittext_project"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/am"
+            android:inputType="time"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#D3D3D3"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/date_edittext_project"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_time_task"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/txt_title_deskripsi_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/description"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_edittext_project"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/txt_title_deskripsi_optional_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/optional"
+            android:textColor="@color/gray2"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_title_deskripsi_task"
+            app:layout_constraintStart_toEndOf="@id/txt_title_deskripsi_task"
+            app:layout_constraintTop_toTopOf="@id/txt_title_deskripsi_task"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/description_edittext_task"
+            android:layout_width="match_parent"
+            android:layout_height="124dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/rounded_edittext_employee_id"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="top|start"
+            android:hint="@string/value"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:maxLines="5"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#D3D3D3"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_deskripsi_optional_project"
+            tools:ignore="Autofill,MissingConstraints,TextFields" />
+
+        <TextView
+            android:id="@+id/enter_description_text_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/enter_your_description_for_project"
+            android:textColor="@color/gray4"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_edittext_task"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/ic_document_upload"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/ic_document_upload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enter_description_text_task"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txt_title_add_member_meet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/upload_document_picture"
+            android:textColor="@color/gray2"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_document_upload"
+            app:layout_constraintStart_toEndOf="@id/ic_document_upload"
+            app:layout_constraintTop_toTopOf="@id/ic_document_upload"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/txt_title_description_document_task"
+            android:layout_width="235dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/only_jpeg_png_and_jpg_are_accepted_file_size_maximal_10_mb"
+            android:textColor="@color/gray2"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_document_upload"
+            tools:ignore="MissingConstraints,RtlHardcoded" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/uploadArea"
+            android:layout_width="115dp"
+            android:layout_height="145dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/dashed_border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_description_document_task"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/uploadIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="33dp"
+                android:src="@drawable/ic_document_upload"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/txt_title_description_chooseFile_task"
+                android:layout_width="68dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/choose_file_to_upload"
+                android:textAlignment="center"
+                android:textColor="@color/gray2"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/uploadIcon"
+                tools:ignore="MissingConstraints,RtlHardcoded" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/uploadedImage"
+                android:layout_width="115dp"
+                android:layout_height="145dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/uploadArea"
+                app:layout_constraintTop_toTopOf="@id/uploadArea"
+                app:layout_constraintBottom_toBottomOf="@id/uploadArea"
+                android:background="@drawable/dashed_border"
+                android:scaleType="centerCrop"
+                tools:ignore="ContentDescription" />
+
+        <com.example.task2_attendright.presentation.customview.CustomButtonSaveProject
+            android:id="@+id/btn_create_add_meet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="20dp"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/uploadArea" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

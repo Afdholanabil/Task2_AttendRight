@@ -2,6 +2,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_IMAGES"
+        tools:ignore="SelectedPhotoAccess" />
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_VIDEO"
+        tools:ignore="SelectedPhotoAccess" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,10 +36,89 @@
         android:theme="@style/Theme.Task2_AttendRight"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.ui.LoginWEmailActivity"
+            android:name=".presentation.ui.location_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.detail_task_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.task_member_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.detail_detail_project_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.add_task_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.detail_project_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.add_members_project_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.add_project_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.location_activity_osm"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.meet_detail_activity_offline"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.meet_detail_activity_online"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.signin_employee_activity"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".presentation.ui.fragment_project"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.add_meet_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.about_apps_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.job_information_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.success_information_clock_in"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.final_clock_in_activity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.camerax_screen"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDDZK2SFediPD6p6joRojoMl6pNwhUXKW8" />
+
+        <activity
+            android:name=".presentation.ui.add_members_activity"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.LoginWEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.fragmenttTestt"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

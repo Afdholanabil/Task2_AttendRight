@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    tools:context=".presentation.ui.add_members_project_activity">
+
+    <ImageButton
+        android:id="@+id/btn_arrow_back_add_members"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="46dp"
+        android:background="@color/bg_gray"
+        android:src="@drawable/ic_arrow_back_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/linear_title_add_members"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/btn_arrow_back_add_members"
+        app:layout_constraintStart_toEndOf="@id/btn_arrow_back_add_members"
+        app:layout_constraintTop_toTopOf="@id/btn_arrow_back_add_members"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/title_add_members"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/add_members"
+            android:textColor="@color/gray3"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_save_add_members"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/txt_save_add_members"
+        android:textColor="@color/blue1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/linear_title_add_members"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/linear_title_add_members"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchBar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/rounded_search_view_add_members"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_title_add_members">
+
+        <ImageView
+            android:id="@+id/ic_search_add_members"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edittext_add_members"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="11dp"
+            android:background="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="@string/search"
+            android:maxLines="1"
+            android:textColor="@color/fontgray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ic_search_add_members"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="Autofill,TextFields" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/constraintCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchBar"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/txt_check_all_add_members"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/select_all"
+            android:textColor="@color/gray3"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <CheckBox
+            android:id="@+id/checkbox_select_all_members"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:checked="false"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/poppins_medium"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/members_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/bg_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchBar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

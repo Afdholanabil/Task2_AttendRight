@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -35,7 +36,8 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true }
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -48,4 +50,21 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    val CAMERAX_VERSION = "1.2.3"
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.osmdroid.android)
+    implementation(libs.osmdroid.wms)
+
+
+    val lottieVersion = "6.0.0"
+    implementation(libs.lottie)
+
+    //gmaps
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
+    implementation(libs.androidx.cardview)
+    implementation(libs.material)
 }
