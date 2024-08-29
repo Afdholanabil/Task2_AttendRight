@@ -60,7 +60,6 @@ class MonthAdapter(private val longMonth : List<String>, private val shortMonth:
                 centerMonthListener.onCenterMonth(selectedPosition)
             }
         }
-
     }
 
     private fun calculateCenterOffset(recyclerView: RecyclerView, position: Int): Int {

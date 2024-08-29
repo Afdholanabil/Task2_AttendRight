@@ -83,8 +83,6 @@ class AttendanceSubmissionFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = submissionAdapter
-
-        // Submit the initial list
         submissionAdapter.submitList(allItems)
 
         setupTabLayout(tabLayout)
@@ -138,8 +136,8 @@ class AttendanceSubmissionFragment : Fragment() {
                 tab?.customView?.let {
                     val tabTitle = it.findViewById<TextView>(R.id.tv_tab_title_submission)
                     val cardView = it.findViewById<MaterialCardView>(R.id.cv_tab_title_submission)
-                    tabTitle.setTextColor(resources.getColor(R.color.gray800))
-                    cardView.setCardBackgroundColor(resources.getColor(R.color.gray100))
+                    tabTitle.setTextColor(resources.getColorStateList(R.color.text_month_selector, null))
+                    cardView.setCardBackgroundColor(resources.getColorStateList(R.color.card_month_selector, null))
                 }
                 filterList(tabTitle(tabLayout.selectedTabPosition))
             }
@@ -148,7 +146,7 @@ class AttendanceSubmissionFragment : Fragment() {
                 tab?.customView?.let {
                     val tabTitle = it.findViewById<TextView>(R.id.tv_tab_title_submission)
                     val cardView = it.findViewById<MaterialCardView>(R.id.cv_tab_title_submission)
-                    tabTitle.setTextColor(resources.getColor(R.color.gray400)) // Warna saat tab tidak dipilih
+                    tabTitle.setTextColor(resources.getColor(R.color.gray400))
                     cardView.setCardBackgroundColor(resources.getColor(R.color.gray100))
                 }
             }

@@ -12,6 +12,7 @@ import com.example.task2_attendright.data.local.TodayTask
 import com.example.task2_attendright.databinding.FragmentHomeBinding
 import com.example.task2_attendright.presentation.ui.adapter.MeetingTodayAdapter
 import com.example.task2_attendright.presentation.ui.adapter.TodayTasksAdapter
+import com.example.task2_attendright.presentation.ui.customview.MyCircularProgress
 
 
 class HomeFragment : Fragment() {
@@ -38,9 +39,9 @@ class HomeFragment : Fragment() {
         binding!!.rvTodayTasks.isNestedScrollingEnabled = false
         binding!!.rvMeetingToday.isNestedScrollingEnabled = false
         val dummyTasks = listOf(
-            TodayTask("08:00 WIB", "Daily Standup Meeting"),
-            TodayTask("10:00 WIB", "Design Review"),
-            TodayTask("13:00 WIB", "Development Sprint")
+            TodayTask("08:00 WIB", "Daily Standup Meeting",20),
+            TodayTask("10:00 WIB", "Design Review",10),
+            TodayTask("13:00 WIB", "Development Sprint",69)
         )
 
         val dummyMeetings = listOf(
@@ -52,6 +53,13 @@ class HomeFragment : Fragment() {
         recyclerViewTodayTask.adapter = TodayTasksAdapter(dummyTasks)
         recyclerViewTodayMeeting.adapter = MeetingTodayAdapter(dummyMeetings)
         return binding!!.root
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
     companion object {

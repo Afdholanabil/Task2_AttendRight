@@ -107,7 +107,7 @@ class AttendanceFragment : Fragment(), MonthAdapter.CenterMonthListener{
                         Log.e(TAG, "RecyclerView is still not ready after delay, fallback to normal scroll")
                         layoutManager?.scrollToPosition(position)
                     }
-                }, 300) // Sesuaikan delay jika diperlukan
+                }, 300)
             } else {
                 Log.d(TAG, "LayoutManager and View at position $position are ready, scrolling to position with offset")
                 layoutManager.scrollToPositionWithOffset(position, calculateCenterOffset(position))
@@ -122,7 +122,7 @@ class AttendanceFragment : Fragment(), MonthAdapter.CenterMonthListener{
         val view = layoutManager.findViewByPosition(position)
         val itemWidth = view?.width ?: 200
         val screenWidth = resources.displayMetrics.widthPixels
-        return (screenWidth / 2) - (itemWidth / 2)
+        return (screenWidth/2) - (itemWidth/2)
     }
 
     private fun showYearPickerDialog(button: MaterialButton) {

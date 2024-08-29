@@ -1,3 +1,3 @@
 package com.example.task2_attendright.data.local
 
-data class TodayTask(val time: String, val description: String)
+data class TodayTask(val time: String, val description: String, val progress:Int)

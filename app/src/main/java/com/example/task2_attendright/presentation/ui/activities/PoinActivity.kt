@@ -61,10 +61,8 @@ class PoinActivity : AppCompatActivity() {
                     cardView.isSelected = false
                 }
             }
-
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
-
         back()
     }
 

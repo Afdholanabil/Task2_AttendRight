@@ -1,10 +1,11 @@
 <!-- res/layout/item_month.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center"
     android:layout_marginHorizontal="20dp">
+
     <TextView
         android:id="@+id/tv_month_name"
         android:layout_width="wrap_content"
@@ -13,5 +14,5 @@
         android:textSize="22sp"
         android:fontFamily="@font/poppins_semibold"
         android:paddingHorizontal="8dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"/>
 </LinearLayout>
