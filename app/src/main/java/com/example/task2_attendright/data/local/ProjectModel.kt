@@ -4,7 +4,8 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class ProjectModel (
+data class ProjectModel(
     val dateProject: String,
     val titleProject: String,
+    val progress: Int
 ) : Parcelable

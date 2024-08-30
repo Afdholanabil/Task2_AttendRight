@@ -79,14 +79,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <ImageView
-        android:id="@+id/ic_circular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <com.example.task2_attendright.presentation.ui.customview.MyCircularProgress
+        android:id="@+id/circleProgressBar_Project_task"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="24dp"
-        android:src="@drawable/ic_circular"
-        app:layout_constraintBottom_toBottomOf="@id/constraintData"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/constraintData"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/constraintData" />
 </androidx.constraintlayout.widget.ConstraintLayout>

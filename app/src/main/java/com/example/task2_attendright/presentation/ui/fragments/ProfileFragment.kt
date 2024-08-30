@@ -2,21 +2,22 @@ package com.example.task2_attendright.presentation.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.task2_attendright.R
+import androidx.fragment.app.Fragment
 import com.example.task2_attendright.databinding.FragmentProfileBinding
 import com.example.task2_attendright.presentation.ui.activities.FaQActivity
 import com.example.task2_attendright.presentation.ui.activities.LoginWEmailActivity
 import com.example.task2_attendright.presentation.ui.activities.MyProfileActivity
 import com.example.task2_attendright.presentation.ui.activities.PoinActivity
+import com.example.task2_attendright.presentation.ui.activities.about_apps_activity
+import com.example.task2_attendright.presentation.ui.activities.job_information_activity
 import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
 
 
 class ProfileFragment : Fragment() {
-    private var _binding : FragmentProfileBinding? = null
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,15 +30,26 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfileBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding!!.tvLogout.setOnClickListener {
-            val intent = Intent(requireContext(), LoginWEmailActivity::class.java )
+            val intent = Intent(requireContext(), LoginWEmailActivity::class.java)
             AnimationUtil.finishFragmentWithSlideAnimation(requireActivity(), intent)
+        }
+
+        binding!!.tvJobInfo.setOnClickListener {
+            val intent = Intent(requireContext(), job_information_activity::class.java)
+            AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
+        }
+
+        binding!!.tvAboutAppProfile.setOnClickListener {
+            val intent = Intent(requireContext(), about_apps_activity::class.java)
+            AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
+
         }
 
         binding!!.tvMyProfile.setOnClickListener {
@@ -55,9 +67,8 @@ class ProfileFragment : Fragment() {
             AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
         }
 
-        binding!!.ivLogout.setOnClickListener {  }
+        binding!!.ivLogout.setOnClickListener { }
     }
-
 
 
     companion object {

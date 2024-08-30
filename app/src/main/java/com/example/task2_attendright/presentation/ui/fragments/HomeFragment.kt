@@ -1,5 +1,6 @@
 package com.example.task2_attendright.presentation.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,8 +11,12 @@ import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.MeetingToday
 import com.example.task2_attendright.data.local.TodayTask
 import com.example.task2_attendright.databinding.FragmentHomeBinding
+import com.example.task2_attendright.presentation.ui.activities.job_information_activity
+import com.example.task2_attendright.presentation.ui.activities.location_activity
+import com.example.task2_attendright.presentation.ui.activities.location_activity_osm
 import com.example.task2_attendright.presentation.ui.adapter.MeetingTodayAdapter
 import com.example.task2_attendright.presentation.ui.adapter.TodayTasksAdapter
+import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
 import com.example.task2_attendright.presentation.ui.customview.MyCircularProgress
 
 
@@ -35,6 +40,11 @@ class HomeFragment : Fragment() {
         val recyclerViewTodayMeeting = binding!!.rvMeetingToday
         recyclerViewTodayTask.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
         recyclerViewTodayMeeting.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL, false)
+
+        binding!!.btnClockIn.setOnClickListener {
+            val intent = Intent(requireContext(), location_activity_osm::class.java)
+            AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
+        }
 
         binding!!.rvTodayTasks.isNestedScrollingEnabled = false
         binding!!.rvMeetingToday.isNestedScrollingEnabled = false

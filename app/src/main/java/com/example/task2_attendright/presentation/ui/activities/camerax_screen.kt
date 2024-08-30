@@ -95,11 +95,6 @@ class camerax_screen : AppCompatActivity() {
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    Toast.makeText(
-                        this@camerax_screen,
-                        "tersimpan di ${photoFile.absolutePath}",
-                        Toast.LENGTH_LONG
-                    ).show()
                     val locationData = intent.getStringExtra("address")
                     binding.txtLocationData.text = locationData
                     val intent =

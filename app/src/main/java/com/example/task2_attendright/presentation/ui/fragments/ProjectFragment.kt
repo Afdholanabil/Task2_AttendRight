@@ -197,9 +197,9 @@ class ProjectFragment : Fragment() {
     }
 
     val projectData = listOf(
-        ProjectModel("Monday, 12 November 2024", "Project Web Design"),
-        ProjectModel("Saturday, 20 November 2024", "Project Web Design"),
-        ProjectModel("Monday, 12 November 2024", "Project Web Design"),
-        ProjectModel("Monday, 12 November 2024", "Project Web Design")
+        ProjectModel("Monday, 12 November 2024", "Project Web Design", 25),
+        ProjectModel("Saturday, 20 November 2024", "Project Web Design", 55),
+        ProjectModel("Monday, 12 November 2024", "Project Web Design", 65),
+        ProjectModel("Monday, 12 November 2024", "Project Web Design", 75)
     )
 }
