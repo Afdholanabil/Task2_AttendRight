@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.activities.DashboardActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
+    <FrameLayout
         android:id="@+id/fragment_container_dashboard"
         android:layout_width="0dp"
         android:layout_height="0dp"

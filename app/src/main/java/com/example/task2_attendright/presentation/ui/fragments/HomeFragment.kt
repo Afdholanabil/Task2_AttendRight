@@ -31,7 +31,6 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-
 class HomeFragment : Fragment() {
     private var _binding : FragmentHomeBinding? = null
     private val binding get() = _binding
@@ -69,8 +68,6 @@ class HomeFragment : Fragment() {
         recyclerViewTodayTask.adapter = TodayTasksAdapter(dummyTasks)
         recyclerViewTodayMeeting.adapter = MeetingTodayAdapter(dummyMeetings)
         return binding!!.root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -228,9 +225,7 @@ class HomeFragment : Fragment() {
 
         val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Calendar.getInstance().time)
 
-
         if (currentDate != lastCheckedDate) {
-
             sharedPreferences.edit()
                 .putBoolean("hasClockedIn", false)
                 .putBoolean("hasClockedOut", false)

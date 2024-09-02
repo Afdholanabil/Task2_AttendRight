@@ -7,15 +7,24 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.replace
 import androidx.viewpager2.widget.ViewPager2
 import com.example.task2_attendright.R
 import com.example.task2_attendright.databinding.ActivityDashboardBinding
 import com.example.task2_attendright.presentation.ui.adapter.DashboardAdapter
+import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
+import com.example.task2_attendright.presentation.ui.fragments.AttendanceFragment
+import com.example.task2_attendright.presentation.ui.fragments.HomeFragment
+import com.example.task2_attendright.presentation.ui.fragments.MeetFragment
+import com.example.task2_attendright.presentation.ui.fragments.ProfileFragment
+import com.example.task2_attendright.presentation.ui.fragments.ProjectFragment
 
 class DashboardActivity : AppCompatActivity() {
 
     private var _binding : ActivityDashboardBinding? = null
     private val binding get() = _binding
+    private var currentFragment : Fragment? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -28,48 +37,52 @@ class DashboardActivity : AppCompatActivity() {
             insets
         }
 
-        val viewPager : ViewPager2 = binding!!.fragmentContainerDashboard
+
         val bottoNav = binding!!.bottomNavDashboard
 
         val date = intent.getStringExtra("date")
         val time = intent.getStringExtra("time")
         Log.d(TAG, "data date n time : $date,$time")
 
-        viewPager.adapter =DashboardAdapter(this, date, time)
+        if (savedInstanceState == null) {
+            replaceFragment(HomeFragment.newInstance(date,time))
+        }
+
         bottoNav.setOnNavigationItemSelectedListener { item ->
-            when(item.itemId) {
+            when (item.itemId) {
                 R.id.navigation_home -> {
-                    viewPager.currentItem = 0
+                    replaceFragment(HomeFragment.newInstance(date, time))
                     true
                 }
                 R.id.navigation_attendance -> {
-                    viewPager.currentItem = 1
+                    replaceFragment(AttendanceFragment())
                     true
                 }
                 R.id.navigation_project -> {
-                    viewPager.currentItem = 2
+                    replaceFragment(ProjectFragment())
                     true
                 }
                 R.id.navigation_meet -> {
-                    viewPager.currentItem = 3
+                    replaceFragment(MeetFragment())
                     true
                 }
                 R.id.navigation_profile -> {
-                    viewPager.currentItem = 4
+                    replaceFragment(ProfileFragment())
                     true
                 }
                 else -> false
             }
         }
 
-        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                bottoNav.menu.getItem(position).isChecked =true
-            }
-        })
+    }
 
-
+    private fun replaceFragment(fragment: Fragment) {
+        if (fragment::class != currentFragment?.javaClass){
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_dashboard,fragment)
+                .commit()
+            currentFragment = fragment
+        }
     }
 
     override fun onDestroy() {
