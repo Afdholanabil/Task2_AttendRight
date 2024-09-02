@@ -197,7 +197,7 @@
         android:textSize="18sp"
         android:textAllCaps="false"
         android:textColor="@color/blue1"
-        android:text="@string/sigin_with_employee_id"
+        android:text="@string/sign_in_with_gmail"
         app:layout_constraintTop_toBottomOf="@id/include_divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

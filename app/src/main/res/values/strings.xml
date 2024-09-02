@@ -270,4 +270,8 @@
     <string name="strip">-</string>
     <string name="shift_submission">Shift Submission</string>
     <string name="shift_siang_13_30_17_00">Shift Siang (13.30-17.00)</string>
+    <string name="authority_check">Authority Check</string>
+    <string name="open_location_permission">Open Location Permission</string>
+    <string name="sign_in_with_gmail">Sign In With Gmail</string>
+    <string name="time_clockin_home">-- : -- WIB</string>
 </resources>

@@ -36,6 +36,9 @@
         android:theme="@style/Theme.Task2_AttendRight"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.ui.activities.AuthorityCheckActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.ui.activities.location_activity"
             android:exported="false" />
         <activity
@@ -79,7 +82,13 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.activities.DashboardActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".presentation.ui.activities.LoginWEmailActivity"
             android:exported="false" />
@@ -92,11 +101,7 @@
         <activity
             android:name=".presentation.ui.activities.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".presentation.ui.activities.meet_detail_activity_offline"
@@ -147,12 +152,11 @@
         <activity
             android:name=".presentation.ui.activities.add_members_activity"
             android:exported="false" />
-
         <activity
             android:name=".presentation.ui.activities.fragmenttTestt"
-            android:exported="false">
+            android:exported="false"/>
+        <receiver android:name=".presentation.ui.activities.DailyCheckReceiver"/>
 
-        </activity>
     </application>
 
 </manifest>

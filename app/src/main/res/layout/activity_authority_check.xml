@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".presentation.ui.activities.AuthorityCheckActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/iv_back_auth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_left"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_title_auth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/authority_check"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/gray800"
+            app:layout_constraintTop_toTopOf="@id/iv_back_auth"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back_auth"
+            app:layout_constraintStart_toEndOf="@id/iv_back_auth"
+            android:layout_marginStart="10dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ll_auth1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            app:strokeWidth="0dp"
+            android:backgroundTint="@color/gray100"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_auth"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/open_location_permission"
+                android:textSize="14sp"
+                android:padding="18dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/gray800"/>
+
+            <Switch
+                android:id="@+id/switch_open_loc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:padding="18dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ll_auth2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            app:strokeWidth="0dp"
+            android:backgroundTint="@color/gray100"
+            app:layout_constraintTop_toBottomOf="@id/ll_auth1"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Open Camera Permission"
+                android:textSize="14sp"
+                android:padding="18dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/gray800"/>
+
+            <Switch
+                android:id="@+id/switch_open_cam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:padding="18dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ll_auth3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            app:strokeWidth="0dp"
+            android:backgroundTint="@color/gray100"
+            app:layout_constraintTop_toBottomOf="@id/ll_auth2"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enable Location Data"
+                android:textSize="14sp"
+                android:padding="18dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/gray800"/>
+
+            <Switch
+                android:id="@+id/switch_enable_loc_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:padding="18dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

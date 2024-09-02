@@ -1,6 +1,8 @@
 package com.example.task2_attendright.presentation.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,7 +31,11 @@ class DashboardActivity : AppCompatActivity() {
         val viewPager : ViewPager2 = binding!!.fragmentContainerDashboard
         val bottoNav = binding!!.bottomNavDashboard
 
-        viewPager.adapter =DashboardAdapter(this)
+        val date = intent.getStringExtra("date")
+        val time = intent.getStringExtra("time")
+        Log.d(TAG, "data date n time : $date,$time")
+
+        viewPager.adapter =DashboardAdapter(this, date, time)
         bottoNav.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.navigation_home -> {
@@ -62,10 +68,16 @@ class DashboardActivity : AppCompatActivity() {
                 bottoNav.menu.getItem(position).isChecked =true
             }
         })
+
+
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object {
+        private const val TAG = "DashboardActivtiy"
     }
 }

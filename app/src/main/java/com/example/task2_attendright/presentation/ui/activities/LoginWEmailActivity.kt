@@ -2,6 +2,7 @@ package com.example.task2_attendright.presentation.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,6 +24,10 @@ class LoginWEmailActivity : AppCompatActivity() {
         binding!!.btnSignin.setOnClickListener {
             intent = Intent(this, DashboardActivity::class.java)
             AnimationUtil.startActivityWithSlideAnimation(this, intent)
+        }
+
+        binding!!.btnSigninWithEmployeeId.setOnClickListener {
+           Toast.makeText(this, "SignIn With Gmail !", Toast.LENGTH_LONG).show()
         }
 
     }

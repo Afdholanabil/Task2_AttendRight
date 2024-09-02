@@ -23,7 +23,7 @@ class MyButtonSignInEmployee @JvmOverloads constructor(context: Context, attr: A
         textSize = 14f
         gravity = Gravity.CENTER
         background = enabledBackground
-        text = context.getString(R.string.sigin_with_employee_id)
+        text = context.getString(R.string.sign_in_with_gmail)
     }
 
     override fun onDraw(canvas: Canvas) {

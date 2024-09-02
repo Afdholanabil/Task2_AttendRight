@@ -1,5 +1,7 @@
 package com.example.task2_attendright.presentation.ui.activities
 
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -8,6 +10,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.task2_attendright.R
 import com.example.task2_attendright.databinding.ActivityMainBinding
+import com.example.task2_attendright.util.DailyCheckReceiver
+import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
             finish()
         }
-
     }
 
     override fun onDestroy() {
