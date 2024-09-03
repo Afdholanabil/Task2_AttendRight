@@ -22,7 +22,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import java.util.Locale
 
-class location_activity : AppCompatActivity(), OnMapReadyCallback {
+class LocationActivityGMaps : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityLocationBinding
@@ -45,7 +45,7 @@ class location_activity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         binding.btnMapsNext.setOnClickListener {
-            val intent = Intent(this, camerax_screen::class.java)
+            val intent = Intent(this, CameraXScreen::class.java)
             intent.putExtra("address", currentAddress)
             startActivity(intent)
         }

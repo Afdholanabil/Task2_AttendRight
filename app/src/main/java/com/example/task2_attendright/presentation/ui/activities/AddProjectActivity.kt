@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.task2_attendright.databinding.ActivityAddProjectBinding
 
-class add_project_activity : AppCompatActivity() {
+class AddProjectActivity : AppCompatActivity() {
     private var _binding: ActivityAddProjectBinding? = null
     private val binding get() = _binding!!
     private var count = 0
@@ -30,7 +30,7 @@ class add_project_activity : AppCompatActivity() {
         }
 
         binding.icUserAddProject.setOnClickListener {
-            startActivity(Intent(this, add_members_project_activity::class.java))
+            startActivity(Intent(this, AddMembersProjectActivity::class.java))
         }
     }
 }

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.task2_attendright.databinding.ActivityJobInformationBinding
 
-class job_information_activity : AppCompatActivity() {
+class JobInformationActivity : AppCompatActivity() {
     private var _binding: ActivityJobInformationBinding ?= null
     private val binding get() = _binding!!
 

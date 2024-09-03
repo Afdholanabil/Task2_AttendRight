@@ -8,7 +8,7 @@ import com.example.task2_attendright.presentation.ui.adapter.MemberDetailAdapter
 import com.example.task2_attendright.data.local.MemberDetailModel
 import com.example.task2_attendright.databinding.ActivityTaskMemberBinding
 
-class task_member_activity : AppCompatActivity() {
+class TaskMemberActivity : AppCompatActivity() {
     private var _binding: ActivityTaskMemberBinding? = null
     private val binding get() = _binding!!
 

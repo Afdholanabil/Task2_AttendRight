@@ -15,7 +15,7 @@ import com.example.task2_attendright.presentation.ui.adapter.SelectedMembersAdap
 import com.example.task2_attendright.data.local.MemberModel
 import com.example.task2_attendright.databinding.ActivityAddMeetBinding
 
-class add_meet_activity : AppCompatActivity() {
+class AddMeetActivity : AppCompatActivity() {
     private var _binding: ActivityAddMeetBinding? = null
     private val binding get() = _binding!!
 
@@ -76,7 +76,7 @@ class add_meet_activity : AppCompatActivity() {
         }
 
         binding.icUserAdd.setOnClickListener {
-            val intent = Intent(this, add_members_activity::class.java)
+            val intent = Intent(this, AddMembersActivity::class.java)
             startActivity(intent)
         }
         binding.actionBarSpinnerMeetingModeMeet.onItemSelectedListener =
@@ -106,7 +106,7 @@ class add_meet_activity : AppCompatActivity() {
             }
         binding.btnCreateAddMeet.setOnClickListener {
 //            val meetData = arrayListOf<MeetModel>()
-            val intent = Intent(this@add_meet_activity, fragmenttTestt::class.java)
+            val intent = Intent(this@AddMeetActivity, fragmenttTestt::class.java)
 //            intent.putParcelableArrayListExtra("meet", meetData)
             startActivity(intent)
 

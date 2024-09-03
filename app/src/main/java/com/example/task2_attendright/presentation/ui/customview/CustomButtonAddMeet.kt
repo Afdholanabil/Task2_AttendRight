@@ -24,7 +24,8 @@ class CustomButtonAddMeet @JvmOverloads constructor(context: Context, attr: Attr
         icon = ContextCompat.getDrawable(context, R.drawable.ic_add_circle_outline) as Drawable
         enabledBackground =
             ContextCompat.getDrawable(context, R.drawable.rounded_btn_add_meet) as Drawable
-
+        setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null)
+        compoundDrawablePadding = 2
     }
 
     override fun onDraw(canvas: Canvas) {

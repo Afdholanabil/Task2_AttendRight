@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.ui.activities.final_clock_in_activity">
+    tools:context=".presentation.ui.activities.FinalClockInActivity">
 
     <ImageView
         android:id="@+id/image_view"

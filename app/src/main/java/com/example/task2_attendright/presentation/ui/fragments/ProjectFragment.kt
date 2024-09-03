@@ -17,7 +17,7 @@ import com.example.task2_attendright.presentation.ui.adapter.ProjectAdapter
 import com.example.task2_attendright.data.local.ProjectModel
 import com.example.task2_attendright.databinding.DialogDatePickerBinding
 import com.example.task2_attendright.databinding.FragmentProjectBinding
-import com.example.task2_attendright.presentation.ui.activities.add_project_activity
+import com.example.task2_attendright.presentation.ui.activities.AddProjectActivity
 import com.example.task2_attendright.presentation.ui.adapter.CalendarAdapter
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -69,7 +69,7 @@ class ProjectFragment : Fragment() {
         binding.rvDataProject.adapter = projectAdapter
 
         binding.btnAddProject.setOnClickListener {
-            val intent = Intent(activity, add_project_activity::class.java)
+            val intent = Intent(activity, AddProjectActivity::class.java)
             startActivity(intent)
         }
     }

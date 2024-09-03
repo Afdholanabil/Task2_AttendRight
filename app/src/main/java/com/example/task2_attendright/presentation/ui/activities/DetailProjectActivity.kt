@@ -8,7 +8,7 @@ import com.example.task2_attendright.presentation.ui.adapter.TaskAdapter
 import com.example.task2_attendright.data.local.TaskModel
 import com.example.task2_attendright.databinding.ActivityDetailProjectBinding
 
-class detail_project_activity : AppCompatActivity() {
+class DetailProjectActivity : AppCompatActivity() {
     private var _binding: ActivityDetailProjectBinding? = null
     private val binding get() = _binding!!
 
@@ -28,7 +28,7 @@ class detail_project_activity : AppCompatActivity() {
             startActivity(
                 Intent(
                     this,
-                    detail_detail_project_activity::class.java
+                    Detail2ProjectActivity::class.java
                 )
             )
         }
@@ -38,7 +38,7 @@ class detail_project_activity : AppCompatActivity() {
         binding.rvDataTask.adapter = taskAdapter
 
         binding.floatingButtonAddTask.setOnClickListener {
-            startActivity(Intent(this, add_task_activity::class.java))
+            startActivity(Intent(this, AddTaskActivity::class.java))
         }
     }
 }

@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class final_clock_in_activity : AppCompatActivity() {
+class FinalClockInActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFinalClockInBinding
     private var currentTime = getCurrentTimeStamp()
     private var currentDate = getCurrentDate()
@@ -33,7 +33,7 @@ class final_clock_in_activity : AppCompatActivity() {
             onBackPressed()
         }
         binding.btnMapsNext.setOnClickListener {
-            val intent2 = Intent(this, success_information_clock_in::class.java)
+            val intent2 = Intent(this, SuccessInformationClockIn::class.java)
             intent2.putExtra("date", currentDate)
             intent2.putExtra("time", currentTime)
             startActivity(intent2)

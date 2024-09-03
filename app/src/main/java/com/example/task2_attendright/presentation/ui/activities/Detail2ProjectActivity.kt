@@ -9,7 +9,7 @@ import com.example.task2_attendright.presentation.ui.adapter.MemberDetailAdapter
 import com.example.task2_attendright.data.local.MemberDetailModel
 import com.example.task2_attendright.databinding.ActivityDetailTaskProjectBinding
 
-class detail_detail_project_activity : AppCompatActivity() {
+class Detail2ProjectActivity : AppCompatActivity() {
     private var _binding: ActivityDetailTaskProjectBinding? = null
     private val binding get() = _binding!!
 
@@ -29,13 +29,13 @@ class detail_detail_project_activity : AppCompatActivity() {
         )
 
         binding.icAddMembers.setOnClickListener {
-            startActivity(Intent(this, task_member_activity::class.java))
+            startActivity(Intent(this, TaskMemberActivity::class.java))
         }
 
         binding.txtAddMembers.setOnClickListener {
             startActivity(
                 Intent(
-                    this, task_member_activity::class.java
+                    this, TaskMemberActivity::class.java
                 )
             )
         }

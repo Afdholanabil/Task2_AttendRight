@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.task2_attendright.databinding.ActivityDetailTaskBinding
 
-class detail_task_activity : AppCompatActivity() {
+class DetailTaskActivity : AppCompatActivity() {
     private var _binding: ActivityDetailTaskBinding? = null
     private val binding get() = _binding!!
     private val PICK_DOCUMENT = 1

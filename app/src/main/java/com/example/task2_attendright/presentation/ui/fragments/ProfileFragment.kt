@@ -11,8 +11,8 @@ import com.example.task2_attendright.presentation.ui.activities.FaQActivity
 import com.example.task2_attendright.presentation.ui.activities.LoginWEmailActivity
 import com.example.task2_attendright.presentation.ui.activities.MyProfileActivity
 import com.example.task2_attendright.presentation.ui.activities.PoinActivity
-import com.example.task2_attendright.presentation.ui.activities.about_apps_activity
-import com.example.task2_attendright.presentation.ui.activities.job_information_activity
+import com.example.task2_attendright.presentation.ui.activities.AboutAppsActivity
+import com.example.task2_attendright.presentation.ui.activities.JobInformationActivity
 import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
 
 
@@ -42,12 +42,12 @@ class ProfileFragment : Fragment() {
         }
 
         binding!!.tvJobInfo.setOnClickListener {
-            val intent = Intent(requireContext(), job_information_activity::class.java)
+            val intent = Intent(requireContext(), JobInformationActivity::class.java)
             AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
         }
 
         binding!!.tvAboutAppProfile.setOnClickListener {
-            val intent = Intent(requireContext(), about_apps_activity::class.java)
+            val intent = Intent(requireContext(), AboutAppsActivity::class.java)
             AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
 
         }

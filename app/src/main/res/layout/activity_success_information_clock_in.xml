@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_gray"
     android:orientation="vertical"
-    tools:context=".presentation.ui.activities.success_information_clock_in">
+    tools:context=".presentation.ui.activities.SuccessInformationClockIn">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/success_animation"

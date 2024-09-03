@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_gray"
-    tools:context=".presentation.ui.activities.add_members_activity">
+    tools:context=".presentation.ui.activities.AddMembersActivity">
 
     <ImageButton
         android:id="@+id/btn_arrow_back_add_members"

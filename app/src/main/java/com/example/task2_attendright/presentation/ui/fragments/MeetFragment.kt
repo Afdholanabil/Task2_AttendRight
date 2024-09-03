@@ -17,9 +17,9 @@ import com.example.task2_attendright.presentation.ui.adapter.MeetAdapter
 import com.example.task2_attendright.data.local.MeetModel
 import com.example.task2_attendright.databinding.DialogDatePickerBinding
 import com.example.task2_attendright.databinding.FragmentMeetBinding
-import com.example.task2_attendright.presentation.ui.activities.add_meet_activity
-import com.example.task2_attendright.presentation.ui.activities.meet_detail_activity_offline
-import com.example.task2_attendright.presentation.ui.activities.meet_detail_activity_online
+import com.example.task2_attendright.presentation.ui.activities.AddMeetActivity
+import com.example.task2_attendright.presentation.ui.activities.MeetDetailActivityOffline
+import com.example.task2_attendright.presentation.ui.activities.MeetDetailActivityOnline
 import com.example.task2_attendright.presentation.ui.adapter.CalendarAdapter
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -67,7 +67,7 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
         binding.rvDataMeet.adapter = meetAdapter
 
         binding.btnAddMeet.setOnClickListener {
-            val intent = Intent(activity, add_meet_activity::class.java)
+            val intent = Intent(activity, AddMeetActivity::class.java)
             startActivity(intent)
         }
 
@@ -201,11 +201,11 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
 
     override fun onMeetClick(meetModel: MeetModel) {
         if (meetModel.meetingModeMeet == "Online") {
-            val intent = Intent(context, meet_detail_activity_online::class.java)
+            val intent = Intent(context, MeetDetailActivityOnline::class.java)
             intent.putExtra("meetDetails", meetModel)
             startActivity(intent)
         } else if (meetModel.meetingModeMeet == "Offline") {
-            val intent = Intent(context, meet_detail_activity_offline::class.java)
+            val intent = Intent(context, MeetDetailActivityOffline::class.java)
             intent.putExtra("meetDetails", meetModel)
             startActivity(intent)
         }

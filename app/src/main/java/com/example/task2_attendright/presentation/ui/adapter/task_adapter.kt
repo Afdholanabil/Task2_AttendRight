@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.TaskModel
-import com.example.task2_attendright.presentation.ui.activities.detail_task_activity
+import com.example.task2_attendright.presentation.ui.activities.DetailTaskActivity
 
 class TaskAdapter(
     private val context: Context,
@@ -26,7 +26,7 @@ class TaskAdapter(
     override fun onBindViewHolder(holder: MemberViewHolder, position: Int) {
         val projects = projectList[position]
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, detail_task_activity::class.java)
+            val intent = Intent(context, DetailTaskActivity::class.java)
             context.startActivity(intent)
         }
         holder.bindingData(projects)

@@ -25,7 +25,7 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import java.util.Locale
 
-class location_activity_osm : AppCompatActivity() {
+class LocationActivityOSM : AppCompatActivity() {
     private var _binding: ActivityLocationOsmBinding? = null
     private val binding get() = _binding!!
     private lateinit var mMap: MapView
@@ -46,7 +46,7 @@ class location_activity_osm : AppCompatActivity() {
         }
 
         binding.btnMapsNext.setOnClickListener {
-            val intent = Intent(this, camerax_screen::class.java)
+            val intent = Intent(this, CameraXScreen::class.java)
             intent.putExtra("address", currentAddress)
             startActivity(intent)
         }

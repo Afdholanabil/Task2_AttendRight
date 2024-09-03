@@ -1,14 +1,10 @@
 package com.example.task2_attendright.presentation.ui.activities
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.task2_attendright.R
 import com.example.task2_attendright.databinding.ActivityAboutAppsBinding
 
-class about_apps_activity : AppCompatActivity() {
+class AboutAppsActivity : AppCompatActivity() {
     private var _binding: ActivityAboutAppsBinding ?= null
     private val binding get() = _binding!!
 

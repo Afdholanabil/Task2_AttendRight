@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.ProjectModel
-import com.example.task2_attendright.presentation.ui.activities.detail_project_activity
+import com.example.task2_attendright.presentation.ui.activities.DetailProjectActivity
 import com.example.task2_attendright.presentation.ui.customview.MyCircularProgress
 
 class ProjectAdapter(
@@ -41,7 +41,7 @@ class ProjectAdapter(
         holder.circularProject.setMaxProgress(100)
         holder.circularProject.setProgressColor(intArrayOf(Color.BLUE, Color.CYAN))
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, detail_project_activity::class.java)
+            val intent = Intent(context, DetailProjectActivity::class.java)
             context.startActivity(intent)
         }
     }

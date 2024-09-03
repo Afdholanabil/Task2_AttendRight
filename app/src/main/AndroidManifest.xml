@@ -36,25 +36,25 @@
         android:theme="@style/Theme.Task2_AttendRight"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.ui.activities.location_activity"
+            android:name=".presentation.ui.activities.LocationActivityGMaps"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.detail_task_activity"
+            android:name=".presentation.ui.activities.DetailTaskActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.task_member_activity"
+            android:name=".presentation.ui.activities.TaskMemberActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.detail_detail_project_activity"
+            android:name=".presentation.ui.activities.Detail2ProjectActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.add_task_activity"
+            android:name=".presentation.ui.activities.AddTaskActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.detail_project_activity"
+            android:name=".presentation.ui.activities.DetailProjectActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.add_members_project_activity"
+            android:name=".presentation.ui.activities.AddMembersProjectActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.activities.ShiftChangeDetailActivity"
@@ -84,10 +84,10 @@
             android:name=".presentation.ui.activities.LoginWEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.add_project_activity"
+            android:name=".presentation.ui.activities.AddProjectActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.location_activity_osm"
+            android:name=".presentation.ui.activities.LocationActivityOSM"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.activities.MainActivity"
@@ -99,10 +99,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.ui.activities.meet_detail_activity_offline"
+            android:name=".presentation.ui.activities.MeetDetailActivityOffline"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.meet_detail_activity_online"
+            android:name=".presentation.ui.activities.MeetDetailActivityOnline"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.activities.signin_employee_activity"
@@ -122,22 +122,22 @@
             android:name=".presentation.ui.activities.fragment_project"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.add_meet_activity"
+            android:name=".presentation.ui.activities.AddMeetActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.about_apps_activity"
+            android:name=".presentation.ui.activities.AboutAppsActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.job_information_activity"
+            android:name=".presentation.ui.activities.JobInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.success_information_clock_in"
+            android:name=".presentation.ui.activities.SuccessInformationClockIn"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.final_clock_in_activity"
+            android:name=".presentation.ui.activities.FinalClockInActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.activities.camerax_screen"
+            android:name=".presentation.ui.activities.CameraXScreen"
             android:exported="false" />
 
         <meta-data
@@ -145,7 +145,7 @@
             android:value="AIzaSyDDZK2SFediPD6p6joRojoMl6pNwhUXKW8" />
 
         <activity
-            android:name=".presentation.ui.activities.add_members_activity"
+            android:name=".presentation.ui.activities.AddMembersActivity"
             android:exported="false" />
 
         <activity

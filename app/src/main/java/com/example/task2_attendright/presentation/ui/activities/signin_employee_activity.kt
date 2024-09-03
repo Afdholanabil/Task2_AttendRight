@@ -19,7 +19,7 @@ class signin_employee_activity : AppCompatActivity() {
         setContentView(_binding!!.root)
 
         binding.btnSigninEmployee.setOnClickListener {
-            startActivity(Intent(this, location_activity::class.java))
+            startActivity(Intent(this, LocationActivityGMaps::class.java))
         }
 
         binding.employeePwEdittext.addTextChangedListener(object : TextWatcher {

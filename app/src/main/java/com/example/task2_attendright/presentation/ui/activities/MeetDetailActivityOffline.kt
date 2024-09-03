@@ -8,7 +8,7 @@ import com.example.task2_attendright.presentation.ui.adapter.MemberDetailAdapter
 import com.example.task2_attendright.data.local.MemberDetailModel
 import com.example.task2_attendright.databinding.ActivityMeetDetailOfflineBinding
 
-class meet_detail_activity_offline : AppCompatActivity() {
+class MeetDetailActivityOffline : AppCompatActivity() {
     private var _binding: ActivityMeetDetailOfflineBinding? = null
     private val binding get() = _binding!!
 

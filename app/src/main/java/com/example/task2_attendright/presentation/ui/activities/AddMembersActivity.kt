@@ -1,20 +1,21 @@
 package com.example.task2_attendright.presentation.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.task2_attendright.R
 import com.example.task2_attendright.presentation.ui.adapter.MemberAdapter
 import com.example.task2_attendright.data.local.MemberModel
-import com.example.task2_attendright.databinding.ActivityAddMembersProjectBinding
+import com.example.task2_attendright.databinding.ActivityAddMembersBinding
 
-class add_members_project_activity : AppCompatActivity() {
-    private var _binding: ActivityAddMembersProjectBinding? = null
+class AddMembersActivity : AppCompatActivity() {
+    private var _binding: ActivityAddMembersBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityAddMembersProjectBinding.inflate(layoutInflater)
+        _binding = ActivityAddMembersBinding.inflate(layoutInflater)
         setContentView(_binding!!.root)
 
         val members = listOf(
@@ -33,7 +34,8 @@ class add_members_project_activity : AppCompatActivity() {
             MemberModel(R.drawable.profile_4, "Zayidul Ahdan", "Ahdan99@gmail.com", false),
             MemberModel(R.drawable.profile_4, "Zayidul Ahdan", "Ahdan99@gmail.com", false),
             MemberModel(R.drawable.profile_4, "Zayidul Ahdan", "Ahdan99@gmail.com", false),
-        )
+
+            )
 
         binding.btnArrowBackAddMembers.setOnClickListener { onBackPressed() }
         val selectedMembers = arrayListOf<MemberModel>()
@@ -47,10 +49,15 @@ class add_members_project_activity : AppCompatActivity() {
             }
         }
         binding.membersRecyclerView.adapter = memberAdapter
+
         binding.checkboxSelectAllMembers.setOnCheckedChangeListener { _, isChecked ->
             memberAdapter.allSelected(isChecked)
         }
 
-        binding.txtSaveAddMembers.setOnClickListener { }
+        binding.txtSaveAddMembers.setOnClickListener {
+            val intent = Intent(this@AddMembersActivity, AddMeetActivity::class.java)
+            intent.putParcelableArrayListExtra("member", selectedMembers)
+            startActivity(intent)
+        }
     }
 }

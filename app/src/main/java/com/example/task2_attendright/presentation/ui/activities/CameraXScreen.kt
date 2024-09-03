@@ -21,7 +21,7 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class camerax_screen : AppCompatActivity() {
+class CameraXScreen : AppCompatActivity() {
     private lateinit var binding: ActivityCameraxScreenBinding
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
     private var imageCapture: ImageCapture? = null
@@ -98,7 +98,7 @@ class camerax_screen : AppCompatActivity() {
                     val locationData = intent.getStringExtra("address")
                     binding.txtLocationData.text = locationData
                     val intent =
-                        Intent(this@camerax_screen, final_clock_in_activity::class.java).apply {
+                        Intent(this@CameraXScreen, FinalClockInActivity::class.java).apply {
                             putExtra("imagePath", photoFile.absolutePath)
                             putExtra("address2", locationData)
                         }
@@ -107,7 +107,7 @@ class camerax_screen : AppCompatActivity() {
 
                 override fun onError(exc: ImageCaptureException) {
                     Toast.makeText(
-                        this@camerax_screen,
+                        this@CameraXScreen,
                         "Gagal mengambil gambar.",
                         Toast.LENGTH_SHORT
                     ).show()
@@ -141,7 +141,7 @@ class camerax_screen : AppCompatActivity() {
 
             } catch (exc: Exception) {
                 Toast.makeText(
-                    this@camerax_screen,
+                    this@CameraXScreen,
                     "Gagal memunculkan kamera.",
                     Toast.LENGTH_SHORT
                 ).show()

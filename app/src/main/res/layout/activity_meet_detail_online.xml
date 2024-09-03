@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.activities.meet_detail_activity_online"
+        tools:context=".presentation.ui.activities.MeetDetailActivityOnline"
         tools:ignore="ScrollViewSize">
 
         <ImageButton

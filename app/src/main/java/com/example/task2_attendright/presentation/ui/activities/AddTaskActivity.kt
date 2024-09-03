@@ -17,7 +17,7 @@ import androidx.core.content.ContextCompat
 import com.example.task2_attendright.databinding.ActivityAddTaskBinding
 import java.io.InputStream
 
-class add_task_activity : AppCompatActivity() {
+class AddTaskActivity : AppCompatActivity() {
     private var _binding: ActivityAddTaskBinding? = null
     private val binding get() = _binding!!
     private val PICK_IMAGE = 1
