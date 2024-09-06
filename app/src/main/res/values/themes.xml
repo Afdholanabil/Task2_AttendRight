@@ -118,4 +118,17 @@
         <item name="background">@drawable/bg_card_stroke_dot</item>
     </style>
 
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/p1</item>
+        <item name="colorPrimaryDark">@color/p1</item>
+        <item name="colorAccent">@color/p1</item>
+    </style>
+
+    <style name="CustomDatePickerTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">@color/p1</item>
+        <item name="colorPrimaryDark">@color/p1</item>
+        <item name="colorAccent">@color/p1</item>
+    </style>
+
 </resources>

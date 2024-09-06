@@ -14,8 +14,9 @@ class AttendanceTabAdapter(fragmentActivity: FragmentActivity) : FragmentStateAd
     override fun createFragment(position: Int): Fragment {
         var fragment: Fragment? = null
         when(position) {
-            0-> fragment = AttendanceAttendFragment()
-            1-> fragment = AttendanceSubmissionFragment()
+            0-> fragment = AttendanceAttendFragment.newInstance()
+            1-> fragment = AttendanceSubmissionFragment.newInstance()
+            else -> throw IllegalStateException("Invalid tab position")
         }
         return fragment as Fragment
     }

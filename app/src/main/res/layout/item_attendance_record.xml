@@ -34,6 +34,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_clock_out"
+        android:layout_marginEnd="20dp"
         />
 
     <TextView
@@ -47,5 +48,6 @@
         app:layout_constraintStart_toEndOf="@id/tv_clock_in"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

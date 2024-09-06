@@ -99,14 +99,8 @@ class AttendanceSubmissionFragment : Fragment() {
     }
 
     companion object {
-
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AttendanceSubmissionFragment().apply {
-                arguments = Bundle().apply {
-
-                }
-            }
+        fun newInstance() = AttendanceSubmissionFragment()
     }
 
     private fun navigateToDetail(item: SubmissionList) {
@@ -190,7 +184,6 @@ class AttendanceSubmissionFragment : Fragment() {
 
     private fun openFab(rootLayout:FrameLayout,fabAddSubmission: FloatingActionButton,tvFab : TextView,tvFab2 : TextView,tvFab3 : TextView,vararg fabs : View) {
         rootLayout.visibility = View.VISIBLE
-
 
         fabAddSubmission.bringToFront()
         fabAddSubmission.translationZ = 10f

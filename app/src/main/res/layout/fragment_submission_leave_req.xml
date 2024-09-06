@@ -105,11 +105,13 @@
         android:textColorHint="@color/gray300"
         app:hintEnabled="false">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:hint="dd / mm / yyyy"
-            android:inputType="date"
+            android:inputType="none"
+            android:focusable="false"
             android:fontFamily="@font/poppins_regular"/>
     </com.google.android.material.textfield.TextInputLayout>
 

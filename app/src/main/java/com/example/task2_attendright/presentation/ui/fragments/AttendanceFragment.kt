@@ -26,6 +26,9 @@ class AttendanceFragment : Fragment(), MonthAdapter.CenterMonthListener{
     private lateinit var monthAdapter: MonthAdapter
     private lateinit var layoutManager: LinearLayoutManager
 
+    private var selectedMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
+    private var selectedYear: Int = Calendar.getInstance().get(Calendar.YEAR)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -62,7 +65,10 @@ class AttendanceFragment : Fragment(), MonthAdapter.CenterMonthListener{
         val shortMonth = resources.getStringArray(R.array.months_array_short).toList()
         val currentMonth = Calendar.getInstance().get(Calendar.MONTH)
 
-        monthAdapter = MonthAdapter(longMonth, shortMonth, { selectedMonth ->
+        monthAdapter = MonthAdapter(longMonth, shortMonth, { selectedMonthIt ->
+
+            selectedMonth = longMonth.indexOf(selectedMonthIt)
+            sentSelectedMonthYearToFragment(selectedMonth, selectedYear)
             Log.d(TAG, "bulan yang dipilih $selectedMonth")
         }, this)
 
@@ -77,6 +83,10 @@ class AttendanceFragment : Fragment(), MonthAdapter.CenterMonthListener{
             monthAdapter.selectedPosition = currentMonth
             monthAdapter.notifyItemChanged(currentMonth)
             centerSelectedMonth(currentMonth)
+        }
+
+        binding!!.buttonYear.setOnClickListener {
+            showYearPickerDialog(binding!!.buttonYear)
         }
     }
 
@@ -117,7 +127,6 @@ class AttendanceFragment : Fragment(), MonthAdapter.CenterMonthListener{
         }
     }
 
-
     private fun calculateCenterOffset(position: Int): Int {
         val view = layoutManager.findViewByPosition(position)
         val itemWidth = view?.width ?: 200
@@ -127,21 +136,36 @@ class AttendanceFragment : Fragment(), MonthAdapter.CenterMonthListener{
 
     private fun showYearPickerDialog(button: MaterialButton) {
         val years = (2000..2100).toList().map { it.toString() }.toTypedArray()
-        var selectedYear = button.text.toString()
+        var selectedYearString = button.text.toString()
 
         AlertDialog.Builder(requireActivity())
             .setTitle("Pilih Tahun")
-            .setSingleChoiceItems(years, years.indexOf(selectedYear)) { dialog, which ->
-                selectedYear = years[which]
+            .setSingleChoiceItems(years, years.indexOf(selectedYearString)) { dialog, which ->
+                selectedYearString = years[which]
             }
             .setPositiveButton("OK") { dialog, _ ->
-                button.text = selectedYear
+                button.text = selectedYearString
+                selectedYear = selectedYearString.toInt()
+                sentSelectedMonthYearToFragment(selectedMonth,selectedYear)
                 dialog.dismiss()
             }
             .setNegativeButton("Batal") { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
+    }
+
+    private fun sentSelectedMonthYearToFragment(month: Int, year: Int) {
+        val viewPager = binding?.vpTabAttendance
+        val currentFragment = childFragmentManager.fragments.find {
+            it is AttendanceAttendFragment && it.isVisible
+        } as? AttendanceAttendFragment
+
+        if (currentFragment != null) {
+            currentFragment.updateDataForMonthYear(month, year)
+        } else {
+            Log.e(TAG, "Fragment yang sedang ditampilkan bukan AttendanceAttendFragment atau tidak ditemukan")
+        }
     }
 
     companion object {

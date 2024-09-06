@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/transparent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:backgroundTint="@color/gray50"
     tools:context=".presentation.ui.fragments.AttendanceAttendFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -17,15 +17,55 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:id="@+id/tv_date_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="16sp"
+        android:textColor="@color/gray500"
+        app:layout_constraintTop_toBottomOf="@id/rv_count_attendance"
+        app:layout_constraintStart_toStartOf="@id/rv_record_attendance"
+        app:layout_constraintEnd_toStartOf="@id/tv_clockin_title"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_clockin_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clock In"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="16sp"
+        android:textColor="@color/gray500"
+        app:layout_constraintTop_toBottomOf="@id/rv_count_attendance"
+        app:layout_constraintStart_toEndOf="@id/tv_date_title"
+        app:layout_constraintEnd_toStartOf="@id/tv_clockout_title"/>
+
+    <TextView
+        android:id="@+id/tv_clockout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clock Out"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="16sp"
+        android:textColor="@color/gray500"
+        app:layout_constraintTop_toBottomOf="@id/rv_count_attendance"
+        app:layout_constraintStart_toEndOf="@id/tv_clockin_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_record_attendance"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:clipToPadding="false"
         android:padding="8dp"
         tools:listitem="@layout/item_attendance_record"
-        app:layout_constraintTop_toBottomOf="@id/rv_count_attendance"
+        app:layout_constraintTop_toBottomOf="@id/tv_date_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
