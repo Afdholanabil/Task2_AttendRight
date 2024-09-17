@@ -100,18 +100,31 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/divider" />
 
-                <ImageView
-                    android:id="@+id/ic_bar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginBottom="12dp"
-                    android:src="@drawable/ic_bar_circle"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txt_progress_project"
-                    tools:ignore="ContentDescription" />
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:progress="50"
+                    android:progressDrawable="@drawable/custom_progress_bar" />
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/ic_bar"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_bar_circle"-->
+<!--                    tools:ignore="ContentDescription" />-->
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- RadioGroup untuk filter -->

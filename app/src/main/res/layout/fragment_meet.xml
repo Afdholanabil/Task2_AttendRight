@@ -105,6 +105,18 @@
             app:layout_constraintTop_toBottomOf="@id/txt_meeting_list" />
 
         <ImageView
+            android:id="@+id/img_no_data"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintTop_toBottomOf="@id/txt_meeting_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_no_meeting"
+            android:visibility="gone"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <ImageView
             android:id="@+id/no_meeting"
             android:layout_width="225dp"
             android:layout_height="225dp"

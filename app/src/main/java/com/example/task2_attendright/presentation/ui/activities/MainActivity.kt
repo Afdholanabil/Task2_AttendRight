@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding!!.tvTitleSlashScreen.alpha = 0f
         binding!!.tvTitleSlashScreen.animate().setDuration(3000).alpha(1f).withEndAction{
-            val i = Intent(this, LoginWEmailActivity::class.java)
+            val i = Intent(this, DashboardActivity::class.java)
             startActivity(i)
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
             finish()

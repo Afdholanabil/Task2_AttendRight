@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,17 +19,21 @@ import com.example.task2_attendright.data.local.MeetModel
 import com.example.task2_attendright.databinding.DialogDatePickerBinding
 import com.example.task2_attendright.databinding.FragmentMeetBinding
 import com.example.task2_attendright.presentation.ui.activities.AddMeetActivity
-import com.example.task2_attendright.presentation.ui.activities.MeetDetailActivityOffline
-import com.example.task2_attendright.presentation.ui.activities.MeetDetailActivityOnline
-import com.example.task2_attendright.presentation.ui.adapter.CalendarAdapter
+import com.example.task2_attendright.presentation.ui.adapter.CalendarAdapterMeet
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
-class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
+class MeetFragment : Fragment() {
     private var _binding: FragmentMeetBinding? = null
     private val binding get() = _binding!!
+    private lateinit var databaseRef: DatabaseReference
 
     // calendar
     private val lastDayInCalendar = Calendar.getInstance(Locale.ENGLISH)
@@ -37,10 +42,12 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
     private val currentDate = Calendar.getInstance(Locale.ENGLISH)
     private val currentDay = currentDate[Calendar.DAY_OF_MONTH]
     private val currentMonth = currentDate[Calendar.MONTH]
+    private val currentYear = currentDate[Calendar.YEAR]
     private var selectedDay: Int = currentDay
     private var selectedMonth: Int = currentMonth
+    private var selectedYear: Int = currentYear
     private val dates = ArrayList<Date>()
-    private val meetList = mutableListOf<MeetModel>()
+    private val meetListData = mutableListOf<MeetModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,12 +66,14 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
         super.onViewCreated(view, savedInstanceState)
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(binding.calendarRecyclerView)
-        lastDayInCalendar.add(Calendar.MONTH, 6)
         setUpCalendar()
+        lastDayInCalendar.add(Calendar.MONTH, 6)
+        binding.rvDataMeet.adapter?.notifyDataSetChanged()
+        databaseRef = FirebaseDatabase.getInstance().reference
 
-        val meetAdapter = MeetAdapter(meetData, this)
-        binding.rvDataMeet.layoutManager = LinearLayoutManager(context)
-        binding.rvDataMeet.adapter = meetAdapter
+//        val meetAdapter = MeetAdapter(meetData, this)
+//        binding.rvDataMeet.layoutManager = LinearLayoutManager(context)
+//        binding.rvDataMeet.adapter = meetAdapter
 
         binding.btnAddMeet.setOnClickListener {
             val intent = Intent(activity, AddMeetActivity::class.java)
@@ -100,16 +109,6 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
             .setView(dialogBinding.root)
             .setTitle("Pilih Tanggal")
             .setPositiveButton("OK") { dialog, _ ->
-//                val selectedDay = daySpinner.selectedItem.toString()
-//                val selectedMonth = monthSpinner.selectedItem.toString()
-//                val selectedYear = yearSpinner.selectedItem.toString()
-//
-//                this.selectedDay = selectedDay.toInt()
-//                this.selectedMonth = selectedMonth.toInt() - 1
-//
-//                cal.set(Calendar.DAY_OF_MONTH, this.selectedDay)
-//                cal.set(Calendar.MONTH, this.selectedMonth)
-//                setUpCalendar(cal)
 
                 dialog.dismiss()
             }
@@ -130,6 +129,19 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
                 }
             }
     }
+
+    private fun formatDate(dateString: String): String {
+        try {
+            val inputFormat = SimpleDateFormat("dd/MM/yy", Locale.getDefault())
+            val date = inputFormat.parse(dateString)
+            val outputFormat = SimpleDateFormat("EEE MMM dd", Locale.ENGLISH)
+            return date?.let { outputFormat.format(it) } ?: "Invalid Date"
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return "Invalid"
+        }
+    }
+
 
     private fun setUpCalendar(changeMonth: Calendar? = null) {
         binding.txtCurrentMonth.text = sdf.format(cal.time)
@@ -160,8 +172,8 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
         val layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.calendarRecyclerView.layoutManager = layoutManager
-        val calendarAdapter = CalendarAdapter(requireContext(), dates, currentDate, changeMonth)
-        binding.calendarRecyclerView.adapter = calendarAdapter
+        val calendarAdapterMeet = CalendarAdapterMeet(requireContext(), dates, currentDate, changeMonth)
+        binding.calendarRecyclerView.adapter = calendarAdapterMeet
 
         when {
             currentPosition > 2 -> binding.calendarRecyclerView.scrollToPosition(currentPosition - 3)
@@ -172,19 +184,62 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
             else -> binding.calendarRecyclerView.scrollToPosition(currentPosition)
         }
 
-        calendarAdapter.setOnItemClickListener(object : CalendarAdapter.OnItemClickListener,
+        calendarAdapterMeet.setOnItemClickListener(object : CalendarAdapterMeet.OnItemClickListener,
             AdapterView.OnItemClickListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onItemClick(position: Int) {
                 val clickCalendar = Calendar.getInstance()
                 clickCalendar.time = dates[position]
                 selectedDay = clickCalendar[Calendar.DAY_OF_MONTH]
-                val selectedDay =
-                    SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).format(clickCalendar.time)
+                selectedMonth = clickCalendar[Calendar.MONTH] + 1
+                selectedYear = clickCalendar[Calendar.YEAR]
+                val selectedDateRaw = String.format("%02d/%02d/%02d", selectedDay, selectedMonth, selectedYear % 100)
+                val selectedDate = formatDate(selectedDateRaw)
+                displayDataForSelectedDate(selectedDate)
             }
 
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 // Not yet implemented
+            }
+        })
+    }
+
+    private fun displayDataForSelectedDate(selectedDate: String) {
+        databaseRef.child("meets").addListenerForSingleValueEvent(object : ValueEventListener {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onDataChange(snapshot: DataSnapshot) {
+                meetListData.clear()
+                val meetData = mutableListOf<MeetModel>()
+                if (!snapshot.exists() || snapshot.childrenCount == 0L) {
+                    binding.imgNoData.visibility = View.VISIBLE
+                    binding.rvDataMeet.visibility = View.GONE
+                    Log.e("Firebase Gagal", "Data not founddd")
+                } else {
+                    for (projectSnapshot in snapshot.children) {
+                        val meet = projectSnapshot.getValue(MeetModel::class.java)
+                        meet?.let {
+                            val formattedDate = formatDate(it.dateMeet!!)
+                            if (formattedDate == selectedDate) {
+                                meetData.add(it)
+                            }
+                        }
+                    }
+                    if (meetData.isNotEmpty()) {
+                        binding.rvDataMeet.setHasFixedSize(true)
+                        binding.rvDataMeet.layoutManager = LinearLayoutManager(context)
+                        binding.rvDataMeet.adapter = MeetAdapter(requireContext(), meetData)
+                        binding.imgNoData.visibility = View.GONE
+                        binding.rvDataMeet.visibility = View.VISIBLE
+                    } else {
+                        binding.imgNoData.visibility = View.VISIBLE
+                        binding.rvDataMeet.visibility = View.GONE
+                        Log.e("Firebase Gagal", "No data found for selected date")
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("Firebase Error", "Error ${error.message}")
             }
         })
     }
@@ -199,30 +254,18 @@ class MeetFragment : Fragment(), MeetAdapter.OnMeetClickListener {
         _binding = null
     }
 
-    override fun onMeetClick(meetModel: MeetModel) {
-        if (meetModel.meetingModeMeet == "Online") {
-            val intent = Intent(context, MeetDetailActivityOnline::class.java)
-            intent.putExtra("meetDetails", meetModel)
-            startActivity(intent)
-        } else if (meetModel.meetingModeMeet == "Offline") {
-            val intent = Intent(context, MeetDetailActivityOffline::class.java)
-            intent.putExtra("meetDetails", meetModel)
-            startActivity(intent)
-        }
-    }
-
-    val meetData = listOf(
-        MeetModel(
-            "Meeting for World War 3",
-            "Online",
-            "meet.google.com/eer-iuyi-opk",
-            "15:20 pm"
-        ),
-        MeetModel(
-            "Meeting for World War 3",
-            "Offline",
-            "Ruang Training Graha Pena, Surabaya, Jawa Timur.",
-            "10:20 am"
-        )
-    )
+//    val meetData = listOf(
+//        MeetModel(
+//            "Meeting for World War 3",
+//            "Online",
+//            "meet.google.com/eer-iuyi-opk",
+//            "15:20 pm"
+//        ),
+//        MeetModel(
+//            "Meeting for World War 3",
+//            "Offline",
+//            "Ruang Training Graha Pena, Surabaya, Jawa Timur.",
+//            "10:20 am"
+//        )
+//    )
 }
