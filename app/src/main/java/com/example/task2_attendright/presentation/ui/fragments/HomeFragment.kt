@@ -17,6 +17,7 @@ import com.example.task2_attendright.data.local.MeetingToday
 import com.example.task2_attendright.data.local.TodayTask
 import com.example.task2_attendright.databinding.FragmentHomeBinding
 import com.example.task2_attendright.presentation.ui.activities.AuthorityCheckActivity
+import com.example.task2_attendright.presentation.ui.activities.DashboardActivity
 import com.example.task2_attendright.presentation.ui.adapter.MeetingTodayAdapter
 import com.example.task2_attendright.presentation.ui.adapter.TodayTasksAdapter
 import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
@@ -183,6 +184,18 @@ class HomeFragment : Fragment() {
 
         binding!!.btnClockOut.isEnabled = false
         Toast.makeText(requireContext(), "Clock Out berhasil", Toast.LENGTH_SHORT).show()
+
+        binding!!.tvSeeMoreHomeMeeting.setOnClickListener {
+            val intent = Intent(requireContext(), DashboardActivity::class.java)
+            intent.putExtra("FRAGMENT_TO_OPEN",4)
+            startActivity(intent)
+        }
+
+        binding!!.tvSeeMoreHomeAttendance.setOnClickListener {
+            val intent = Intent(requireContext(), DashboardActivity::class.java)
+            intent.putExtra("FRAGMENT_TO_OEPN",3)
+            startActivity(intent)
+        }
     }
 
 

@@ -39,13 +39,41 @@ class DashboardActivity : AppCompatActivity() {
 
 
         val bottoNav = binding!!.bottomNavDashboard
+        val fragmentToOpen = intent.getIntExtra("FRAGMENT_TO_OPEN", 0)
+
 
         val date = intent.getStringExtra("date")
         val time = intent.getStringExtra("time")
         Log.d(TAG, "data date n time : $date,$time")
 
         if (savedInstanceState == null) {
-            replaceFragment(HomeFragment.newInstance(date,time))
+            when(fragmentToOpen) {
+                0 ->  {
+                    replaceFragment(HomeFragment.newInstance(date,time))
+                    bottoNav.selectedItemId = R.id.navigation_home
+                }
+                1 -> {
+                    replaceFragment(AttendanceFragment())
+                    bottoNav.selectedItemId = R.id.navigation_attendance
+                }
+                2 -> {
+                    replaceFragment(ProjectFragment())
+                    bottoNav.selectedItemId = R.id.navigation_project
+                }
+                3 -> {
+                    replaceFragment(MeetFragment())
+                    bottoNav.selectedItemId = R.id.navigation_meet
+                }
+                4 -> {
+                    replaceFragment(ProfileFragment())
+                    bottoNav.selectedItemId = R.id.navigation_profile
+                }
+                else -> {
+                    replaceFragment(HomeFragment.newInstance(date, time))
+                    bottoNav.selectedItemId = R.id.navigation_home
+                }
+            }
+
         }
 
         bottoNav.setOnNavigationItemSelectedListener { item ->
@@ -82,6 +110,8 @@ class DashboardActivity : AppCompatActivity() {
                 .replace(R.id.fragment_container_dashboard,fragment)
                 .commit()
             currentFragment = fragment
+
+
         }
     }
 

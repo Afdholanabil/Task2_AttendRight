@@ -237,6 +237,7 @@
             android:layout_marginBottom="20dp">
 
             <ImageView
+                android:id="@+id/cv_show_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/permission"

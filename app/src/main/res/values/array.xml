@@ -4,10 +4,18 @@
         <item>Offline</item>
         <item>Online</item>
     </string-array>
+
     <string-array name="gender_array">
         <item>Male</item>
         <item>Female</item>
     </string-array>
+
+    <string-array name="shift_time">
+        <item>Shift Pagi (7:30 – 12:00 WIB)</item>
+        <item>Shift Siang (13:00 – 16:00 WIB)</item>
+        <item>Shift Malam (17:00 – 19:30 WIB)</item>
+    </string-array>
+
     <string-array name="meeting_mode">
         <item>Offline</item>
         <item>Online</item>
