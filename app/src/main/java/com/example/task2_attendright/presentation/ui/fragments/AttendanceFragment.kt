@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.postDelayed
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.viewpager2.widget.ViewPager2
@@ -15,6 +16,7 @@ import com.example.task2_attendright.R
 import com.example.task2_attendright.databinding.FragmentAttendanceBinding
 import com.example.task2_attendright.presentation.ui.adapter.AttendanceTabAdapter
 import com.example.task2_attendright.presentation.ui.adapter.MonthAdapter
+import com.example.task2_attendright.presentation.viewmodel.AttendanceViewModel
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -29,11 +31,15 @@ class AttendanceFragment : Fragment(), MonthAdapter.CenterMonthListener{
     private var selectedMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
     private var selectedYear: Int = Calendar.getInstance().get(Calendar.YEAR)
 
+    private lateinit var attendanceViewModel: AttendanceViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
 
         }
+
+        attendanceViewModel = ViewModelProvider(requireActivity()).get(AttendanceViewModel::class.java)
     }
 
     override fun onCreateView(

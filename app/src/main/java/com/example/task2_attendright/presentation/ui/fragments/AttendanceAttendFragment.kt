@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.AttendanceHoliday
@@ -14,6 +15,7 @@ import com.example.task2_attendright.data.local.AttendanceRecord
 import com.example.task2_attendright.databinding.FragmentAttendanceAttendBinding
 import com.example.task2_attendright.presentation.ui.adapter.AttendanceCountDaysAdapter
 import com.example.task2_attendright.presentation.ui.adapter.AttendanceRecordAdapter
+import com.example.task2_attendright.presentation.viewmodel.AttendanceViewModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -24,15 +26,18 @@ class AttendanceAttendFragment : Fragment() {
     private var _binding : FragmentAttendanceAttendBinding? = null
     private val bindings get() = _binding
     private lateinit var attendanceRecordAdapter: AttendanceRecordAdapter
+    private lateinit var attendanceViewModel: AttendanceViewModel
 
-    private var currentMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
-    private var currentYear: Int = Calendar.getInstance().get(Calendar.YEAR)
+
+    private var selectedMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
+    private var selectedYear: Int = Calendar.getInstance().get(Calendar.YEAR)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
 
         }
+        attendanceViewModel = ViewModelProvider(requireActivity()).get(AttendanceViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -67,15 +72,21 @@ class AttendanceAttendFragment : Fragment() {
             adapter = attendanceRecordAdapter
         }
 
-        updateDataForMonthYear(currentMonth,currentYear)
+        attendanceViewModel.selectedMonth.observe(viewLifecycleOwner) { month ->
+            selectedMonth = month
+            updateDataForMonthYear(selectedMonth, selectedYear)
+        }
+
+        attendanceViewModel.selectedYear.observe(viewLifecycleOwner) { year ->
+            selectedYear = year
+            updateDataForMonthYear(selectedMonth, selectedYear)
+        }
+
+        updateDataForMonthYear(selectedMonth,selectedYear)
     }
 
     fun updateDataForMonthYear(month: Int, year: Int) {
-        currentMonth = month
-        currentYear = year
-        val updateData = generateAttendanceData(currentMonth, currentYear)
-
-        Log.d("AttendanceAttendFragment", "Updating data for month: $month, year: $year with ${updateData.size} records")
+        val updateData = generateAttendanceData(month, year)
         attendanceRecordAdapter.submitList(updateData) {
             bindings?.rvRecordAttendance?.scrollToPosition(0)
         }
@@ -88,7 +99,7 @@ class AttendanceAttendFragment : Fragment() {
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("EEEE, dd MMM yyyy", Locale.getDefault())
 
-        calendar.set(Calendar.MONTH, month)
+        calendar.set(Calendar.MONTH, month -1)
         calendar.set(Calendar.YEAR, year)
         calendar.set(Calendar.DAY_OF_MONTH, 1)
 

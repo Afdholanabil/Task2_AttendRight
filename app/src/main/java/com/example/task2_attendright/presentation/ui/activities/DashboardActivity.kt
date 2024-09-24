@@ -14,6 +14,7 @@ import com.example.task2_attendright.R
 import com.example.task2_attendright.databinding.ActivityDashboardBinding
 import com.example.task2_attendright.presentation.ui.adapter.DashboardAdapter
 import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
+import com.example.task2_attendright.presentation.ui.fragments.Attendance2Fragment
 import com.example.task2_attendright.presentation.ui.fragments.AttendanceFragment
 import com.example.task2_attendright.presentation.ui.fragments.HomeFragment
 import com.example.task2_attendright.presentation.ui.fragments.MeetFragment
@@ -83,7 +84,7 @@ class DashboardActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_attendance -> {
-                    replaceFragment(AttendanceFragment())
+                    replaceFragment(Attendance2Fragment())
                     true
                 }
                 R.id.navigation_project -> {
