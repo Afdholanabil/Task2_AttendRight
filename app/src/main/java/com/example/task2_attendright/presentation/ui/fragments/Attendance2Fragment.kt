@@ -67,9 +67,9 @@ class Attendance2Fragment : Fragment() {
         }
 
         val tabLayoutAdapter = AttendanceTabAdapter(requireActivity())
-        val viewPagerTab : ViewPager2 =binding!!.vpTabAttendance
+        val viewPagerTab : ViewPager2 =binding.vpTabAttendance
         viewPagerTab.adapter = tabLayoutAdapter
-        val tabs : TabLayout = binding!!.tabLayoutAttendance
+        val tabs : TabLayout = binding.tabLayoutAttendance
 
         val titleTab = listOf("Attendance","Submission")
         TabLayoutMediator(tabs,viewPagerTab){tab,ps ->
