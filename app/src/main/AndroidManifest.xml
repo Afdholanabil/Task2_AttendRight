@@ -27,8 +27,8 @@
 
     <application
         android:allowBackup="true"
-        android:enableOnBackInvokedCallback="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -36,6 +36,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Task2_AttendRight"
         tools:targetApi="31">
+        <activity
+            android:name=".presentation.ui.activities.cobaTextfield"
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".presentation.ui.activities.AuthorityCheckActivity"
             android:exported="false" />
@@ -80,7 +85,8 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.activities.MyProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".presentation.ui.activities.DashboardActivity"
             android:exported="true">
@@ -92,7 +98,9 @@
         </activity>
         <activity
             android:name=".presentation.ui.activities.LoginWEmailActivity"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".presentation.ui.activities.add_project_activity"
             android:exported="false" />
@@ -101,7 +109,7 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.activities.MainActivity"
-            android:exported="true">
+            android:exported="false">
 
         </activity>
         <activity
@@ -155,9 +163,9 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.activities.fragmenttTestt"
-            android:exported="false"/>
-        <receiver android:name=".presentation.ui.activities.DailyCheckReceiver"/>
+            android:exported="false" />
 
+        <receiver android:name=".presentation.ui.activities.DailyCheckReceiver" />
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.MeetingToday
 import com.example.task2_attendright.data.local.TodayTask
@@ -93,6 +94,26 @@ class HomeFragment : Fragment() {
         val (currentDate, currentTime) = setDateTimeDay()
         binding!!.tvClockinOutDate.text = currentDate
         startRealTimeClock()
+
+        binding!!.tvSeeMoreHomeMeeting.setOnClickListener {
+            val intent = Intent(requireContext(), DashboardActivity::class.java)
+            intent.putExtra("FRAGMENT_TO_OPEN", 3)
+            startActivity(intent)
+        }
+        binding!!.tvSeeMoreHomeAttendance.setOnClickListener {
+            val intent = Intent(requireContext(), DashboardActivity::class.java)
+            intent.putExtra("FRAGMENT_TO_OPEN",2)
+            startActivity(intent)
+        }
+
+        val ivProfile = binding!!.ivProfileHome
+
+        Glide.with(requireContext()).load(R.drawable.image_26).circleCrop().into(ivProfile)
+        ivProfile.setOnClickListener {
+            val intent = Intent(requireContext(), DashboardActivity::class.java)
+            intent.putExtra("FRAGMENT_TO_OPEN", 4)
+            startActivity(intent)
+        }
 
     }
 

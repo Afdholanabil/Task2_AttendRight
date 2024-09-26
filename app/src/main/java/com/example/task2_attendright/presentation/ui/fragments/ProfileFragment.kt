@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.task2_attendright.R
 import com.example.task2_attendright.databinding.FragmentProfileBinding
 import com.example.task2_attendright.presentation.ui.activities.FaQActivity
@@ -56,6 +57,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding!!.ivLogout.setOnClickListener {  }
+        Glide.with(requireContext()).load(R.drawable.image_26).circleCrop().into(binding!!.ivProfileProfile)
     }
 
 

@@ -59,17 +59,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="40dp"/>
 
-        <ImageView
-            android:id="@+id/iv_edit_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/image_profile_in_my_profile"
-            android:src="@drawable/group_11"
-            app:layout_constraintEnd_toEndOf="@id/iv_profile_my_profile"
-            app:layout_constraintBottom_toBottomOf="@id/iv_profile_my_profile"
-            android:background="@drawable/bg_edit_iv_profile"
-            android:padding="7dp"
-            />
 
         <TextView
             android:id="@+id/tv_title_full_name"

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-parcelize")
+    id("kotlin-kapt")
 }
 
 android {
@@ -69,4 +70,8 @@ dependencies {
     implementation(libs.play.services.location)
     implementation(libs.androidx.cardview)
     implementation(libs.material)
+
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
+
 }
