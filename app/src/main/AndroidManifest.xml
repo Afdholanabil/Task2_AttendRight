@@ -90,11 +90,7 @@
         <activity
             android:name=".presentation.ui.activities.DashboardActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".presentation.ui.activities.LoginWEmailActivity"
@@ -109,8 +105,12 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.activities.MainActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".presentation.ui.activities.meet_detail_activity_offline"

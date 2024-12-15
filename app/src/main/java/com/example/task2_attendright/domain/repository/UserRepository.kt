@@ -1,4 +1,8 @@
 package com.example.task2_attendright.domain.repository
 
-class UserRepository {
+import com.example.task2_attendright.domain.model.User
+
+interface UserRepository {
+    suspend fun getUserById(userId: String): User?
+    suspend fun updateUserProfile(user: User)
 }
