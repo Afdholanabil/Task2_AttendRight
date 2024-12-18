@@ -78,4 +78,13 @@ dependencies {
     implementation(libs.glide)
     kapt(libs.glide.compiler)
 
+    implementation(libs.androidx.room.runtime) // Pastikan runtime ada
+    kapt(libs.androidx.room.compiler) // Pastikan compiler ada
+    implementation(libs.androidx.room.ktx) // Sudah ada
+
+    //room
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.ktx)
+
+
 }

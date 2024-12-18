@@ -1,13 +1,7 @@
-package com.example.task2_attendright.data.local.localdatasource
+package com.example.task2_attendright.data.local.db
 
 import com.example.task2_attendright.data.local.db.user.UserEntity
 import com.example.task2_attendright.domain.model.User
-
-
-interface UserLocalDataSource {
-    suspend fun getUserById(userId: String): User?
-    suspend fun updateUser(user: User)
-}
 
 fun User.toEntity(): UserEntity {
     return UserEntity(
@@ -18,8 +12,8 @@ fun User.toEntity(): UserEntity {
         birthDate = this.birthDate,
         phone = this.phone,
         religion = this.religion,
-        email = this.email,       // Tambahkan ini
-        password = this.password  // Tambahkan ini
+        email = this.email,
+        password = this.password
     )
 }
 
@@ -32,7 +26,7 @@ fun UserEntity.toDomain(): User {
         birthDate = this.birthDate,
         phone = this.phone,
         religion = this.religion,
-        email = this.email,       // Tambahkan ini
-        password = this.password  // Tambahkan ini
+        email = this.email,
+        password = this.password
     )
 }

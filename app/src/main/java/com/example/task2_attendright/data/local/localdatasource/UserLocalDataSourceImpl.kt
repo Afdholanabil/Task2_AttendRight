@@ -1,7 +1,11 @@
 package com.example.task2_attendright.data.local.localdatasource
 
+
+import com.example.task2_attendright.data.local.localdatasource.UserLocalDataSource
+
 import com.example.task2_attendright.data.local.db.user.UserDao
 import com.example.task2_attendright.domain.model.User
+
 
 class UserLocalDataSourceImpl(
     private val userDao: UserDao
@@ -13,6 +17,7 @@ class UserLocalDataSourceImpl(
     }
 
     override suspend fun updateUser(user: User) {
-        userDao.insertOrUpdateUser(user.toEntity())
+        userDao.updateUser(user.toEntity())
     }
+
 }

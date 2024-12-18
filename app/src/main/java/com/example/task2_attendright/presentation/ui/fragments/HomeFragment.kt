@@ -16,9 +16,11 @@ import com.bumptech.glide.Glide
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.MeetingToday
 import com.example.task2_attendright.data.local.TodayTask
+import com.example.task2_attendright.data.repository.UserRepositoryImpl
 import com.example.task2_attendright.databinding.FragmentHomeBinding
 import com.example.task2_attendright.presentation.ui.activities.AuthorityCheckActivity
 import com.example.task2_attendright.presentation.ui.activities.DashboardActivity
+import com.example.task2_attendright.presentation.ui.activities.MainActivity
 import com.example.task2_attendright.presentation.ui.adapter.MeetingTodayAdapter
 import com.example.task2_attendright.presentation.ui.adapter.TodayTasksAdapter
 import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
@@ -71,9 +73,26 @@ class HomeFragment : Fragment() {
         recyclerViewTodayMeeting.adapter = MeetingTodayAdapter(dummyMeetings)
         return binding!!.root
     }
+    private fun loadUserData() {
+        val prefs = requireContext().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+        val loggedUserId = prefs.getString("loggedUserId", null)
+
+        if (loggedUserId != null) {
+            val userDao = MainActivity.database.userDao()
+            val userRepository = UserRepositoryImpl(userDao)
+            CoroutineScope(Dispatchers.Main).launch {
+                val user = userRepository.getUserById(loggedUserId)
+                if (user != null) {
+                    binding!!.tvNamaHome.text = user.name
+                    binding!!.tvRoleProfileHome.text = user.role
+                }
+            }
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadUserData()
 
         resetOnNewDay()
         arguments?.let {
