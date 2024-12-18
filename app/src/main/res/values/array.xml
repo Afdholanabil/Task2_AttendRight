@@ -50,4 +50,22 @@
         <item>Nov</item>
         <item>Dec</item>
     </string-array>
+
+    <!-- values/strings.xml -->
+    <string-array name="positions_array">
+        <item>UI/UX Developer</item>
+        <item>Android Developer</item>
+        <item>Backend Developer</item>
+        <item>Project Manager</item>
+        <item>QA Engineer</item>
+    </string-array>
+
+    <string-array name="religions_array">
+        <item>Islam</item>
+        <item>Kristen</item>
+        <item>Hindu</item>
+        <item>Budha</item>
+        <item>Konghucu</item>
+    </string-array>
+
 </resources>

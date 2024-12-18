@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp">
+
         <ImageView
             android:id="@+id/iv_back_my_profile"
             android:layout_width="wrap_content"
@@ -96,11 +97,10 @@
             app:boxCornerRadiusTopStart="20dp"
             app:boxCornerRadiusTopEnd="20dp"
             app:boxStrokeWidth="0dp"
-            app:boxStrokeErrorColor="@color/red500"
             android:hint="@string/full_name"
             android:textColorHint="@color/gray300"
-            app:hintEnabled="false"
-            >
+            app:hintEnabled="false">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,30 +122,32 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"/>
 
+        <!-- Position Dropdown -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tl_position"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_position"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/position"
+            app:hintEnabled="true"
+            app:endIconMode="dropdown_menu"
+            app:boxStrokeWidth="0dp"
             android:background="@drawable/bg_edit_text_login"
             app:boxCornerRadiusBottomEnd="20dp"
             app:boxCornerRadiusBottomStart="20dp"
             app:boxCornerRadiusTopStart="20dp"
             app:boxCornerRadiusTopEnd="20dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeErrorColor="@color/red500"
-            android:hint="@string/position"
-            android:textColorHint="@color/gray300"
-            app:hintEnabled="false"
-            >
-            <com.google.android.material.textfield.TextInputEditText
+            app:layout_constraintTop_toBottomOf="@id/tv_title_position"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/actv_position"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="18dp"
+                android:inputType="none"
                 android:textSize="14sp"
-                android:inputType="textPersonName"
-                android:fontFamily="@font/poppins_regular"/>
+                android:fontFamily="@font/poppins_regular" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -160,17 +162,33 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"/>
 
-        <Spinner
-            android:id="@+id/spinner_gender_edit_my_profile"
+        <!-- Gender Spinner -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/position"
+            app:hintEnabled="true"
+            app:endIconMode="dropdown_menu"
+            app:boxStrokeWidth="0dp"
+            android:background="@drawable/bg_edit_text_login"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
             app:layout_constraintTop_toBottomOf="@id/tv_title_gender"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/bg_spinner_edit_my_profile"
-            style="@style/spinnerItemTextStyle"
-            android:entries="@array/gender_array"
-            android:layout_marginTop="10dp"/>
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/actv_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="18dp"
+                android:inputType="none"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_regular" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tv_title_birth_date"
@@ -180,7 +198,7 @@
             android:textSize="16sp"
             android:textColor="@color/gray500"
             android:fontFamily="@font/poppins_semibold"
-            app:layout_constraintTop_toBottomOf="@id/spinner_gender_edit_my_profile"
+            app:layout_constraintTop_toBottomOf="@id/tl_gender"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"/>
 
@@ -197,11 +215,10 @@
             app:boxCornerRadiusTopStart="20dp"
             app:boxCornerRadiusTopEnd="20dp"
             app:boxStrokeWidth="0dp"
-            app:boxStrokeErrorColor="@color/red500"
             android:hint="@string/birth_date"
             android:textColorHint="@color/gray300"
-            app:hintEnabled="false"
-            >
+            app:hintEnabled="false">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -236,12 +253,11 @@
             app:boxCornerRadiusTopStart="20dp"
             app:boxCornerRadiusTopEnd="20dp"
             app:boxStrokeWidth="0dp"
-            app:boxStrokeErrorColor="@color/red500"
             android:hint="@string/phone"
             android:textColorHint="@color/gray300"
             app:hintEnabled="false"
-            android:backgroundTint="@color/white"
-            >
+            android:backgroundTint="@color/white">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -263,30 +279,31 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"/>
 
+        <!-- Religion Dropdown -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tl_religion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_religion"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/religion"
+            app:hintEnabled="true"
+            app:endIconMode="dropdown_menu"
+            app:boxStrokeWidth="0dp"
             android:background="@drawable/bg_edit_text_login"
             app:boxCornerRadiusBottomEnd="20dp"
             app:boxCornerRadiusBottomStart="20dp"
             app:boxCornerRadiusTopStart="20dp"
             app:boxCornerRadiusTopEnd="20dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeErrorColor="@color/red500"
-            android:hint="@string/religion"
-            android:textColorHint="@color/gray300"
-            app:hintEnabled="false"
-            >
-            <com.google.android.material.textfield.TextInputEditText
+            app:layout_constraintTop_toBottomOf="@id/tv_title_religion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/actv_religion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="18dp"
+                android:inputType="none"
                 android:textSize="14sp"
-                android:inputType="text"
-                android:focusable="true"
                 android:fontFamily="@font/poppins_regular"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -303,8 +320,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tl_religion"
-            android:layout_marginTop="40dp"
-           />
+            android:layout_marginTop="40dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
