@@ -85,6 +85,9 @@ dependencies {
     //room
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.datastore.preferences)
+
+
 
 
 }

@@ -7,7 +7,7 @@ class ClockOutUseCase(
     private val attendanceRepository: AttendanceRepository
 ) {
     suspend operator fun invoke(attendance: Attendance) {
-        // Validasi, misal: cek user sudah clock in sebelumnya, dsb.
-        attendanceRepository.clockOut(attendance)
+        // validasi
+        attendanceRepository.saveAttendance(attendance)
     }
 }

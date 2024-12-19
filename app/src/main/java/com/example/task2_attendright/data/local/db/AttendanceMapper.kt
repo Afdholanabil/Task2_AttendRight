@@ -1,19 +1,14 @@
-package com.example.task2_attendright.data.local.localdatasource
+package com.example.task2_attendright.data.local.db
 
 import com.example.task2_attendright.data.local.db.attendance.AttendanceEntity
 import com.example.task2_attendright.domain.enums.AttendanceResult
 import com.example.task2_attendright.domain.model.Attendance
 
-interface AttendanceLocalDataSource {
-    suspend fun saveAttendance(attendance: Attendance)
-    suspend fun getAttendancesByMonth(userId: String, year: Int, month: Int): List<Attendance>
-}
-
 fun Attendance.toEntity(): AttendanceEntity {
     return AttendanceEntity(
         attendanceId = this.attendanceId,
         userId = this.userId,
-        date = this.date, // "yyyy-MM-dd"
+        date = this.date, // Format "yyyy-MM-dd"
         clockInTime = this.clockInTime,
         clockOutTime = this.clockOutTime,
         latitude = this.latitude,
@@ -27,7 +22,7 @@ fun AttendanceEntity.toDomain(): Attendance {
     return Attendance(
         attendanceId = this.attendanceId,
         userId = this.userId,
-        date = this.date,
+        date = this.date, // Format "yyyy-MM-dd"
         clockInTime = this.clockInTime,
         clockOutTime = this.clockOutTime,
         latitude = this.latitude,

@@ -1,9 +1,11 @@
 package com.example.task2_attendright.presentation.ui.activities
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet.Layout
@@ -11,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.task2_attendright.R
 import com.example.task2_attendright.databinding.ActivityPoinBinding
+import com.example.task2_attendright.databinding.CustomToastBinding
 import com.example.task2_attendright.presentation.ui.adapter.HistoryMonthAdapter
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.tabs.TabLayout
@@ -28,6 +31,12 @@ class PoinActivity : AppCompatActivity() {
         setContentView(binding!!.root)
 
         binding!!.tvTotalPoin.text = totalPoin?.toString() ?: "-"
+
+        binding!!.btnSendPoin.setOnClickListener {
+            showCustomToast("Claim Point Berhasil, Poin Anda Dimasukan ke Wallet !")
+            claimPoint()
+
+        }
 
         val vp = binding!!.viewPagerContainer
         val tabLayout = binding!!.tabsMonthHistoryPoin
@@ -78,5 +87,24 @@ class PoinActivity : AppCompatActivity() {
         binding!!.ivPoinPoin.setOnClickListener {
             finish()
         }
+    }
+
+    private fun showCustomToast(message: String) {
+        applicationContext.let { ctx ->
+
+            val toastBinding = CustomToastBinding.inflate(LayoutInflater.from(ctx))
+            toastBinding.message.text = message
+
+            val toast = Toast(ctx)
+            toast.duration = Toast.LENGTH_LONG
+            toast.view = toastBinding.root
+
+            toast.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL, 0, 100)
+            toast.show()
+        }
+    }
+
+    private fun claimPoint(){
+
     }
 }

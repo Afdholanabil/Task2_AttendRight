@@ -7,7 +7,7 @@ class ClockInUseCase(
     private val attendanceRepository: AttendanceRepository
 ) {
     suspend operator fun invoke(attendance: Attendance) {
-        // Validasi data, misal: cek jika user belum clock in hari ini
-        attendanceRepository.clockIn(attendance)
+        // validasi
+        attendanceRepository.saveAttendance(attendance)
     }
 }

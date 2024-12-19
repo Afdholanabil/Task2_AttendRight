@@ -4,65 +4,70 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.MeetingToday
 import com.example.task2_attendright.data.local.TodayTask
+import com.example.task2_attendright.data.local.datastore.AttendanceDataStore
+import com.example.task2_attendright.data.local.datastore.AuthorityDataStore
+import com.example.task2_attendright.data.repository.AttendanceRepositoryImpl
 import com.example.task2_attendright.data.repository.UserRepositoryImpl
 import com.example.task2_attendright.databinding.FragmentHomeBinding
 import com.example.task2_attendright.presentation.ui.activities.AuthorityCheckActivity
 import com.example.task2_attendright.presentation.ui.activities.DashboardActivity
 import com.example.task2_attendright.presentation.ui.activities.MainActivity
+import com.example.task2_attendright.presentation.ui.activities.final_clock_in_activity
+import com.example.task2_attendright.presentation.ui.activities.location_activity_osm
 import com.example.task2_attendright.presentation.ui.adapter.MeetingTodayAdapter
 import com.example.task2_attendright.presentation.ui.adapter.TodayTasksAdapter
 import com.example.task2_attendright.presentation.ui.animation.AnimationUtil
-import com.example.task2_attendright.presentation.ui.customview.MyCircularProgress
 import com.example.task2_attendright.util.DailyCheckReceiver
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
+import java.util.*
 
 class HomeFragment : Fragment() {
     private var _binding : FragmentHomeBinding? = null
-    private val binding get() = _binding
+    private val binding get() = _binding!!
 
+    // Pastikan job dideklarasikan
     private var job: Job? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private val attendanceRepository by lazy {
+        AttendanceRepositoryImpl(MainActivity.database.attendanceDao())
     }
+
+    private val attendanceDataStore by lazy { AttendanceDataStore(requireContext()) }
+    private val authorityDataStore by lazy { AuthorityDataStore(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(layoutInflater,container,false)
-        val recyclerViewTodayTask = binding!!.rvTodayTasks
-        val recyclerViewTodayMeeting = binding!!.rvMeetingToday
+        _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+
+        val recyclerViewTodayTask = binding.rvTodayTasks
+        val recyclerViewTodayMeeting = binding.rvMeetingToday
         recyclerViewTodayTask.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
         recyclerViewTodayMeeting.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL, false)
 
-        binding!!.rvTodayTasks.isNestedScrollingEnabled = false
-        binding!!.rvMeetingToday.isNestedScrollingEnabled = false
         val dummyTasks = listOf(
             TodayTask("08:00 WIB", "Daily Standup Meeting",20),
             TodayTask("10:00 WIB", "Design Review",10),
             TodayTask("13:00 WIB", "Development Sprint",69)
         )
-
         val dummyMeetings = listOf(
             MeetingToday("Meeting Project Wisata", "Ruang Rapat 1", "Offline"),
             MeetingToday("Sync-up Meeting", "Zoom", "Online"),
@@ -71,21 +76,21 @@ class HomeFragment : Fragment() {
 
         recyclerViewTodayTask.adapter = TodayTasksAdapter(dummyTasks)
         recyclerViewTodayMeeting.adapter = MeetingTodayAdapter(dummyMeetings)
-        return binding!!.root
+
+        return binding.root
     }
+
     private fun loadUserData() {
         val prefs = requireContext().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
-        val loggedUserId = prefs.getString("loggedUserId", null)
+        val loggedUserId = prefs.getString("loggedUserId", null) ?: return
 
-        if (loggedUserId != null) {
-            val userDao = MainActivity.database.userDao()
-            val userRepository = UserRepositoryImpl(userDao)
-            CoroutineScope(Dispatchers.Main).launch {
-                val user = userRepository.getUserById(loggedUserId)
-                if (user != null) {
-                    binding!!.tvNamaHome.text = user.name
-                    binding!!.tvRoleProfileHome.text = user.role
-                }
+        val userDao = MainActivity.database.userDao()
+        val userRepository = UserRepositoryImpl(userDao)
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+            val user = userRepository.getUserById(loggedUserId)
+            user?.let {
+                binding.tvNamaHome.text = it.name
+                binding.tvRoleProfileHome.text = it.role
             }
         }
     }
@@ -93,40 +98,58 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadUserData()
-
         resetOnNewDay()
-        arguments?.let {
-            val dateArg = it.getString(ARG_DATE)
-            val timeArg = it.getString(ARG_TIME)
-            handleIncomingData(dateArg,timeArg)
-        }
-
         scheduleDailyCheck(requireContext())
-        checkAttendanceStatus()
-        binding!!.btnClockIn.setOnClickListener {
-            onClockIn()
-        }
-        binding!!.btnClockOut.setOnClickListener {
-            onClockOut()
+
+        // Observe attendance data store state (flow)
+        observeAttendanceState()
+
+        binding.btnClockIn.setOnClickListener {
+            viewLifecycleOwner.lifecycleScope.launch {
+                authorityDataStore.isPermissionGranted().collect { granted ->
+                    if (granted) {
+                        val intent = Intent(requireContext(), location_activity_osm::class.java)
+                        intent.putExtra("actionType", "clock_in")
+                        startActivityForResult(intent, REQUEST_LOCATION_CLOCK_IN)
+                    } else {
+                        val intent = Intent(requireContext(), AuthorityCheckActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+            }
         }
 
-        val (currentDate, currentTime) = setDateTimeDay()
-        binding!!.tvClockinOutDate.text = currentDate
+        binding.btnClockOut.setOnClickListener {
+            viewLifecycleOwner.lifecycleScope.launch {
+                authorityDataStore.isPermissionGranted().collect { granted ->
+                    if (granted) {
+                        val intent = Intent(requireContext(), location_activity_osm::class.java)
+                        intent.putExtra("actionType", "clock_out")
+                        startActivityForResult(intent, REQUEST_LOCATION_CLOCK_OUT)
+                    } else {
+                        val intent = Intent(requireContext(), AuthorityCheckActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+            }
+        }
+
+        val (currentDate, _) = setDateTimeDay()
+        binding.tvClockinOutDate.text = currentDate
         startRealTimeClock()
 
-        binding!!.tvSeeMoreHomeMeeting.setOnClickListener {
+        binding.tvSeeMoreHomeMeeting.setOnClickListener {
             val intent = Intent(requireContext(), DashboardActivity::class.java)
             intent.putExtra("FRAGMENT_TO_OPEN", 3)
             startActivity(intent)
         }
-        binding!!.tvSeeMoreHomeAttendance.setOnClickListener {
+        binding.tvSeeMoreHomeAttendance.setOnClickListener {
             val intent = Intent(requireContext(), DashboardActivity::class.java)
             intent.putExtra("FRAGMENT_TO_OPEN",2)
             startActivity(intent)
         }
 
-        val ivProfile = binding!!.ivProfileHome
-
+        val ivProfile = binding.ivProfileHome
         Glide.with(requireContext()).load(R.drawable.image_26).circleCrop().into(ivProfile)
         ivProfile.setOnClickListener {
             val intent = Intent(requireContext(), DashboardActivity::class.java)
@@ -134,10 +157,80 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // Load attendance dari DB
+        loadAttendanceTimeFromDB()
+
+        // Setelah load DB, atur tombol sesuai data store
+        viewLifecycleOwner.lifecycleScope.launch {
+            val status = attendanceDataStore.getClockStatus().first()
+            binding.btnClockIn.isEnabled = !status.hasClockedIn
+            binding.btnClockOut.isEnabled = status.hasClockedIn && !status.hasClockedOut
+        }
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == AppCompatActivity.RESULT_OK && data != null) {
+            val location = data.getStringExtra("address2") ?: ""
+            val imagePath = data.getStringExtra("imagePath")
+
+            when (requestCode) {
+                REQUEST_LOCATION_CLOCK_IN -> navigateToFinalClockActivity("clock_in", location, imagePath)
+                REQUEST_LOCATION_CLOCK_OUT -> navigateToFinalClockActivity("clock_out", location, imagePath)
+            }
+        }
+    }
+
+    private fun navigateToFinalClockActivity(actionType: String, address: String, imagePath: String?) {
+        val intent = Intent(requireContext(), final_clock_in_activity::class.java)
+        intent.putExtra("actionType", actionType)
+        intent.putExtra("address2", address)
+        intent.putExtra("imagePath", imagePath)
+        startActivity(intent)
+    }
+
+    private fun observeAttendanceState() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            attendanceDataStore.getClockStatus().collect { status ->
+                // Update UI tombol sesuai dengan status data store
+                binding.btnClockIn.isEnabled = !status.hasClockedIn
+                binding.btnClockOut.isEnabled = status.hasClockedIn && !status.hasClockedOut
+            }
+        }
+    }
+
+    private fun loadAttendanceTimeFromDB() {
+        val prefs = requireContext().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+        val loggedUserId = prefs.getString("loggedUserId", null) ?: return
+        val today = getTodayDateForDB()
+
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+            val attendanceToday = attendanceRepository.getAttendanceByDate(loggedUserId, today)
+            withContext(Dispatchers.Main) {
+                if (attendanceToday != null) {
+                    binding.tvClockInAttendanceTime.text = attendanceToday.clockInTime ?: "-- : --"
+                    binding.tvClockOutAttendanceTime.text = attendanceToday.clockOutTime ?: "-- : --"
+                } else {
+                    binding.tvClockInAttendanceTime.text = "-- : --"
+                    binding.tvClockOutAttendanceTime.text = "-- : --"
+                }
+            }
+        }
+    }
+
+    private fun getCurrentTime(): String {
+        val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
+        return sdf.format(Date())
+    }
+
+    private fun getTodayDateForDB(): String {
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        return sdf.format(Date())
     }
 
     private fun startRealTimeClock() {
-        job = CoroutineScope(Dispatchers.Main).launch {
+        job = viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
             while (true) {
                 updateTime()
                 delay(2000)
@@ -149,16 +242,13 @@ class HomeFragment : Fragment() {
         val calendar = Calendar.getInstance()
         val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
         val currentTime = timeFormat.format(calendar.time)
-
-        binding!!.tvClockinOutTimeHome.text = "$currentTime WIB"
+        binding.tvClockinOutTimeHome.text = "$currentTime WIB"
     }
 
     private fun scheduleDailyCheck(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as android.app.AlarmManager
         val intent = Intent(context, DailyCheckReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(
-            context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
+        val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
         val calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
@@ -177,127 +267,18 @@ class HomeFragment : Fragment() {
 
     private fun setDateTimeDay() : Pair<String, String>{
         val calendar = Calendar.getInstance()
-
         val dateFormat = SimpleDateFormat("EEEE, dd MMM yyyy", Locale.getDefault())
         val currentDate = dateFormat.format(calendar.time)
-
         val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
         val currentTime = timeFormat.format(calendar.time)
-
         return Pair(currentDate, currentTime)
-
     }
-
-    private fun checkAttendanceStatus() {
-        val sharedPreferences = requireContext().getSharedPreferences("AttendancePrefs", Context.MODE_PRIVATE)
-        val hasClockedIn = sharedPreferences.getBoolean("hasClockedIn", false)
-        val hasClockedOut = sharedPreferences.getBoolean("hasClockedOut", false)
-        val clockInTime = sharedPreferences.getString("clockInTime", "-- : --")
-        val clockOutTime = sharedPreferences.getString("clockOutTime", "-- : --")
-
-        binding!!.tvClockInAttendanceTime.text = clockInTime
-        binding!!.tvClockOutAttendanceTime.text = clockOutTime
-
-        binding!!.btnClockIn.isEnabled = !hasClockedIn
-        binding!!.btnClockOut.isEnabled = hasClockedIn && !hasClockedOut
-    }
-
-    private fun onClockIn() {
-        val sharedPreferences = requireContext().getSharedPreferences("AttendancePrefs", Context.MODE_PRIVATE)
-        sharedPreferences.edit().putBoolean("hasClockedIn", true).apply()
-
-        binding!!.btnClockIn.isEnabled = false
-        binding!!.btnClockOut.isEnabled = true
-
-        val intent = Intent(requireContext(), AuthorityCheckActivity::class.java)
-        AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
-
-        Toast.makeText(requireContext(), "Clock In berhasil", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun onClockOut() {
-        val sharedPreferences = requireContext().getSharedPreferences("AttendancePrefs", Context.MODE_PRIVATE)
-        sharedPreferences.edit().putBoolean("hasClockedOut", true).apply()
-
-        val intent = Intent(requireContext(), AuthorityCheckActivity::class.java)
-        AnimationUtil.startFragmentWithSlideAnimation(requireActivity(), intent)
-
-        binding!!.btnClockOut.isEnabled = false
-        Toast.makeText(requireContext(), "Clock Out berhasil", Toast.LENGTH_SHORT).show()
-
-        binding!!.tvSeeMoreHomeMeeting.setOnClickListener {
-            val intent = Intent(requireContext(), DashboardActivity::class.java)
-            intent.putExtra("FRAGMENT_TO_OPEN",4)
-            startActivity(intent)
-        }
-
-        binding!!.tvSeeMoreHomeAttendance.setOnClickListener {
-            val intent = Intent(requireContext(), DashboardActivity::class.java)
-            intent.putExtra("FRAGMENT_TO_OEPN",3)
-            startActivity(intent)
-        }
-    }
-
-
-    private fun saveClockInTime(time: String) {
-        val sharedPreferences = requireContext().getSharedPreferences("AttendancePrefs", Context.MODE_PRIVATE)
-        sharedPreferences.edit().putString("clockInTime", time).apply()
-        updateClockInTime(time)
-    }
-
-    private fun saveClockOutTime(time: String) {
-        val sharedPreferences = requireContext().getSharedPreferences("AttendancePrefs", Context.MODE_PRIVATE)
-        sharedPreferences.edit().putString("clockOutTime", time).apply()
-        updateClockOutTime(time)
-    }
-
-    private fun updateClockInTime(time: String) {
-        binding!!.tvClockInAttendanceTime.text = time
-    }
-
-    private fun updateClockOutTime(time: String) {
-        binding!!.tvClockOutAttendanceTime.text = time
-    }
-
-    private fun handleIncomingData(date: String?, time: String?) {
-        val sharedPreferences = requireContext().getSharedPreferences("AttendancePrefs", Context.MODE_PRIVATE)
-        val hasClockedIn = sharedPreferences.getBoolean("hasClockedIn", false)
-        val hasClockedOut = sharedPreferences.getBoolean("hasClockedOut", false)
-
-        if (!hasClockedOut && !time.isNullOrEmpty()) {
-            saveClockInTime(time)
-        } else if (hasClockedIn && !time.isNullOrEmpty()) {
-            saveClockOutTime(time)
-        }
-    }
-
 
     private fun resetOnNewDay() {
-        val sharedPreferences = requireContext().getSharedPreferences("AttendancePrefs", Context.MODE_PRIVATE)
-        val lastCheckedDate = sharedPreferences.getString("lastCheckedDate", "")
-
-        val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Calendar.getInstance().time)
-
-        if (currentDate != lastCheckedDate) {
-            sharedPreferences.edit()
-                .putBoolean("hasClockedIn", false)
-                .putBoolean("hasClockedOut", false)
-                .putString("clockInTime", "-- : --")
-                .putString("clockOutTime", "-- : --")
-                .putString("lastCheckedDate", currentDate)
-                .apply()
-
-            binding!!.btnClockIn.isEnabled = true
-            binding!!.btnClockOut.isEnabled = false
-            binding!!.tvClockInAttendanceTime.text = "-- : --"
-            binding!!.tvClockOutAttendanceTime.text = "-- : --"
-        }
+        // attendanceDataStore sudah handle reset otomatis jika currentDate berbeda
     }
 
-
-
     companion object {
-
         @JvmStatic
         fun newInstance(date: String?, time: String?) =
             HomeFragment().apply {
@@ -309,6 +290,8 @@ class HomeFragment : Fragment() {
 
         private const val ARG_DATE = "date"
         private const val ARG_TIME = "time"
+        private const val REQUEST_LOCATION_CLOCK_IN = 1001
+        private const val REQUEST_LOCATION_CLOCK_OUT = 1002
     }
 
     override fun onDestroyView() {

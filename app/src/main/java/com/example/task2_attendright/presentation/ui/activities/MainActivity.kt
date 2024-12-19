@@ -1,25 +1,34 @@
 package com.example.task2_attendright.presentation.ui.activities
 
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.example.task2_attendright.R
+import com.example.task2_attendright.data.local.datastore.SessionDataStore
 import com.example.task2_attendright.data.local.db.AttendRightDatabase
 import com.example.task2_attendright.data.local.db.user.UserEntity
+import com.example.task2_attendright.data.repository.SessionRepositoryImpl
 import com.example.task2_attendright.databinding.ActivityMainBinding
-import com.example.task2_attendright.util.DailyCheckReceiver
+import com.example.task2_attendright.databinding.CustomToastBinding
+import com.example.task2_attendright.domain.usecase.session.CheckSessionResult
+import com.example.task2_attendright.domain.usecase.session.CheckSessionUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
+
+    private val checkSessionUseCase: CheckSessionUseCase by lazy {
+        val sessionRepo = SessionRepositoryImpl(SessionDataStore(applicationContext))
+        // Session timeout 24 jam
+        CheckSessionUseCase(sessionRepo, sessionTimeoutMillis = 24 * 60 * 60 * 1000)
+    }
 
     private var _binding :ActivityMainBinding? = null
     private val binding get() = _binding
@@ -29,14 +38,6 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-
-        binding!!.tvTitleSlashScreen.alpha = 0f
-        binding!!.tvTitleSlashScreen.animate().setDuration(3000).alpha(1f).withEndAction{
-            val i = Intent(this, LoginWEmailActivity::class.java)
-            startActivity(i)
-            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
-            finish()
-        }
         database = Room.databaseBuilder(
             applicationContext,
             AttendRightDatabase::class.java, "attendright_db"
@@ -45,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         // Pre-populate user
         CoroutineScope(Dispatchers.IO).launch {
             val userDao = database.userDao()
-            // Tambahkan beberapa user
             val user1 = UserEntity(
                 userId = "user123",
                 name = "Ginanjar Putra",
@@ -71,6 +71,47 @@ class MainActivity : AppCompatActivity() {
             )
 
             userDao.insertUsers(user1, user2)
+        }
+
+        // Jalankan animasi lalu check session
+        binding!!.tvTitleSlashScreen.alpha = 0f
+        binding!!.tvTitleSlashScreen.animate().setDuration(3000).alpha(1f).withEndAction {
+            lifecycleScope.launchWhenCreated {
+                val result = checkSessionUseCase()
+                when(result) {
+                    is CheckSessionResult.SessionActive -> {
+                        val intent = Intent(this@MainActivity, DashboardActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    is CheckSessionResult.SessionExpired -> {
+                        showCustomToast("Session telah habis")
+                        val intent = Intent(this@MainActivity, LoginWEmailActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    CheckSessionResult.NoSession -> {
+                        val intent = Intent(this@MainActivity, LoginWEmailActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun showCustomToast(message: String) {
+        applicationContext.let { ctx ->
+
+            val toastBinding = CustomToastBinding.inflate(LayoutInflater.from(ctx))
+            toastBinding.message.text = message
+
+            val toast = Toast(ctx)
+            toast.duration = Toast.LENGTH_LONG
+            toast.view = toastBinding.root
+
+            toast.setGravity(Gravity.TOP or Gravity.CENTER_HORIZONTAL, 0, 100)
+            toast.show()
         }
     }
 

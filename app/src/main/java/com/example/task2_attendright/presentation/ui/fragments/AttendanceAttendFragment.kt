@@ -1,5 +1,6 @@
 package com.example.task2_attendright.presentation.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,31 +13,37 @@ import com.example.task2_attendright.R
 import com.example.task2_attendright.data.local.AttendanceHoliday
 import com.example.task2_attendright.data.local.AttendanceItemCount
 import com.example.task2_attendright.data.local.AttendanceRecord
+import com.example.task2_attendright.data.repository.AttendanceRepositoryImpl
 import com.example.task2_attendright.databinding.FragmentAttendanceAttendBinding
 import com.example.task2_attendright.presentation.ui.adapter.AttendanceCountDaysAdapter
 import com.example.task2_attendright.presentation.ui.adapter.AttendanceRecordAdapter
+import com.example.task2_attendright.presentation.ui.activities.MainActivity
 import com.example.task2_attendright.presentation.viewmodel.AttendanceViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-
 class AttendanceAttendFragment : Fragment() {
 
     private var _binding : FragmentAttendanceAttendBinding? = null
-    private val bindings get() = _binding
+    private val bindings get() = _binding!!
     private lateinit var attendanceRecordAdapter: AttendanceRecordAdapter
     private lateinit var attendanceViewModel: AttendanceViewModel
 
-
-    private var selectedMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
+    private var selectedMonth: Int = Calendar.getInstance().get(Calendar.MONTH) + 1
     private var selectedYear: Int = Calendar.getInstance().get(Calendar.YEAR)
+
+    // Tambahkan repository
+    private val attendanceRepository by lazy {
+        AttendanceRepositoryImpl(MainActivity.database.attendanceDao())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
         attendanceViewModel = ViewModelProvider(requireActivity()).get(AttendanceViewModel::class.java)
     }
 
@@ -45,14 +52,13 @@ class AttendanceAttendFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAttendanceAttendBinding.inflate(layoutInflater,container,false)
-
-        return bindings!!.root
+        return bindings.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val rv = bindings!!.rvCountAttendance
+        val rv = bindings.rvCountAttendance
         val items = listOf(
             AttendanceItemCount("Late", 1, "Day"),
             AttendanceItemCount("Early Clock Out", 2, "Day"),
@@ -65,9 +71,8 @@ class AttendanceAttendFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         rv.adapter = AttendanceCountDaysAdapter(items)
 
-
         attendanceRecordAdapter = AttendanceRecordAdapter()
-        bindings!!.rvRecordAttendance.apply {
+        bindings.rvRecordAttendance.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = attendanceRecordAdapter
         }
@@ -86,51 +91,40 @@ class AttendanceAttendFragment : Fragment() {
     }
 
     fun updateDataForMonthYear(month: Int, year: Int) {
-        val updateData = generateAttendanceData(month, year)
-        attendanceRecordAdapter.submitList(updateData) {
-            bindings?.rvRecordAttendance?.scrollToPosition(0)
-        }
-    }
+        val prefs = requireContext().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+        val loggedUserId = prefs.getString("loggedUserId", "") ?: return
 
-
-    private fun generateAttendanceData(month: Int, year: Int): List<AttendanceRecord> {
-        val attendanceList = mutableListOf<AttendanceRecord>()
-
-        val calendar = Calendar.getInstance()
-        val dateFormat = SimpleDateFormat("EEEE, dd MMM yyyy", Locale.getDefault())
-
-        calendar.set(Calendar.MONTH, month -1)
-        calendar.set(Calendar.YEAR, year)
-        calendar.set(Calendar.DAY_OF_MONTH, 1)
-
-        val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-
-        val holidays = listOf(
-            AttendanceHoliday("Sunday, 01 Nov 2024", "Weekend Holiday"),
-            AttendanceHoliday("Sunday, 29 Nov 2024", "Libur Hari Raya Idul Fitri 2024")
-        )
-
-        for (day in 1..daysInMonth) {
-            calendar.set(Calendar.DAY_OF_MONTH, day)
-            val dateString = dateFormat.format(calendar.time)
-
-            val holiday = holidays.find { it.date == dateString }
-            if (holiday != null) {
-                attendanceList.add(AttendanceRecord(holiday.date, holiday.description, ""))
-            } else {
-                attendanceList.add(AttendanceRecord(dateString))
+        CoroutineScope(Dispatchers.IO).launch {
+            val records = attendanceRepository.getAttendanceByMonth(loggedUserId, year, month)
+            val attendanceRecords = records.map {
+                AttendanceRecord(
+                    date = convertDateToReadable(it.date),
+                    clockIn = it.clockInTime ?: "--:--:--",
+                    clockOut = it.clockOutTime ?: "--:--:--"
+                )
+            }
+            withContext(Dispatchers.Main) {
+                attendanceRecordAdapter.submitList(attendanceRecords) {
+                    bindings.rvRecordAttendance.scrollToPosition(0)
+                }
             }
         }
-
-        Log.d("AttendanceAttendFragment", "Generated ${attendanceList.size} attendance records for month: $month, year: $year")
-        return attendanceList
     }
 
+    private fun convertDateToReadable(date: String): String {
+        val sdfSource = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val sdfTarget = SimpleDateFormat("EEEE, dd MMM yyyy", Locale.getDefault())
+        val d = sdfSource.parse(date)
+        return sdfTarget.format(d!!)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
     companion object {
-
         @JvmStatic
-        fun newInstance() =
-            AttendanceAttendFragment()
+        fun newInstance() = AttendanceAttendFragment()
     }
 }

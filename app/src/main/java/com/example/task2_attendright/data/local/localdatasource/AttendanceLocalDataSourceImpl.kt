@@ -12,7 +12,8 @@ class AttendanceLocalDataSourceImpl(
     }
 
     override suspend fun getAttendancesByMonth(userId: String, year: Int, month: Int): List<Attendance> {
-        return attendanceDao.getAttendanceByMonth(userId, year, month)
+        val yearMonth = String.format("%04d-%02d", year, month) // Format ke "yyyy-MM"
+        return attendanceDao.getAttendanceByMonth(userId, yearMonth)
             .map { it.toDomain() }
     }
 }

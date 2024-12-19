@@ -10,10 +10,13 @@ interface AttendanceDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAttendance(attendance: AttendanceEntity)
 
-    @Query("""
-        SELECT * FROM attendance_table 
-        WHERE userId = :userId AND year = :year AND month = :month
-        ORDER BY day ASC, hour ASC, minute ASC, second ASC
-    """)
-    suspend fun getAttendanceByMonth(userId: String, year: Int, month: Int): List<AttendanceEntity>
+    @Query("SELECT * FROM attendances WHERE userId = :userId AND substr(date, 1, 7) = :yearMonth")
+    suspend fun getAttendanceByMonth(userId: String, yearMonth: String): List<AttendanceEntity>
+
+    @Query("SELECT * FROM attendances WHERE userId = :userId AND date = :date LIMIT 1")
+    suspend fun getAttendanceByDate(userId: String, date: String): AttendanceEntity?
+
+    @Query("UPDATE attendances SET clockOutTime = :clockOutTime, attendanceResult = :result WHERE attendanceId = :attendanceId")
+    suspend fun updateClockOut(attendanceId: String, clockOutTime: String, result: String)
 }
+
